@@ -295,32 +295,121 @@
                     <select class="form-select" name="subject" id="subject" required>
                         <option value="">Fanni tanlang...</option>
                     </select>
-            <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const groupSelect = document.getElementById('group');
-                const subjectSelect = document.getElementById('subject');
-                groupSelect.addEventListener('change', function() {
-                    const groupId = this.value;
-                    subjectSelect.innerHTML = '<option value="">Fanni tanlang...</option>';
-                    if (!groupId) return;
-                    fetch(`/api/controller-panel/get-subjects-by-group/?group_id=${groupId}`)
-                        .then(response => response.json())
-                        .then(data => {
-                            data.subjects.forEach(function(subject) {
-                                let opt = document.createElement('option');
-                                opt.value = subject.id;
-                                opt.textContent = subject.name + (subject.semester ? ` (${subject.semester}-semestr)` : '');
-                                subjectSelect.appendChild(opt);
+                    <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const groupSelect = document.getElementById('group');
+                        const kafedraSelect = document.getElementById('kafedra');
+                        const bulimSelect = document.getElementById('bulim');
+                        const subjectSelect = document.getElementById('subject');
+                        const questionCountInput = document.getElementById('question_count');
+                        const maxQuestionInfo = document.getElementById('max_question_info');
+
+                        function clearSubjects() {
+                            subjectSelect.innerHTML = '<option value="">Fanni tanlang...</option>';
+                        }
+
+                        function loadSubjectsBy(url) {
+                            clearSubjects();
+                            fetch(url)
+                                .then(response => response.json())
+                                .then(data => {
+                                    if (data.subjects) {
+                                        data.subjects.forEach(function(subject) {
+                                            let opt = document.createElement('option');
+                                            opt.value = subject.id;
+                                            opt.textContent = subject.name + (subject.semester ? ` (${subject.semester}-semestr)` : '');
+                                            subjectSelect.appendChild(opt);
+                                        });
+                                    }
+                                });
+                        }
+
+                        if (groupSelect) {
+                            groupSelect.addEventListener('change', function() {
+                                const groupId = this.value;
+                                if (!groupId) { clearSubjects(); return; }
+                                loadSubjectsBy(`/api/controller-panel/get-subjects-by-group/?group_id=${groupId}`);
                             });
+                        }
+                        if (kafedraSelect) {
+                            kafedraSelect.addEventListener('change', function() {
+                                const kafedraId = this.value;
+                                if (!kafedraId) { clearSubjects(); return; }
+                                loadSubjectsBy(`/api/controller-panel/get-subjects-by-group/?kafedra_id=${kafedraId}`);
+                            });
+                        }
+                        if (bulimSelect) {
+                            bulimSelect.addEventListener('change', function() {
+                                const bulimId = this.value;
+                                if (!bulimId) { clearSubjects(); return; }
+                                loadSubjectsBy(`/api/controller-panel/get-subjects-by-group/?bulim_id=${bulimId}`);
+                            });
+                        }
+
+                        // Prevent entering more than max questions
+                        questionCountInput.addEventListener('input', function() {
+                            const max = parseInt(questionCountInput.max);
+                            const val = parseInt(questionCountInput.value);
+                            let warning = document.getElementById('question_count_warning');
+                            if (!warning) {
+                                warning = document.createElement('span');
+                                warning.id = 'question_count_warning';
+                                warning.style.color = '#dc3545';
+                                warning.style.display = 'none';
+                                warning.style.marginTop = '0.5rem';
+                                warning.style.fontWeight = '600';
+                                questionCountInput.parentNode.appendChild(warning);
+                            }
+                            if (!isNaN(max) && val > max) {
+                                questionCountInput.value = max;
+                                warning.style.display = 'block';
+                                warning.innerText = `Kiritilgan son mavjud savollardan oshib ketdi! Maksimal: ${max}`;
+                            } else {
+                                warning.style.display = 'none';
+                                warning.innerText = '';
+                            }
                         });
-                });
-            });
+
+                        subjectSelect.addEventListener('change', function() {
+                            const subjectId = this.value;
+                            if (!subjectId) {
+                                questionCountInput.removeAttribute('max');
+                                questionCountInput.value = '';
+                                questionCountInput.disabled = false;
+                                maxQuestionInfo.innerText = '';
+                                return;
+                            }
+                            fetch(`/api/subject-max-question-count/?subject_id=${subjectId}`)
+                                .then(response => response.json())
+                                .then(data => {
+                                    if (data.max_question_count !== undefined) {
+                                        questionCountInput.max = data.max_question_count;
+                                        questionCountInput.disabled = false;
+                                        maxQuestionInfo.innerText = `Maksimal savollar soni: ${data.max_question_count}`;
+                                        if (parseInt(questionCountInput.value) > data.max_question_count) {
+                                            questionCountInput.value = data.max_question_count;
+                                        }
+                                        if (data.max_question_count === 0) {
+                                            questionCountInput.disabled = true;
+                                            maxQuestionInfo.innerText = 'Bu fanga savol qo‘shilmagan!';
+                                        }
+                                    } else {
+                                        questionCountInput.removeAttribute('max');
+                                        questionCountInput.value = '';
+                                        questionCountInput.disabled = true;
+                                        maxQuestionInfo.innerText = 'Fan uchun savollar topilmadi';
+                                    }
+                                });
+                        });
+                    });
             </script>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label" for="question_count">❓ Savollar soni:</label>
                     <input class="form-input" type="number" name="question_count" id="question_count" required min="1" placeholder="Masalan: 20">
+                    <span id="max_question_info" style="color:#ff0; display:block; margin-top:0.5rem;"></span>
+                    <span id="question_count_warning" style="color:#dc3545; display:none; margin-top:0.5rem; font-weight:600;"></span>
                 </div>
 
                 <div class="form-group">

@@ -8,7 +8,7 @@ from .views import (
     StudentTestViewSet, StudentAnswerViewSet, LogViewSet
 )
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-from .views import StudentLoginAPIView
+from .views import StudentLoginAPIView, subject_max_question_count
 from .views_log import log_action
 
 router = DefaultRouter()
@@ -36,4 +36,5 @@ urlpatterns = [
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('student/login/', StudentLoginAPIView.as_view(), name='student_login'),
     path('log-blur/', log_action, name='log_action'),
+    path('subject-max-question-count/', subject_max_question_count, name='subject_max_question_count'),
 ]

@@ -1,3 +1,23 @@
+
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import AllowAny
+
+from rest_framework.response import Response
+
+# API: Get max question count for a subject
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def subject_max_question_count(request):
+    subject_id = request.query_params.get('subject_id')
+    if not subject_id:
+        return Response({'error': 'subject_id required'}, status=400)
+    try:
+        from .models import Subject
+        subject = Subject.objects.get(id=subject_id)
+    except Subject.DoesNotExist:
+        return Response({'error': 'Subject not found'}, status=404)
+    count = subject.questions.count()
+    return Response({'max_question_count': count})
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status

@@ -493,7 +493,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <li class="list-group-item p-0 border-0" style="background:transparent;">
                             <div class="test-block d-flex flex-wrap align-items-center justify-content-between mb-2 p-3" style="background:#f7fbff;border-radius:14px;box-shadow:0 2px 12px 0 rgba(49,130,206,0.07);">
                                 <div class="fw-bold fs-5 text-primary mb-2 mb-md-0" style="min-width:120px;">
-                                    <a href="#" class="subject-link" data-subject-id="{{ item.test.subject.id }}" style="color:#2262a3;text-decoration:underline;">{{ item.subject_name }}</a>
+                                    <a href="/api/controller-panel/subject-questions/{{ item.test.subject.id }}/" class="subject-link" style="color:#2262a3;text-decoration:underline;">{{ item.subject_name }}</a>
                                 </div>
                                 <div class="d-flex flex-wrap align-items-center mb-2 mb-md-0" style="gap:8px;">
                                     <span class="badge px-3 py-2" style="background:linear-gradient(90deg,#3182ce 0%, #5faaff 100%);color:#fff;font-size:1.07rem;">{{ item.test.question_count }} savol | {{ item.test.total_score }} ball</span>

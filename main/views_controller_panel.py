@@ -5,6 +5,8 @@ from django.views.decorators.http import require_GET
 @require_GET
 def get_subjects_by_group(request):
     group_id = request.GET.get('group_id')
+    bulim_id = request.GET.get('bulim_id')
+    kafedra_id = request.GET.get('kafedra_id')
     subjects = []
     if group_id:
         group_subjects = GroupSubject.objects.filter(group_id=group_id)
@@ -13,6 +15,22 @@ def get_subjects_by_group(request):
                 'id': gs.subject.id,
                 'name': gs.subject.name,
                 'semester': gs.semester.number if gs.semester else None
+            })
+    elif bulim_id:
+        bulim_subjects = GroupSubject.objects.filter(bulim_id=bulim_id)
+        for gs in bulim_subjects.select_related('subject'):
+            subjects.append({
+                'id': gs.subject.id,
+                'name': gs.subject.name,
+                'semester': None
+            })
+    elif kafedra_id:
+        kafedra_subjects = GroupSubject.objects.filter(kafedra_id=kafedra_id)
+        for gs in kafedra_subjects.select_related('subject'):
+            subjects.append({
+                'id': gs.subject.id,
+                'name': gs.subject.name,
+                'semester': None
             })
     return JsonResponse({'subjects': subjects})
 from collections import defaultdict
@@ -583,19 +601,14 @@ def subject_questions(request, subject_id):
     if login_redirect:
         return login_redirect
     if not hasattr(request.user, 'role') or request.user.role != 'controller':
-        return JsonResponse({'error': 'Ruxsat yo‘q'}, status=403)
+        return render(request, 'controller_panel/questions_by_subject.html', {'questions': [], 'subject': {'name': 'Noma’lum'}})
+    from main.models import Subject
+    subject = Subject.objects.filter(id=subject_id).first()
     questions = Question.objects.filter(subject_id=subject_id)
-    data = {
-        'questions': [
-            {
-                'id': q.id,
-                'text': q.text,
-                'created_by': q.created_by.username if q.created_by else 'Noma’lum'
-            }
-            for q in questions
-        ]
-    }
-    return JsonResponse(data)
+    return render(request, 'controller_panel/questions_by_subject.html', {
+        'questions': questions,
+        'subject': subject
+    })
 
 # Testni tahrirlash (edit)
 @login_required
