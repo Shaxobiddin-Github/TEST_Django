@@ -3,6 +3,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 
 from rest_framework.response import Response
+from rest_framework import serializers
 
 # API: Get max question count for a subject
 @api_view(['GET'])
@@ -47,6 +48,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from django.utils import timezone
 from .models import User, University, Faculty, Group, Subject, Question, AnswerOption, Test, TestQuestion, StudentTest, StudentAnswer, Log
+from django.db import models
 from .serializers import (
     UserSerializer, UniversitySerializer, FacultySerializer, GroupSerializer, SubjectSerializer,
     QuestionSerializer, AnswerOptionSerializer, TestSerializer, TestQuestionSerializer,
@@ -165,10 +167,33 @@ class StudentTestViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         test = serializer.validated_data['test']
-        if StudentTest.objects.filter(student=self.request.user, test=test).exists():
-            return Response({"error": "Bu test allaqachon boshlangan"}, status=400)
-        student_test = serializer.save(student=self.request.user)
-        Log.objects.create(user=self.request.user, action=f"Test boshlandi: {student_test.test.subject.name}")
+        group = test.group
+        subject = test.subject
+        semester = None
+        # GroupSubject orqali semestrni aniqlash (agar kerak bo‘lsa)
+        from main.models import GroupSubject
+        gs = GroupSubject.objects.filter(group=group, subject=subject).first()
+        if gs:
+            semester = gs.semester
+        # Faqat bitta marta topshirish (yakunlanmagan yoki can_retake=False bo‘lsa bloklanadi)
+        already = StudentTest.objects.filter(
+            student=self.request.user,
+            group=group,
+            subject=subject,
+            semester=semester
+        ).filter(
+            models.Q(completed=False) | models.Q(completed=True, can_retake=False)
+        ).exists()
+        if already:
+            raise serializers.ValidationError({"error": "Siz bu fanga ushbu semestrda testni allaqachon topshirgansiz yoki yakunlanmagan test mavjud!"})
+        # Yangi yozuvga group, subject, semester ni ham saqlaymiz
+        student_test = serializer.save(
+            student=self.request.user,
+            group=group,
+            subject=subject,
+            semester=semester
+        )
+        Log.objects.create(user=self.request.user, action=f"Test boshlandi: {student_test.subject.name}")
 
     @action(detail=True, methods=['post'])
     def submit(self, request, pk=None):

@@ -155,12 +155,12 @@ class StudentAnswerInline(admin.TabularInline):
 # Talaba testi uchun admin sozlamalari
 @admin.register(StudentTest)
 class StudentTestAdmin(admin.ModelAdmin):
-    list_display = ('student', 'test', 'total_score', 'completed', 'start_time', 'end_time')
-    search_fields = ('student__username', 'test__subject__name')
-    list_filter = ('completed', 'test', 'start_time', 'end_time')
-    readonly_fields = ('start_time', 'end_time', 'total_score')
+    list_display = ('student', 'test', 'group', 'subject', 'semester', 'completed', 'can_retake', 'total_score', 'start_time', 'end_time', 'question_ids')
+    search_fields = ('student__username', 'test__id', 'group__name', 'subject__name', 'semester__number')
+    list_filter = ('completed', 'can_retake', 'group', 'subject', 'semester', 'test', 'start_time', 'end_time')
+    readonly_fields = ('start_time', 'end_time', 'total_score', 'question_ids')
     inlines = [StudentAnswerInline]
-    ordering = ('start_time',)
+    ordering = ('-start_time',)
 
 # Log modeli uchun admin sozlamalari
 @admin.register(Log)

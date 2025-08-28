@@ -296,18 +296,29 @@ class TestQuestion(models.Model):
 class StudentTest(models.Model):
     student = models.ForeignKey(User, on_delete=models.CASCADE, related_name='student_tests', verbose_name="Talaba")
     test = models.ForeignKey(Test, on_delete=models.CASCADE, related_name='student_tests', verbose_name="Test")
+    group = models.ForeignKey('Group', on_delete=models.CASCADE, null=True, blank=True, verbose_name="Guruh")
+    subject = models.ForeignKey('Subject', on_delete=models.CASCADE, null=True, blank=True, verbose_name="Fan")
+    semester = models.ForeignKey('Semester', on_delete=models.CASCADE, null=True, blank=True, verbose_name="Semestr")
     start_time = models.DateTimeField(auto_now_add=True, verbose_name="Boshlangan vaqt")
     end_time = models.DateTimeField(blank=True, null=True, verbose_name="Tugagan vaqt")
     total_score = models.FloatField(default=0, verbose_name="Umumiy ball")
     completed = models.BooleanField(default=False, verbose_name="Tugatilganmi")
     question_ids = models.JSONField(default=list, blank=True, verbose_name="Tanlangan savollar ID")
+    can_retake = models.BooleanField(default=False, verbose_name="Qayta topshirishga ruxsat (controller)")
 
     class Meta:
         verbose_name = "Talaba testi"
         verbose_name_plural = "Talaba testlari"
+        constraints = [
+            models.UniqueConstraint(
+                fields=['student', 'group', 'subject', 'semester'],
+                condition=models.Q(completed=True, can_retake=False),
+                name='unique_student_group_subject_semester_once'
+            )
+        ]
 
     def __str__(self):
-        return f"{self.student.username} - {self.test.subject.name}"
+        return f"{self.student.username} - {self.subject.name if self.subject else ''} ({self.semester})"
 
 
 

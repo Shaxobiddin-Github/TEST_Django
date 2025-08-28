@@ -323,12 +323,48 @@ def testapi_dashboard(request):
         tests = filtered_tests
     else:
         tests = []
-    # Har bir test uchun student qatnashganmi yoki yo'qmi aniqlash
+
+    # Har bir fan/guruh/semestr uchun faqat eng so‘nggi (yoki eng muhim) test ko‘rsatiladi
+    from collections import OrderedDict
+    test_map = OrderedDict()  # (subject_id, group_id, semester_id) -> test
+    for test in sorted(tests, key=lambda t: t.created_at, reverse=True):
+        # Testga bog‘liq semester aniqlash
+        from main.models import GroupSubject
+        semester_id = None
+        gs = GroupSubject.objects.filter(group=test.group, subject=test.subject).first()
+        if gs:
+            semester_id = gs.semester_id
+        key = (test.subject_id, test.group_id, semester_id)
+        if key not in test_map:
+            test_map[key] = test
+
+    final_tests = list(test_map.values())
     test_statuses = {}
-    for test in tests:
-        participated = StudentTest.objects.filter(student=request.user, test=test, completed=True).exists()
-        test_statuses[test.id] = 'done' if participated else 'new'
-    return render(request, 'test_api/dashboard.html', {'tests': tests, 'test_statuses': test_statuses})
+    for test in final_tests:
+        # Testga bog‘liq semester aniqlash
+        from main.models import GroupSubject
+        semester_id = None
+        gs = GroupSubject.objects.filter(group=test.group, subject=test.subject).first()
+        if gs:
+            semester_id = gs.semester_id
+        filter_kwargs = dict(
+            student=request.user,
+            group_id=test.group_id,
+            subject_id=test.subject_id,
+            completed=True,
+            can_retake=False
+        )
+        if semester_id is not None:
+            filter_kwargs['semester_id'] = semester_id
+        else:
+            filter_kwargs['semester_id__isnull'] = True
+        participated = StudentTest.objects.filter(**filter_kwargs).exists()
+        if participated:
+            test_statuses[test.id] = 'done'
+        else:
+            test_statuses[test.id] = 'new'
+
+    return render(request, 'test_api/dashboard.html', {'tests': final_tests, 'test_statuses': test_statuses})
 
 
 # Test savollari va javob berish
@@ -341,7 +377,22 @@ def testapi_test(request, test_id):
     test = Test.objects.get(id=test_id)
     test_questions = list(TestQuestion.objects.filter(test=test))
     # Talaba shu testda qatnashganmi?
-    old_test = StudentTest.objects.filter(student=request.user, test=test).first()
+    # Talaba shu testda qatnashganmi? (fan, guruh, semestr bo'yicha faqat 1 marta)
+    from main.models import GroupSubject
+    group = test.group
+    subject = test.subject
+    semester = None
+    gs = GroupSubject.objects.filter(group=group, subject=subject).first()
+    if gs:
+        semester = gs.semester
+    old_test = StudentTest.objects.filter(
+        student=request.user,
+        group=group,
+        subject=subject,
+        semester=semester,
+        completed=True,
+        can_retake=False
+    ).first()
     if old_test:
         return render(request, 'test_api/already_participated.html', {'test': test})
     # Har bir talaba uchun random savollar tanlash (test.question_count ta)
@@ -366,8 +417,11 @@ def testapi_test(request, test_id):
         question_ids = request.session.get(f'test_{test.id}_question_ids', [])
         selected_tqs = [tq for tq in test_questions if tq.question.id in question_ids]
         stest = StudentTest.objects.create(
-            student=request.user, 
+            student=request.user,
             test=test,
+            group=group,
+            subject=subject,
+            semester=semester,
             question_ids=question_ids
         )
         for q in questions:

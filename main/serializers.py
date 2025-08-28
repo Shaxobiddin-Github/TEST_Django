@@ -72,7 +72,10 @@ class StudentTestSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = StudentTest
-        fields = ['id', 'test', 'start_time', 'end_time', 'total_score', 'completed', 'answers']
+        fields = [
+            'id', 'test', 'group', 'subject', 'semester',
+            'start_time', 'end_time', 'total_score', 'completed', 'can_retake', 'answers'
+        ]
 
 # Log seriyalizatori
 class LogSerializer(serializers.ModelSerializer):

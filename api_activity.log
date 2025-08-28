@@ -7159,3 +7159,1181 @@ INFO 2025-08-28 11:42:35,093 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 
 WARNING 2025-08-28 11:42:35,113 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
 WARNING 2025-08-28 11:42:35,113 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
 INFO 2025-08-28 11:42:40,409 basehttp "GET /api/test-api/export-subject/matematika/pdf/ HTTP/1.1" 200 2822
+INFO 2025-08-28 11:57:02,793 autoreload Watching for file changes with StatReloader
+INFO 2025-08-28 14:48:53,584 autoreload Watching for file changes with StatReloader
+INFO 2025-08-28 14:49:38,248 autoreload C:\project\TEST_v1\TEST\backend\main\models.py changed, reloading.
+INFO 2025-08-28 14:49:38,864 autoreload Watching for file changes with StatReloader
+INFO 2025-08-28 14:50:11,829 autoreload C:\project\TEST_v1\TEST\backend\main\serializers.py changed, reloading.
+INFO 2025-08-28 14:50:12,357 autoreload Watching for file changes with StatReloader
+INFO 2025-08-28 14:50:31,334 autoreload C:\project\TEST_v1\TEST\backend\main\views.py changed, reloading.
+INFO 2025-08-28 14:50:31,881 autoreload Watching for file changes with StatReloader
+INFO 2025-08-28 14:50:35,954 autoreload C:\project\TEST_v1\TEST\backend\main\views.py changed, reloading.
+INFO 2025-08-28 14:50:36,495 autoreload Watching for file changes with StatReloader
+INFO 2025-08-28 14:51:44,311 autoreload Watching for file changes with StatReloader
+INFO 2025-08-28 14:51:54,343 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 302 0
+WARNING 2025-08-28 14:51:54,351 log Not Found: /login/
+WARNING 2025-08-28 14:51:54,352 basehttp "GET /login/?next=/api/controller-panel/dashboard/ HTTP/1.1" 404 3069
+WARNING 2025-08-28 14:51:54,407 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 14:51:54,407 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+WARNING 2025-08-28 14:51:57,481 log Not Found: /login/
+WARNING 2025-08-28 14:51:57,482 basehttp "GET /login/?next=/api/controller-panel/dashboard/ HTTP/1.1" 404 3069
+WARNING 2025-08-28 14:51:57,497 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 14:51:57,498 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+WARNING 2025-08-28 14:51:58,033 log Not Found: /login/
+WARNING 2025-08-28 14:51:58,033 basehttp "GET /login/?next=/api/controller-panel/dashboard/ HTTP/1.1" 404 3069
+WARNING 2025-08-28 14:51:58,044 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 14:51:58,045 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+WARNING 2025-08-28 14:51:58,297 log Not Found: /login/
+WARNING 2025-08-28 14:51:58,297 basehttp "GET /login/?next=/api/controller-panel/dashboard/ HTTP/1.1" 404 3069
+WARNING 2025-08-28 14:51:58,309 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 14:51:58,309 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+WARNING 2025-08-28 14:51:58,513 log Not Found: /login/
+WARNING 2025-08-28 14:51:58,513 basehttp "GET /login/?next=/api/controller-panel/dashboard/ HTTP/1.1" 404 3069
+WARNING 2025-08-28 14:51:58,525 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 14:51:58,525 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+WARNING 2025-08-28 14:51:59,207 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 14:51:59,207 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+WARNING 2025-08-28 14:51:59,250 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 14:51:59,251 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 14:51:59,928 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 302 0
+WARNING 2025-08-28 14:51:59,946 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 14:51:59,947 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 14:52:01,119 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 302 0
+INFO 2025-08-28 14:52:01,124 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+WARNING 2025-08-28 14:52:01,139 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 14:52:01,140 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 14:52:02,262 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+WARNING 2025-08-28 14:52:02,276 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 14:52:02,276 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 14:59:46,319 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+WARNING 2025-08-28 14:59:46,335 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 14:59:46,335 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:06:17,015 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+WARNING 2025-08-28 15:06:17,032 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:06:17,032 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:06:58,705 basehttp "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-08-28 15:06:58,727 basehttp "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4173
+WARNING 2025-08-28 15:06:58,746 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:06:58,749 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:06:58,750 basehttp "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2025-08-28 15:06:58,750 basehttp "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2025-08-28 15:06:58,751 basehttp "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2025-08-28 15:06:58,751 basehttp "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2025-08-28 15:06:58,752 basehttp "GET /static/admin/css/login.css HTTP/1.1" 304 0
+INFO 2025-08-28 15:06:58,753 basehttp "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2025-08-28 15:06:58,756 basehttp "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2025-08-28 15:07:03,803 basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-08-28 15:07:03,822 basehttp "GET /admin/ HTTP/1.1" 200 17214
+WARNING 2025-08-28 15:07:03,841 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:07:03,844 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:07:03,845 basehttp "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2025-08-28 15:07:03,845 basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2025-08-28 15:07:03,846 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2025-08-28 15:07:03,846 basehttp "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+INFO 2025-08-28 15:07:09,986 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 21758
+WARNING 2025-08-28 15:07:10,008 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:07:10,010 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:07:10,012 basehttp "GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+INFO 2025-08-28 15:07:10,013 basehttp "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+INFO 2025-08-28 15:07:10,015 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2025-08-28 15:07:10,018 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+INFO 2025-08-28 15:07:10,021 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+INFO 2025-08-28 15:07:10,021 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2025-08-28 15:07:10,022 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2025-08-28 15:07:10,025 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 15:07:10,027 basehttp "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+INFO 2025-08-28 15:07:10,027 basehttp "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+INFO 2025-08-28 15:07:10,031 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+INFO 2025-08-28 15:07:10,032 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+INFO 2025-08-28 15:07:10,036 basehttp "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO 2025-08-28 15:07:10,060 basehttp "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+INFO 2025-08-28 15:07:10,061 basehttp "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+INFO 2025-08-28 15:07:10,061 basehttp "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+INFO 2025-08-28 15:07:14,041 basehttp "GET /admin/main/studenttest/13/change/ HTTP/1.1" 200 33876
+WARNING 2025-08-28 15:07:14,059 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:07:14,062 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:07:14,063 basehttp "GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+INFO 2025-08-28 15:07:14,063 basehttp "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO 2025-08-28 15:07:14,064 basehttp "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+INFO 2025-08-28 15:07:14,065 basehttp "GET /static/admin/js/inlines.js HTTP/1.1" 200 15628
+INFO 2025-08-28 15:07:14,068 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 15:07:14,068 basehttp "GET /static/admin/css/widgets.css HTTP/1.1" 200 11991
+INFO 2025-08-28 15:07:14,071 basehttp "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+INFO 2025-08-28 15:09:12,116 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 21758
+WARNING 2025-08-28 15:09:12,136 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:09:12,137 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:09:12,699 basehttp "GET /admin/ HTTP/1.1" 200 17214
+WARNING 2025-08-28 15:09:12,715 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:09:12,716 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:09:13,259 basehttp "GET /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-08-28 15:09:13,272 basehttp "GET /admin/ HTTP/1.1" 200 17214
+WARNING 2025-08-28 15:09:13,288 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:09:13,289 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+WARNING 2025-08-28 15:09:14,708 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:09:14,709 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+WARNING 2025-08-28 15:09:14,720 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:09:14,721 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:09:15,966 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+WARNING 2025-08-28 15:09:15,980 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:09:15,980 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+WARNING 2025-08-28 15:09:29,467 log Not Found: /a
+WARNING 2025-08-28 15:09:29,467 basehttp "GET /a HTTP/1.1" 404 3016
+INFO 2025-08-28 15:09:38,026 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+INFO 2025-08-28 15:09:38,839 basehttp "GET /static/main/1.png HTTP/1.1" 200 48202
+WARNING 2025-08-28 15:09:46,088 log Not Found: /api/logout/
+WARNING 2025-08-28 15:09:46,089 basehttp "GET /api/logout/ HTTP/1.1" 404 5769
+WARNING 2025-08-28 15:09:48,873 log Not Found: /api/logout/
+WARNING 2025-08-28 15:09:48,875 basehttp "GET /api/logout/ HTTP/1.1" 404 5769
+INFO 2025-08-28 15:09:50,006 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+INFO 2025-08-28 15:10:10,796 basehttp "POST /api/login/ HTTP/1.1" 302 0
+INFO 2025-08-28 15:10:10,809 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 32595
+INFO 2025-08-28 15:10:25,006 basehttp "GET /api/controller-panel/add-user/ HTTP/1.1" 200 17765
+INFO 2025-08-28 15:10:42,051 basehttp "POST /api/login/ HTTP/1.1" 200 21043
+WARNING 2025-08-28 15:10:42,070 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:10:42,070 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:10:59,092 basehttp "POST /api/login/ HTTP/1.1" 302 0
+INFO 2025-08-28 15:10:59,100 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 17921
+WARNING 2025-08-28 15:10:59,113 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:10:59,114 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:11:08,305 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 32595
+INFO 2025-08-28 15:11:39,377 basehttp "GET /api/controller-panel/add-test/?target=student HTTP/1.1" 200 17682
+INFO 2025-08-28 15:11:41,624 basehttp "GET /api/controller-panel/get-subjects-by-group/?group_id=4 HTTP/1.1" 200 108
+INFO 2025-08-28 15:11:42,967 basehttp "GET /api/subject-max-question-count/?subject_id=1 HTTP/1.1" 200 24
+INFO 2025-08-28 15:11:51,999 basehttp "POST /api/controller-panel/add-test/?target=student HTTP/1.1" 302 0
+INFO 2025-08-28 15:11:52,014 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 34974
+INFO 2025-08-28 15:11:55,551 basehttp "GET /api/controller-panel/add-test/?target=student HTTP/1.1" 200 17682
+INFO 2025-08-28 15:11:56,984 basehttp "GET /api/controller-panel/get-subjects-by-group/?group_id=4 HTTP/1.1" 200 108
+INFO 2025-08-28 15:11:59,544 basehttp "GET /api/subject-max-question-count/?subject_id=1 HTTP/1.1" 200 24
+INFO 2025-08-28 15:12:10,732 basehttp "POST /api/controller-panel/add-test/?target=student HTTP/1.1" 302 0
+INFO 2025-08-28 15:12:10,747 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 37352
+INFO 2025-08-28 15:12:13,402 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 20643
+WARNING 2025-08-28 15:12:13,422 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:12:13,422 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:12:15,627 basehttp "GET /api/test-api/test/15/ HTTP/1.1" 200 67860
+WARNING 2025-08-28 15:12:15,649 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:12:15,652 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:12:15,663 basehttp "GET /media/matching_answers/en.png HTTP/1.1" 200 311897
+INFO 2025-08-28 15:12:15,696 basehttp "GET /media/matching_answers/ru.png HTTP/1.1" 200 2358922
+INFO 2025-08-28 15:12:15,700 basehttp "GET /media/matching_answers/uz.png HTTP/1.1" 200 2611186
+INFO 2025-08-28 15:12:17,290 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:12:18,821 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:12:19,694 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:12:27,535 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:12:29,117 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:12:29,788 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:12:31,208 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:12:40,254 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:12:40,340 basehttp "POST /api/test-api/test/15/ HTTP/1.1" 302 0
+INFO 2025-08-28 15:12:40,359 basehttp "GET /api/test-api/result/14/ HTTP/1.1" 200 17998
+WARNING 2025-08-28 15:12:42,124 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:12:42,127 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:12:42,129 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:12:42,139 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:12:42,158 basehttp - Broken pipe from ('127.0.0.1', 7153)
+INFO 2025-08-28 15:12:46,499 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 20649
+WARNING 2025-08-28 15:12:46,521 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:12:46,522 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:12:48,145 basehttp "GET /api/test-api/test/16/ HTTP/1.1" 200 67860
+WARNING 2025-08-28 15:12:48,165 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:12:48,165 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:12:49,260 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:12:51,021 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:12:52,169 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:12:54,688 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:12:55,510 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:12:56,276 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:12:56,343 basehttp "POST /api/test-api/test/16/ HTTP/1.1" 302 0
+INFO 2025-08-28 15:12:56,364 basehttp "GET /api/test-api/result/15/ HTTP/1.1" 200 19624
+WARNING 2025-08-28 15:12:58,939 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:12:58,943 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:12:58,947 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:12:58,966 basehttp - Broken pipe from ('127.0.0.1', 9847)
+INFO 2025-08-28 15:12:58,983 basehttp - Broken pipe from ('127.0.0.1', 10180)
+INFO 2025-08-28 15:13:00,914 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 20655
+WARNING 2025-08-28 15:13:00,934 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:13:00,934 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+ERROR 2025-08-28 15:14:23,399 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-08-28 15:14:23,404 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-08-28 15:14:23,413 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-08-28 15:14:23,417 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-28 15:14:45,265 autoreload C:\project\TEST_v1\TEST\backend\main\views.py changed, reloading.
+INFO 2025-08-28 15:14:46,006 autoreload Watching for file changes with StatReloader
+INFO 2025-08-28 15:14:48,340 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+INFO 2025-08-28 15:14:48,424 basehttp "GET /static/main/1.png HTTP/1.1" 304 0
+WARNING 2025-08-28 15:14:48,636 log Not Found: /favicon.ico
+WARNING 2025-08-28 15:14:48,636 basehttp "GET /favicon.ico HTTP/1.1" 404 3046
+INFO 2025-08-28 15:14:51,655 autoreload C:\project\TEST_v1\TEST\backend\main\views.py changed, reloading.
+INFO 2025-08-28 15:14:52,323 autoreload Watching for file changes with StatReloader
+INFO 2025-08-28 15:14:54,611 basehttp "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-08-28 15:14:54,638 basehttp "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4173
+INFO 2025-08-28 15:14:54,699 basehttp "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2025-08-28 15:14:54,702 basehttp "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2025-08-28 15:14:54,703 basehttp "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2025-08-28 15:14:54,704 basehttp "GET /static/admin/css/login.css HTTP/1.1" 304 0
+INFO 2025-08-28 15:14:54,704 basehttp "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2025-08-28 15:14:54,705 basehttp "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2025-08-28 15:14:54,721 basehttp "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2025-08-28 15:15:06,103 basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-08-28 15:15:06,127 basehttp "GET /admin/ HTTP/1.1" 200 17214
+INFO 2025-08-28 15:15:06,182 basehttp "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+INFO 2025-08-28 15:15:06,193 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+INFO 2025-08-28 15:15:06,193 basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+INFO 2025-08-28 15:15:06,194 basehttp "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 304 0
+INFO 2025-08-28 15:15:08,232 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 23080
+INFO 2025-08-28 15:15:08,286 basehttp "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+INFO 2025-08-28 15:15:08,290 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO 2025-08-28 15:15:08,291 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO 2025-08-28 15:15:08,294 basehttp "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO 2025-08-28 15:15:08,294 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO 2025-08-28 15:15:08,296 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO 2025-08-28 15:15:08,296 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO 2025-08-28 15:15:08,296 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO 2025-08-28 15:15:08,297 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO 2025-08-28 15:15:08,298 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 15:15:08,308 basehttp "GET /static/admin/img/search.svg HTTP/1.1" 304 0
+INFO 2025-08-28 15:15:08,311 basehttp "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+INFO 2025-08-28 15:15:08,378 basehttp "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+INFO 2025-08-28 15:15:08,379 basehttp "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+INFO 2025-08-28 15:15:08,379 basehttp "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 304 0
+INFO 2025-08-28 15:15:08,380 basehttp "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
+INFO 2025-08-28 15:15:25,011 basehttp "GET /api/controller-panel/add-test/?target=student HTTP/1.1" 200 17682
+INFO 2025-08-28 15:15:26,288 basehttp "GET /api/controller-panel/get-subjects-by-group/?group_id=4 HTTP/1.1" 200 108
+INFO 2025-08-28 15:15:27,161 basehttp "GET /api/subject-max-question-count/?subject_id=1 HTTP/1.1" 200 24
+INFO 2025-08-28 15:15:31,624 basehttp "GET /api/subject-max-question-count/?subject_id=2 HTTP/1.1" 200 24
+INFO 2025-08-28 15:15:40,232 basehttp "GET /api/subject-max-question-count/?subject_id=1 HTTP/1.1" 200 24
+INFO 2025-08-28 15:15:43,553 basehttp "GET /api/controller-panel/add-test/?target=student HTTP/1.1" 200 17682
+INFO 2025-08-28 15:15:45,545 basehttp "GET /api/controller-panel/get-subjects-by-group/?group_id=4 HTTP/1.1" 200 108
+INFO 2025-08-28 15:15:46,976 basehttp "GET /api/subject-max-question-count/?subject_id=2 HTTP/1.1" 200 24
+INFO 2025-08-28 15:16:00,985 basehttp "POST /api/controller-panel/add-test/?target=student HTTP/1.1" 302 0
+INFO 2025-08-28 15:16:01,004 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 39728
+INFO 2025-08-28 15:16:04,517 basehttp "GET /api/controller-panel/subject-questions/2/ HTTP/1.1" 200 4244
+INFO 2025-08-28 15:16:06,525 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 39728
+INFO 2025-08-28 15:16:10,759 basehttp "GET /api/controller-panel/add-test/?target=student HTTP/1.1" 200 17682
+INFO 2025-08-28 15:16:12,616 basehttp "GET /api/controller-panel/get-subjects-by-group/?group_id=4 HTTP/1.1" 200 108
+INFO 2025-08-28 15:16:13,655 basehttp "GET /api/subject-max-question-count/?subject_id=2 HTTP/1.1" 200 24
+INFO 2025-08-28 15:16:16,976 basehttp "GET /api/controller-panel/get-subjects-by-group/?group_id=1 HTTP/1.1" 200 105
+INFO 2025-08-28 15:16:18,297 basehttp "GET /api/subject-max-question-count/?subject_id=3 HTTP/1.1" 200 24
+INFO 2025-08-28 15:16:20,823 basehttp "GET /api/controller-panel/get-subjects-by-group/?group_id=4 HTTP/1.1" 200 108
+INFO 2025-08-28 15:16:22,233 basehttp "GET /api/subject-max-question-count/?subject_id=2 HTTP/1.1" 200 24
+INFO 2025-08-28 15:16:29,630 basehttp "POST /api/controller-panel/add-test/?target=student HTTP/1.1" 302 0
+INFO 2025-08-28 15:16:29,647 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 42105
+INFO 2025-08-28 15:16:36,411 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 23240
+INFO 2025-08-28 15:16:36,500 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 15:16:39,397 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 23240
+INFO 2025-08-28 15:16:39,456 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 15:16:44,187 basehttp "GET /admin/main/test/ HTTP/1.1" 200 23523
+INFO 2025-08-28 15:16:44,228 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 15:18:05,384 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 23716
+WARNING 2025-08-28 15:18:05,402 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:18:05,402 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:18:07,297 basehttp "GET /api/test-api/test/17/ HTTP/1.1" 200 40345
+WARNING 2025-08-28 15:18:07,317 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:18:07,318 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:18:08,327 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:18:09,932 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:18:10,950 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:18:12,523 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:18:13,518 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:18:14,771 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:18:15,605 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:18:16,719 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:18:17,518 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:18:17,612 basehttp "POST /api/test-api/test/17/ HTTP/1.1" 302 0
+INFO 2025-08-28 15:18:17,636 basehttp "GET /api/test-api/result/16/ HTTP/1.1" 200 18679
+WARNING 2025-08-28 15:18:18,955 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2025-08-28 15:18:18,957 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+WARNING 2025-08-28 15:18:18,962 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:18:18,964 basehttp - Broken pipe from ('127.0.0.1', 13062)
+INFO 2025-08-28 15:18:18,975 basehttp - Broken pipe from ('127.0.0.1', 13214)
+INFO 2025-08-28 15:18:18,989 basehttp - Broken pipe from ('127.0.0.1', 13215)
+INFO 2025-08-28 15:18:21,159 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 23722
+WARNING 2025-08-28 15:18:21,182 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:18:21,182 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:18:23,014 basehttp "GET /api/test-api/test/18/ HTTP/1.1" 200 40345
+WARNING 2025-08-28 15:18:23,052 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:18:23,052 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:18:23,950 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:18:25,308 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:18:26,414 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:18:27,612 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:18:28,405 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:18:29,604 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:18:30,638 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:18:31,923 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:18:32,691 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:18:32,780 basehttp "POST /api/test-api/test/18/ HTTP/1.1" 302 0
+INFO 2025-08-28 15:18:32,803 basehttp "GET /api/test-api/result/17/ HTTP/1.1" 200 18683
+INFO 2025-08-28 15:18:34,518 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+WARNING 2025-08-28 15:18:34,529 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:18:34,530 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:18:34,536 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:18:34,546 basehttp - Broken pipe from ('127.0.0.1', 13221)
+INFO 2025-08-28 15:18:36,813 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 23728
+WARNING 2025-08-28 15:18:36,838 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:18:36,838 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:20:47,491 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-08-28 15:20:48,183 autoreload Watching for file changes with StatReloader
+INFO 2025-08-28 15:20:57,620 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-08-28 15:20:58,186 autoreload Watching for file changes with StatReloader
+INFO 2025-08-28 15:21:32,508 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 42105
+INFO 2025-08-28 15:21:37,520 basehttp "GET /api/controller-panel/add-test/?target=student HTTP/1.1" 200 17682
+INFO 2025-08-28 15:21:39,113 basehttp "GET /api/controller-panel/get-subjects-by-group/?group_id=4 HTTP/1.1" 200 108
+INFO 2025-08-28 15:21:40,529 basehttp "GET /api/subject-max-question-count/?subject_id=1 HTTP/1.1" 200 24
+INFO 2025-08-28 15:21:49,387 basehttp "POST /api/controller-panel/add-test/?target=student HTTP/1.1" 302 0
+INFO 2025-08-28 15:21:49,406 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 44483
+INFO 2025-08-28 15:21:53,695 basehttp "GET /api/controller-panel/add-test/?target=student HTTP/1.1" 200 17682
+INFO 2025-08-28 15:21:55,962 basehttp "GET /api/controller-panel/get-subjects-by-group/?group_id=4 HTTP/1.1" 200 108
+INFO 2025-08-28 15:21:56,991 basehttp "GET /api/subject-max-question-count/?subject_id=1 HTTP/1.1" 200 24
+INFO 2025-08-28 15:22:04,898 basehttp "POST /api/controller-panel/add-test/?target=student HTTP/1.1" 302 0
+INFO 2025-08-28 15:22:04,917 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 46862
+INFO 2025-08-28 15:22:09,661 basehttp "GET /api/controller-panel/add-test/?target=student HTTP/1.1" 200 17682
+INFO 2025-08-28 15:22:12,816 basehttp "GET /api/controller-panel/get-subjects-by-group/?group_id=4 HTTP/1.1" 200 108
+INFO 2025-08-28 15:22:14,465 basehttp "GET /api/subject-max-question-count/?subject_id=2 HTTP/1.1" 200 24
+INFO 2025-08-28 15:22:22,318 basehttp "POST /api/controller-panel/add-test/?target=student HTTP/1.1" 302 0
+INFO 2025-08-28 15:22:22,338 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 49239
+INFO 2025-08-28 15:22:27,341 basehttp "GET /api/controller-panel/add-test/?target=student HTTP/1.1" 200 17682
+INFO 2025-08-28 15:22:29,233 basehttp "GET /api/controller-panel/get-subjects-by-group/?group_id=4 HTTP/1.1" 200 108
+INFO 2025-08-28 15:22:30,439 basehttp "GET /api/subject-max-question-count/?subject_id=2 HTTP/1.1" 200 24
+INFO 2025-08-28 15:22:37,064 basehttp "POST /api/controller-panel/add-test/?target=student HTTP/1.1" 302 0
+INFO 2025-08-28 15:22:37,085 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 51616
+INFO 2025-08-28 15:22:49,641 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 29855
+WARNING 2025-08-28 15:22:49,661 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:22:49,662 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:22:54,734 basehttp "GET /api/test-api/test/19/ HTTP/1.1" 200 67860
+WARNING 2025-08-28 15:22:54,759 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:22:54,761 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:22:56,361 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:22:57,588 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:22:58,368 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:22:59,411 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:23:01,126 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:23:03,494 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:23:04,213 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:23:04,285 basehttp "POST /api/test-api/test/19/ HTTP/1.1" 302 0
+INFO 2025-08-28 15:23:04,307 basehttp "GET /api/test-api/result/18/ HTTP/1.1" 200 19695
+WARNING 2025-08-28 15:23:05,985 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:23:05,987 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:23:05,988 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:23:05,995 basehttp - Broken pipe from ('127.0.0.1', 1949)
+INFO 2025-08-28 15:23:06,005 basehttp - Broken pipe from ('127.0.0.1', 2075)
+INFO 2025-08-28 15:23:07,471 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 29861
+WARNING 2025-08-28 15:23:07,495 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:23:07,496 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:23:13,275 basehttp "GET /api/test-api/test/20/ HTTP/1.1" 200 67860
+WARNING 2025-08-28 15:23:13,299 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:23:13,300 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:23:14,672 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:23:16,816 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:23:17,279 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:23:19,423 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:23:20,093 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:23:20,168 basehttp "POST /api/test-api/test/20/ HTTP/1.1" 302 0
+INFO 2025-08-28 15:23:20,188 basehttp "GET /api/test-api/result/19/ HTTP/1.1" 200 20192
+INFO 2025-08-28 15:23:21,711 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+WARNING 2025-08-28 15:23:21,722 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:23:21,723 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:23:21,732 basehttp - Broken pipe from ('127.0.0.1', 1948)
+INFO 2025-08-28 15:23:21,751 basehttp - Broken pipe from ('127.0.0.1', 2074)
+INFO 2025-08-28 15:23:23,637 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 29867
+WARNING 2025-08-28 15:23:23,660 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:23:23,661 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:25:26,820 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-08-28 15:25:27,399 autoreload Watching for file changes with StatReloader
+INFO 2025-08-28 15:28:29,474 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 30535
+WARNING 2025-08-28 15:28:29,490 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:28:29,491 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:28:35,692 basehttp "GET /api/test-api/test/15/ HTTP/1.1" 200 67860
+WARNING 2025-08-28 15:28:35,719 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:28:35,720 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:28:36,943 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:28:41,463 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:28:42,135 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:28:42,973 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:28:43,669 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:28:43,753 basehttp "POST /api/test-api/test/15/ HTTP/1.1" 302 0
+INFO 2025-08-28 15:28:43,774 basehttp "GET /api/test-api/result/20/ HTTP/1.1" 200 20192
+INFO 2025-08-28 15:28:45,233 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+WARNING 2025-08-28 15:28:45,236 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:28:45,240 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:28:45,262 basehttp - Broken pipe from ('127.0.0.1', 5860)
+INFO 2025-08-28 15:28:45,279 basehttp - Broken pipe from ('127.0.0.1', 6000)
+INFO 2025-08-28 15:28:46,671 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 30535
+WARNING 2025-08-28 15:28:46,693 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:28:46,694 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:46:08,407 autoreload Watching for file changes with StatReloader
+INFO 2025-08-28 15:46:10,376 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 27294
+WARNING 2025-08-28 15:46:10,392 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:46:10,393 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:46:18,622 basehttp "GET /api/test-api/test/17/ HTTP/1.1" 200 40345
+WARNING 2025-08-28 15:46:18,645 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:46:18,645 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:46:20,358 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:46:22,565 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:46:22,749 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:46:23,055 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:46:23,312 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:46:23,414 basehttp "POST /api/test-api/test/17/ HTTP/1.1" 302 0
+INFO 2025-08-28 15:46:23,438 basehttp "GET /api/test-api/result/21/ HTTP/1.1" 200 20314
+INFO 2025-08-28 15:46:25,132 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+WARNING 2025-08-28 15:46:25,138 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:46:25,140 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:46:25,154 basehttp - Broken pipe from ('127.0.0.1', 2359)
+INFO 2025-08-28 15:46:25,173 basehttp - Broken pipe from ('127.0.0.1', 2493)
+INFO 2025-08-28 15:46:27,741 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 25676
+WARNING 2025-08-28 15:46:27,762 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:46:27,762 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:46:32,028 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 25676
+WARNING 2025-08-28 15:46:32,043 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:46:32,043 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:46:32,093 basehttp "GET /static/main/1.png HTTP/1.1" 200 48202
+WARNING 2025-08-28 15:46:32,177 log Not Found: /favicon.ico
+WARNING 2025-08-28 15:46:32,177 basehttp "GET /favicon.ico HTTP/1.1" 404 3046
+INFO 2025-08-28 15:47:21,578 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 24057
+WARNING 2025-08-28 15:47:21,604 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:47:21,605 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:47:25,157 basehttp "GET /api/test-api/test/19/ HTTP/1.1" 200 67860
+WARNING 2025-08-28 15:47:25,176 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:47:25,177 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:47:26,167 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:47:28,495 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:47:29,175 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:47:29,905 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:47:30,332 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:47:30,392 basehttp "POST /api/test-api/test/19/ HTTP/1.1" 302 0
+INFO 2025-08-28 15:47:30,413 basehttp "GET /api/test-api/result/22/ HTTP/1.1" 200 20192
+INFO 2025-08-28 15:47:31,613 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+WARNING 2025-08-28 15:47:31,621 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:47:31,622 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:47:31,631 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:47:31,650 basehttp - Broken pipe from ('127.0.0.1', 2965)
+INFO 2025-08-28 15:47:33,954 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 23705
+WARNING 2025-08-28 15:47:33,975 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:47:33,975 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:47:43,744 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 51680
+INFO 2025-08-28 15:47:47,281 basehttp "GET /api/test-api/test/21/ HTTP/1.1" 200 40345
+WARNING 2025-08-28 15:47:47,309 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:47:47,309 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:47:48,468 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:47:50,175 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:47:50,631 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:47:51,022 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:47:51,524 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:47:51,610 basehttp "POST /api/test-api/test/21/ HTTP/1.1" 302 0
+INFO 2025-08-28 15:47:51,632 basehttp "GET /api/test-api/result/23/ HTTP/1.1" 200 20314
+INFO 2025-08-28 15:47:53,031 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+WARNING 2025-08-28 15:47:53,034 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:47:53,035 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:47:53,044 basehttp - Broken pipe from ('127.0.0.1', 3132)
+INFO 2025-08-28 15:47:53,055 basehttp - Broken pipe from ('127.0.0.1', 2358)
+INFO 2025-08-28 15:47:54,283 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 24057
+WARNING 2025-08-28 15:47:54,307 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:47:54,308 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:48:28,099 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 23705
+WARNING 2025-08-28 15:48:28,115 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:48:28,115 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:48:30,270 basehttp "GET /api/test-api/test/19/ HTTP/1.1" 200 67860
+WARNING 2025-08-28 15:48:30,290 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:48:30,291 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:48:31,576 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:48:32,750 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:48:33,705 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:48:34,238 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:48:34,716 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:48:34,773 basehttp "POST /api/test-api/test/19/ HTTP/1.1" 302 0
+INFO 2025-08-28 15:48:34,792 basehttp "GET /api/test-api/result/24/ HTTP/1.1" 200 20192
+WARNING 2025-08-28 15:48:35,854 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:48:35,858 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:48:35,859 basehttp - Broken pipe from ('127.0.0.1', 2494)
+INFO 2025-08-28 15:48:35,862 basehttp - Broken pipe from ('127.0.0.1', 2966)
+INFO 2025-08-28 15:48:35,873 basehttp - Broken pipe from ('127.0.0.1', 3528)
+INFO 2025-08-28 15:48:37,299 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 23705
+WARNING 2025-08-28 15:48:37,321 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:48:37,321 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:48:54,138 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-08-28 15:48:55,491 autoreload Watching for file changes with StatReloader
+INFO 2025-08-28 15:49:01,243 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 23723
+WARNING 2025-08-28 15:49:01,258 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:49:01,259 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:49:05,243 basehttp "GET /api/test-api/test/21/ HTTP/1.1" 200 4937
+WARNING 2025-08-28 15:49:05,265 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:49:05,266 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:49:06,276 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 23723
+WARNING 2025-08-28 15:49:06,295 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:49:06,295 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:49:08,314 basehttp "GET /api/test-api/test/22/ HTTP/1.1" 200 40345
+WARNING 2025-08-28 15:49:08,340 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:49:08,341 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:49:10,503 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:49:11,872 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:49:12,062 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:49:12,229 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:49:12,356 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 15:49:12,453 basehttp "POST /api/test-api/test/22/ HTTP/1.1" 302 0
+INFO 2025-08-28 15:49:12,476 basehttp "GET /api/test-api/result/25/ HTTP/1.1" 200 20314
+INFO 2025-08-28 15:49:13,879 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+WARNING 2025-08-28 15:49:13,897 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:49:13,898 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:49:13,919 basehttp - Broken pipe from ('127.0.0.1', 3782)
+INFO 2025-08-28 15:49:13,935 basehttp - Broken pipe from ('127.0.0.1', 4506)
+INFO 2025-08-28 15:49:17,110 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 23729
+WARNING 2025-08-28 15:49:17,133 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 15:49:17,134 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 15:59:33,038 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-08-28 15:59:34,784 autoreload Watching for file changes with StatReloader
+INFO 2025-08-28 16:00:10,401 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 17921
+WARNING 2025-08-28 16:00:10,418 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:00:10,418 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:00:15,674 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 51744
+INFO 2025-08-28 16:00:22,144 basehttp "GET /api/controller-panel/add-test/?target=student HTTP/1.1" 200 17682
+INFO 2025-08-28 16:00:24,281 basehttp "GET /api/controller-panel/get-subjects-by-group/?group_id=4 HTTP/1.1" 200 108
+INFO 2025-08-28 16:00:25,722 basehttp "GET /api/subject-max-question-count/?subject_id=1 HTTP/1.1" 200 24
+INFO 2025-08-28 16:00:33,281 basehttp "POST /api/controller-panel/add-test/?target=student HTTP/1.1" 302 0
+INFO 2025-08-28 16:00:33,303 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 54122
+INFO 2025-08-28 16:00:36,695 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19110
+WARNING 2025-08-28 16:00:36,714 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:00:36,715 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:00:39,139 basehttp "GET /api/test-api/test/23/ HTTP/1.1" 200 67860
+WARNING 2025-08-28 16:00:39,159 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:00:39,160 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:00:40,302 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 16:00:41,637 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 16:00:42,592 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 16:00:44,606 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 16:00:45,559 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 16:00:46,423 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 16:00:51,069 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 16:00:51,131 basehttp "POST /api/test-api/test/23/ HTTP/1.1" 302 0
+INFO 2025-08-28 16:00:51,151 basehttp "GET /api/test-api/result/26/ HTTP/1.1" 200 19695
+INFO 2025-08-28 16:00:52,170 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+WARNING 2025-08-28 16:00:52,175 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:00:52,181 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:00:52,212 basehttp - Broken pipe from ('127.0.0.1', 13481)
+INFO 2025-08-28 16:00:52,231 basehttp - Broken pipe from ('127.0.0.1', 13482)
+INFO 2025-08-28 16:00:53,561 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19110
+WARNING 2025-08-28 16:00:53,582 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:00:53,583 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:00:56,456 basehttp "GET /api/test-api/test/23/ HTTP/1.1" 200 4937
+WARNING 2025-08-28 16:00:56,474 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:00:56,474 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:00:57,569 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19110
+WARNING 2025-08-28 16:00:57,588 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:00:57,588 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:00:59,446 basehttp "GET /api/test-api/test/23/ HTTP/1.1" 200 4937
+WARNING 2025-08-28 16:00:59,467 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:00:59,467 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:01:00,200 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19110
+WARNING 2025-08-28 16:01:00,218 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:01:00,219 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:01:05,360 basehttp "GET /api/controller-panel/add-test/?target=student HTTP/1.1" 200 17682
+INFO 2025-08-28 16:01:06,786 basehttp "GET /api/controller-panel/get-subjects-by-group/?group_id=4 HTTP/1.1" 200 108
+INFO 2025-08-28 16:01:07,808 basehttp "GET /api/subject-max-question-count/?subject_id=1 HTTP/1.1" 200 24
+INFO 2025-08-28 16:01:14,109 basehttp "POST /api/controller-panel/add-test/?target=student HTTP/1.1" 302 0
+INFO 2025-08-28 16:01:14,142 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 56500
+INFO 2025-08-28 16:01:17,151 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19110
+WARNING 2025-08-28 16:01:17,168 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:01:17,169 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:01:20,108 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19110
+WARNING 2025-08-28 16:01:20,125 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:01:20,126 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:01:21,351 basehttp "GET /api/test-api/test/23/ HTTP/1.1" 200 4937
+WARNING 2025-08-28 16:01:21,370 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:01:21,371 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:01:22,344 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19110
+WARNING 2025-08-28 16:01:22,363 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:01:22,363 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:01:24,615 basehttp "GET /api/test-api/test/23/ HTTP/1.1" 200 4937
+WARNING 2025-08-28 16:01:24,636 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:01:24,636 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:01:25,824 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19110
+WARNING 2025-08-28 16:01:25,843 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:01:25,844 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:01:29,104 basehttp "GET /api/test-api/test/23/ HTTP/1.1" 200 4937
+WARNING 2025-08-28 16:01:29,126 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:01:29,127 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:01:32,881 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19110
+WARNING 2025-08-28 16:01:32,900 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:01:32,901 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:01:51,238 basehttp "GET /api/controller-panel/add-test/?target=student HTTP/1.1" 200 17682
+INFO 2025-08-28 16:01:53,305 basehttp "GET /api/controller-panel/get-subjects-by-group/?group_id=4 HTTP/1.1" 200 108
+INFO 2025-08-28 16:01:54,520 basehttp "GET /api/subject-max-question-count/?subject_id=2 HTTP/1.1" 200 24
+INFO 2025-08-28 16:02:01,869 basehttp "POST /api/controller-panel/add-test/?target=student HTTP/1.1" 302 0
+INFO 2025-08-28 16:02:01,892 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 58876
+INFO 2025-08-28 16:02:04,259 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 20640
+WARNING 2025-08-28 16:02:04,276 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:02:04,277 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:02:18,521 basehttp "GET /api/test-api/test/25/ HTTP/1.1" 200 40345
+WARNING 2025-08-28 16:02:18,542 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:02:18,543 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:02:19,613 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 16:02:20,678 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 16:02:20,878 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 16:02:21,054 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 16:02:21,211 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 16:02:21,282 basehttp "POST /api/test-api/test/25/ HTTP/1.1" 302 0
+INFO 2025-08-28 16:02:21,305 basehttp "GET /api/test-api/result/27/ HTTP/1.1" 200 20314
+INFO 2025-08-28 16:02:22,562 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+WARNING 2025-08-28 16:02:22,568 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:02:22,572 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:02:22,578 basehttp - Broken pipe from ('127.0.0.1', 14454)
+INFO 2025-08-28 16:02:22,599 basehttp - Broken pipe from ('127.0.0.1', 14601)
+INFO 2025-08-28 16:02:24,444 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 20640
+WARNING 2025-08-28 16:02:24,465 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:02:24,466 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:02:29,704 basehttp "GET /api/controller-panel/add-test/?target=student HTTP/1.1" 200 17682
+INFO 2025-08-28 16:02:31,178 basehttp "GET /api/controller-panel/get-subjects-by-group/?group_id=4 HTTP/1.1" 200 108
+INFO 2025-08-28 16:02:32,256 basehttp "GET /api/subject-max-question-count/?subject_id=2 HTTP/1.1" 200 24
+INFO 2025-08-28 16:02:42,383 basehttp "POST /api/controller-panel/add-test/?target=student HTTP/1.1" 302 0
+INFO 2025-08-28 16:02:42,408 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 61252
+INFO 2025-08-28 16:02:45,354 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 20640
+WARNING 2025-08-28 16:02:45,369 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:02:45,369 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:02:52,908 basehttp "GET /admin/main/test/ HTTP/1.1" 200 28283
+INFO 2025-08-28 16:02:53,024 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:02:56,757 basehttp "GET /admin/main/test/26/change/ HTTP/1.1" 200 32509
+INFO 2025-08-28 16:02:56,818 basehttp "GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+INFO 2025-08-28 16:02:56,824 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:02:56,824 basehttp "GET /static/admin/js/inlines.js HTTP/1.1" 200 15628
+INFO 2025-08-28 16:02:56,876 basehttp "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO 2025-08-28 16:02:56,894 basehttp "GET /static/admin/css/widgets.css HTTP/1.1" 200 11991
+INFO 2025-08-28 16:02:56,924 basehttp "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+INFO 2025-08-28 16:03:17,733 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 30813
+INFO 2025-08-28 16:03:17,786 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:03:51,078 basehttp "GET /admin/main/test/ HTTP/1.1" 200 28283
+INFO 2025-08-28 16:03:51,202 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:05:37,747 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-08-28 16:05:39,120 autoreload Watching for file changes with StatReloader
+INFO 2025-08-28 16:05:42,901 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 20640
+WARNING 2025-08-28 16:05:42,920 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:05:42,920 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:05:45,171 basehttp "GET /api/test-api/test/23/ HTTP/1.1" 200 4937
+WARNING 2025-08-28 16:05:45,189 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:05:45,190 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:05:46,442 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 20640
+WARNING 2025-08-28 16:05:46,460 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:05:46,460 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:05:48,264 basehttp "GET /api/test-api/test/25/ HTTP/1.1" 200 4937
+WARNING 2025-08-28 16:05:48,286 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:05:48,286 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:05:49,177 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 20640
+WARNING 2025-08-28 16:05:49,195 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:05:49,195 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:16:06,067 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-08-28 16:16:07,822 autoreload Watching for file changes with StatReloader
+INFO 2025-08-28 16:16:38,171 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 20640
+WARNING 2025-08-28 16:16:38,187 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:16:38,188 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:16:41,778 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 20640
+WARNING 2025-08-28 16:16:41,794 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:16:41,795 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:17:39,801 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 20640
+WARNING 2025-08-28 16:17:39,814 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:17:39,815 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:20:18,345 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-08-28 16:20:19,725 autoreload Watching for file changes with StatReloader
+INFO 2025-08-28 16:20:47,918 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 20640
+WARNING 2025-08-28 16:20:47,934 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:20:47,934 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:21:21,589 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 61252
+INFO 2025-08-28 16:21:25,286 basehttp "POST /api/controller-panel/delete-test/23/ HTTP/1.1" 302 0
+INFO 2025-08-28 16:21:25,310 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 58874
+INFO 2025-08-28 16:21:27,811 basehttp "POST /api/controller-panel/delete-test/8/ HTTP/1.1" 302 0
+INFO 2025-08-28 16:21:27,834 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 56481
+INFO 2025-08-28 16:21:30,588 basehttp "POST /api/controller-panel/delete-test/9/ HTTP/1.1" 302 0
+INFO 2025-08-28 16:21:30,609 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 54089
+INFO 2025-08-28 16:21:34,462 basehttp "GET /admin/main/test/ HTTP/1.1" 200 26503
+INFO 2025-08-28 16:21:34,589 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:21:38,951 basehttp "POST /admin/main/test/ HTTP/1.1" 200 27028
+INFO 2025-08-28 16:21:39,042 basehttp "GET /static/admin/js/cancel.js HTTP/1.1" 200 884
+INFO 2025-08-28 16:21:44,249 basehttp "POST /admin/main/test/ HTTP/1.1" 302 0
+INFO 2025-08-28 16:21:44,267 basehttp "GET /admin/main/test/ HTTP/1.1" 200 15168
+INFO 2025-08-28 16:21:44,312 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:21:47,339 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 18250
+INFO 2025-08-28 16:21:50,751 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 17921
+WARNING 2025-08-28 16:21:50,770 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:21:50,770 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:21:56,409 basehttp "GET /api/controller-panel/add-test/?target=student HTTP/1.1" 200 17682
+INFO 2025-08-28 16:21:58,577 basehttp "GET /api/controller-panel/get-subjects-by-group/?group_id=4 HTTP/1.1" 200 108
+INFO 2025-08-28 16:22:00,056 basehttp "GET /api/subject-max-question-count/?subject_id=1 HTTP/1.1" 200 24
+INFO 2025-08-28 16:22:07,989 basehttp "POST /api/controller-panel/add-test/?target=student HTTP/1.1" 302 0
+INFO 2025-08-28 16:22:07,996 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 20579
+INFO 2025-08-28 16:22:10,978 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19110
+WARNING 2025-08-28 16:22:10,995 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:22:10,995 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:22:12,267 basehttp "GET /api/test-api/test/27/ HTTP/1.1" 200 67860
+WARNING 2025-08-28 16:22:12,287 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:22:12,288 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:22:13,267 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 16:22:14,025 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 16:22:14,244 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 16:22:15,126 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 16:22:15,916 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 16:22:15,977 basehttp "POST /api/test-api/test/27/ HTTP/1.1" 302 0
+INFO 2025-08-28 16:22:15,996 basehttp "GET /api/test-api/result/28/ HTTP/1.1" 200 20192
+WARNING 2025-08-28 16:22:17,253 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:22:17,256 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:22:17,256 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 16:22:17,266 basehttp - Broken pipe from ('127.0.0.1', 12425)
+INFO 2025-08-28 16:22:17,287 basehttp - Broken pipe from ('127.0.0.1', 12426)
+INFO 2025-08-28 16:22:19,795 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19110
+WARNING 2025-08-28 16:22:19,817 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:22:19,818 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:25:09,484 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-08-28 16:25:10,838 autoreload Watching for file changes with StatReloader
+INFO 2025-08-28 16:26:22,945 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19110
+WARNING 2025-08-28 16:26:22,962 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:26:22,962 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:28:22,451 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-08-28 16:28:23,827 autoreload Watching for file changes with StatReloader
+INFO 2025-08-28 16:28:39,441 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19110
+WARNING 2025-08-28 16:28:39,455 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:28:39,455 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:34:10,683 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 18225
+INFO 2025-08-28 16:34:10,812 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:34:13,320 basehttp "GET /admin/main/studenttest/28/change/ HTTP/1.1" 200 33613
+INFO 2025-08-28 16:34:13,394 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:34:13,422 basehttp "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+INFO 2025-08-28 16:34:39,093 basehttp "GET /admin/main/test/ HTTP/1.1" 200 18167
+INFO 2025-08-28 16:34:39,149 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:34:41,579 basehttp "GET /admin/main/test/27/change/ HTTP/1.1" 200 32532
+INFO 2025-08-28 16:34:41,628 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:36:29,208 autoreload C:\project\TEST_v1\TEST\backend\main\admin.py changed, reloading.
+INFO 2025-08-28 16:36:30,612 autoreload Watching for file changes with StatReloader
+INFO 2025-08-28 16:36:36,414 basehttp "GET /admin/main/test/27/change/ HTTP/1.1" 200 32532
+INFO 2025-08-28 16:36:36,523 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:36:39,457 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 20862
+INFO 2025-08-28 16:36:39,527 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:36:42,644 basehttp "GET /admin/main/studenttest/28/change/ HTTP/1.1" 200 33435
+INFO 2025-08-28 16:36:42,690 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:36:57,519 basehttp "GET /admin/main/test/ HTTP/1.1" 200 18167
+INFO 2025-08-28 16:36:57,564 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:36:59,069 basehttp "GET /admin/main/test/27/change/ HTTP/1.1" 200 32532
+INFO 2025-08-28 16:36:59,113 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:37:04,223 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 20862
+INFO 2025-08-28 16:37:04,263 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:37:14,104 basehttp "GET /admin/main/studenttest/28/change/ HTTP/1.1" 200 33435
+INFO 2025-08-28 16:37:14,153 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:37:24,838 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 20862
+INFO 2025-08-28 16:37:24,879 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:37:44,245 basehttp "GET /admin/main/studenttest/28/change/ HTTP/1.1" 200 33435
+INFO 2025-08-28 16:37:44,297 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:37:48,306 basehttp "POST /admin/main/studenttest/28/change/ HTTP/1.1" 302 0
+INFO 2025-08-28 16:37:48,328 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 21078
+INFO 2025-08-28 16:37:48,366 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:37:51,659 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19110
+WARNING 2025-08-28 16:37:51,675 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:37:51,675 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:37:54,689 basehttp "GET /admin/main/studenttest/28/change/ HTTP/1.1" 200 33426
+INFO 2025-08-28 16:37:54,731 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:37:58,414 basehttp "POST /admin/main/studenttest/28/change/ HTTP/1.1" 302 0
+INFO 2025-08-28 16:37:58,436 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 21084
+INFO 2025-08-28 16:37:58,479 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:39:19,068 basehttp "GET /admin/main/studenttest/28/change/ HTTP/1.1" 200 33435
+INFO 2025-08-28 16:39:19,195 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:39:56,922 basehttp "POST /admin/main/studenttest/28/change/ HTTP/1.1" 302 0
+INFO 2025-08-28 16:39:56,945 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 21109
+INFO 2025-08-28 16:39:57,041 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:40:00,399 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19116
+WARNING 2025-08-28 16:40:00,414 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 16:40:00,415 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 16:41:21,817 basehttp "GET /admin/main/studenttest/28/change/ HTTP/1.1" 200 33457
+INFO 2025-08-28 16:41:21,930 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:43:33,442 basehttp "GET /api/controller-panel/add-test/?target=student HTTP/1.1" 200 17682
+INFO 2025-08-28 16:43:39,018 basehttp "GET /api/controller-panel/get-subjects-by-group/?group_id=4 HTTP/1.1" 200 108
+INFO 2025-08-28 16:43:40,377 basehttp "GET /api/subject-max-question-count/?subject_id=1 HTTP/1.1" 200 24
+INFO 2025-08-28 16:44:13,001 basehttp "GET /admin/main/test/ HTTP/1.1" 200 18167
+INFO 2025-08-28 16:44:13,082 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:44:16,648 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 20880
+INFO 2025-08-28 16:44:16,714 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:44:18,069 basehttp "GET /admin/main/test/ HTTP/1.1" 200 18167
+INFO 2025-08-28 16:44:18,109 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:44:21,652 basehttp "GET /admin/main/test/27/change/ HTTP/1.1" 200 32532
+INFO 2025-08-28 16:44:21,699 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:44:28,384 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 20880
+INFO 2025-08-28 16:44:28,426 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 16:44:36,035 basehttp "GET /admin/main/studenttest/28/change/ HTTP/1.1" 200 33457
+INFO 2025-08-28 16:44:36,079 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 17:09:34,317 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-08-28 17:09:35,947 autoreload Watching for file changes with StatReloader
+INFO 2025-08-28 17:09:59,661 basehttp "GET /api/controller-panel/add-test/?target=student HTTP/1.1" 200 17682
+INFO 2025-08-28 17:10:01,210 basehttp "GET /api/controller-panel/get-subjects-by-group/?group_id=4 HTTP/1.1" 200 108
+INFO 2025-08-28 17:10:02,194 basehttp "GET /api/subject-max-question-count/?subject_id=2 HTTP/1.1" 200 24
+INFO 2025-08-28 17:10:08,674 basehttp "POST /api/controller-panel/add-test/?target=student HTTP/1.1" 302 0
+INFO 2025-08-28 17:10:08,683 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 22971
+INFO 2025-08-28 17:10:13,334 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19108
+WARNING 2025-08-28 17:10:13,351 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:10:13,351 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:10:16,816 basehttp "GET /api/test-api/test/28/ HTTP/1.1" 200 40345
+WARNING 2025-08-28 17:10:16,838 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:10:16,838 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:10:17,967 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:10:18,803 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:10:19,465 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:10:19,904 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:10:20,421 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:10:20,487 basehttp "POST /api/test-api/test/28/ HTTP/1.1" 302 0
+INFO 2025-08-28 17:10:20,509 basehttp "GET /api/test-api/result/29/ HTTP/1.1" 200 20314
+INFO 2025-08-28 17:10:21,793 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+WARNING 2025-08-28 17:10:21,803 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:10:21,807 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:10:21,816 basehttp - Broken pipe from ('127.0.0.1', 14974)
+INFO 2025-08-28 17:10:21,821 basehttp - Broken pipe from ('127.0.0.1', 14973)
+INFO 2025-08-28 17:10:24,388 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19114
+WARNING 2025-08-28 17:10:24,412 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:10:24,414 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:10:43,394 basehttp "GET /api/test-api/test/28/ HTTP/1.1" 200 4937
+WARNING 2025-08-28 17:10:43,415 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:10:43,415 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:10:44,306 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19114
+WARNING 2025-08-28 17:10:44,324 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:10:44,324 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:10:50,649 basehttp "GET /api/controller-panel/add-test/?target=student HTTP/1.1" 200 17682
+INFO 2025-08-28 17:10:53,331 basehttp "GET /api/controller-panel/get-subjects-by-group/?group_id=4 HTTP/1.1" 200 108
+INFO 2025-08-28 17:10:54,363 basehttp "GET /api/subject-max-question-count/?subject_id=2 HTTP/1.1" 200 24
+INFO 2025-08-28 17:10:59,874 basehttp "POST /api/controller-panel/add-test/?target=student HTTP/1.1" 302 0
+INFO 2025-08-28 17:10:59,884 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 25348
+INFO 2025-08-28 17:11:03,219 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 20645
+WARNING 2025-08-28 17:11:03,236 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:11:03,237 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:11:06,667 basehttp "GET /api/test-api/test/29/ HTTP/1.1" 200 40345
+WARNING 2025-08-28 17:11:06,688 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:11:06,689 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:11:07,967 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:11:12,755 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:11:12,763 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:11:13,881 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:11:17,021 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+ERROR 2025-08-28 17:11:17,132 log Internal Server Error: /api/test-api/test/29/
+Traceback (most recent call last):
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: main_studenttest.student_id, main_studenttest.group_id, main_studenttest.subject_id, main_studenttest.semester_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\backend\main\views_test_api.py", line 523, in testapi_test
+    stest.save()
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\models\base.py", line 1138, in _save_table
+    updated = self._do_update(
+              ^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\models\base.py", line 1203, in _do_update
+    return filtered._update(values) > 0
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\models\query.py", line 1286, in _update
+    return query.get_compiler(self.db).execute_sql(ROW_COUNT)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\models\sql\compiler.py", line 2060, in execute_sql
+    row_count = super().execute_sql(result_type)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: main_studenttest.student_id, main_studenttest.group_id, main_studenttest.subject_id, main_studenttest.semester_id
+ERROR 2025-08-28 17:11:17,137 basehttp "POST /api/test-api/test/29/ HTTP/1.1" 500 162042
+WARNING 2025-08-28 17:11:17,173 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:11:17,174 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+WARNING 2025-08-28 17:11:23,430 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:11:23,430 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:11:25,048 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:11:26,199 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:11:26,592 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:11:26,799 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:11:27,150 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:11:27,165 basehttp "POST /api/test-api/test/29/ HTTP/1.1" 200 4937
+WARNING 2025-08-28 17:11:27,207 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:11:27,207 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:11:28,432 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19114
+WARNING 2025-08-28 17:11:28,446 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:11:28,447 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:11:34,275 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 25348
+INFO 2025-08-28 17:11:42,498 basehttp "GET /api/controller-panel/add-test/?target=student HTTP/1.1" 200 17682
+INFO 2025-08-28 17:11:44,410 basehttp "GET /api/controller-panel/get-subjects-by-group/?group_id=4 HTTP/1.1" 200 108
+INFO 2025-08-28 17:11:45,523 basehttp "GET /api/subject-max-question-count/?subject_id=2 HTTP/1.1" 200 24
+INFO 2025-08-28 17:11:50,605 basehttp "POST /api/controller-panel/add-test/?target=student HTTP/1.1" 302 0
+INFO 2025-08-28 17:11:50,615 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 27725
+INFO 2025-08-28 17:11:53,373 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 20645
+WARNING 2025-08-28 17:11:53,392 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:11:53,392 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:11:55,674 basehttp "GET /api/test-api/test/30/ HTTP/1.1" 200 40345
+WARNING 2025-08-28 17:11:55,694 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:11:55,695 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:11:56,902 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:11:58,765 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+ERROR 2025-08-28 17:11:58,874 log Internal Server Error: /api/test-api/test/30/
+Traceback (most recent call last):
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: main_studenttest.student_id, main_studenttest.group_id, main_studenttest.subject_id, main_studenttest.semester_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\backend\main\views_test_api.py", line 523, in testapi_test
+    stest.save()
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\models\base.py", line 1138, in _save_table
+    updated = self._do_update(
+              ^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\models\base.py", line 1203, in _do_update
+    return filtered._update(values) > 0
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\models\query.py", line 1286, in _update
+    return query.get_compiler(self.db).execute_sql(ROW_COUNT)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\models\sql\compiler.py", line 2060, in execute_sql
+    row_count = super().execute_sql(result_type)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: main_studenttest.student_id, main_studenttest.group_id, main_studenttest.subject_id, main_studenttest.semester_id
+ERROR 2025-08-28 17:11:58,876 basehttp "POST /api/test-api/test/30/ HTTP/1.1" 500 162164
+WARNING 2025-08-28 17:11:58,914 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:11:58,914 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:12:57,364 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-08-28 17:12:58,475 autoreload Watching for file changes with StatReloader
+INFO 2025-08-28 17:13:21,703 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-08-28 17:13:22,802 autoreload Watching for file changes with StatReloader
+INFO 2025-08-28 17:13:41,539 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 27725
+WARNING 2025-08-28 17:13:45,414 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:13:45,415 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:13:47,066 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:13:47,914 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:13:48,088 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:13:48,255 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:13:48,398 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:13:48,441 basehttp "POST /api/test-api/test/30/ HTTP/1.1" 200 4937
+WARNING 2025-08-28 17:13:48,478 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:13:48,479 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:13:49,658 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19114
+WARNING 2025-08-28 17:13:49,671 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:13:49,671 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:13:51,803 basehttp "GET /api/test-api/test/28/ HTTP/1.1" 200 4937
+WARNING 2025-08-28 17:13:51,826 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:13:51,826 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:13:52,883 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19114
+WARNING 2025-08-28 17:13:52,903 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:13:52,904 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:13:57,866 basehttp "GET /api/controller-panel/add-test/?target=student HTTP/1.1" 200 17682
+INFO 2025-08-28 17:13:59,450 basehttp "GET /api/controller-panel/get-subjects-by-group/?group_id=4 HTTP/1.1" 200 108
+INFO 2025-08-28 17:14:00,939 basehttp "GET /api/subject-max-question-count/?subject_id=2 HTTP/1.1" 200 24
+INFO 2025-08-28 17:14:07,224 basehttp "POST /api/controller-panel/add-test/?target=student HTTP/1.1" 302 0
+INFO 2025-08-28 17:14:07,235 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 30101
+INFO 2025-08-28 17:14:09,421 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 20644
+WARNING 2025-08-28 17:14:09,437 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:14:09,438 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:14:21,237 basehttp "GET /api/test-api/test/31/ HTTP/1.1" 200 4937
+WARNING 2025-08-28 17:14:21,259 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:14:21,260 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:14:23,021 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 20644
+WARNING 2025-08-28 17:14:23,039 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:14:23,040 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:14:24,564 basehttp "GET /api/test-api/test/31/ HTTP/1.1" 200 4937
+WARNING 2025-08-28 17:14:24,584 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:14:24,585 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:14:25,653 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 20644
+WARNING 2025-08-28 17:14:25,672 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:14:25,673 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:16:22,426 basehttp "GET /admin/main/studenttest/28/change/ HTTP/1.1" 200 33681
+INFO 2025-08-28 17:16:22,553 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 17:16:24,089 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 23975
+INFO 2025-08-28 17:16:24,161 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 17:16:40,647 basehttp "GET /admin/main/studenttest/28/change/ HTTP/1.1" 200 33681
+INFO 2025-08-28 17:16:40,697 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 17:16:45,010 basehttp "POST /admin/main/studenttest/28/change/ HTTP/1.1" 302 0
+INFO 2025-08-28 17:16:45,039 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 24204
+INFO 2025-08-28 17:16:45,081 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 17:16:46,270 basehttp "GET /admin/main/studenttest/29/change/ HTTP/1.1" 200 33657
+INFO 2025-08-28 17:16:46,319 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 17:16:49,170 basehttp "POST /admin/main/studenttest/29/change/ HTTP/1.1" 302 0
+INFO 2025-08-28 17:16:49,200 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 24202
+INFO 2025-08-28 17:16:49,242 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 17:16:52,356 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 20638
+WARNING 2025-08-28 17:16:52,371 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:16:52,372 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:16:55,479 basehttp "GET /api/test-api/test/28/ HTTP/1.1" 200 40345
+WARNING 2025-08-28 17:16:55,499 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:16:55,499 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:16:56,832 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:17:13,160 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:17:13,343 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:17:13,655 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:17:13,830 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:17:13,907 basehttp "POST /api/test-api/test/28/ HTTP/1.1" 302 0
+INFO 2025-08-28 17:17:13,929 basehttp "GET /api/test-api/result/32/ HTTP/1.1" 200 20314
+WARNING 2025-08-28 17:17:15,445 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2025-08-28 17:17:15,445 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+WARNING 2025-08-28 17:17:15,448 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:17:15,465 basehttp - Broken pipe from ('127.0.0.1', 5911)
+INFO 2025-08-28 17:17:15,488 basehttp - Broken pipe from ('127.0.0.1', 5912)
+INFO 2025-08-28 17:17:17,518 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 20644
+WARNING 2025-08-28 17:17:17,540 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:17:17,541 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:17:21,724 basehttp "GET /api/test-api/test/31/ HTTP/1.1" 200 4937
+WARNING 2025-08-28 17:17:21,745 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:17:21,746 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:17:23,861 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 20644
+WARNING 2025-08-28 17:17:23,880 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:17:23,880 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:19:48,539 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-08-28 17:19:49,641 autoreload Watching for file changes with StatReloader
+INFO 2025-08-28 17:20:02,308 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19114
+WARNING 2025-08-28 17:20:02,324 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:20:02,324 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:20:04,490 basehttp "GET /api/test-api/test/31/ HTTP/1.1" 200 4937
+WARNING 2025-08-28 17:20:04,509 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:20:04,510 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:20:05,431 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19114
+WARNING 2025-08-28 17:20:05,452 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:20:05,452 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:20:11,041 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 30101
+INFO 2025-08-28 17:20:12,618 basehttp "GET /api/controller-panel/logout/ HTTP/1.1" 302 0
+INFO 2025-08-28 17:20:12,624 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+INFO 2025-08-28 17:20:22,619 basehttp "POST /api/login/ HTTP/1.1" 302 0
+INFO 2025-08-28 17:20:22,631 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 30101
+INFO 2025-08-28 17:20:26,138 basehttp "GET /api/controller-panel/add-test/?target=student HTTP/1.1" 200 17682
+INFO 2025-08-28 17:20:28,475 basehttp "GET /api/controller-panel/get-subjects-by-group/?group_id=4 HTTP/1.1" 200 108
+INFO 2025-08-28 17:20:31,460 basehttp "GET /api/subject-max-question-count/?subject_id=2 HTTP/1.1" 200 24
+INFO 2025-08-28 17:20:43,478 basehttp "POST /api/controller-panel/add-test/?target=student HTTP/1.1" 302 0
+INFO 2025-08-28 17:20:43,490 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 32482
+INFO 2025-08-28 17:20:46,354 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19119
+WARNING 2025-08-28 17:20:46,368 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:20:46,369 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:20:48,171 basehttp "GET /api/test-api/test/32/ HTTP/1.1" 200 4937
+WARNING 2025-08-28 17:20:48,190 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:20:48,191 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:20:49,192 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19119
+WARNING 2025-08-28 17:20:49,210 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:20:49,210 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:21:09,899 basehttp "POST /api/controller-panel/delete-test/27/ HTTP/1.1" 302 0
+INFO 2025-08-28 17:21:09,915 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 30088
+INFO 2025-08-28 17:21:11,955 basehttp "POST /api/controller-panel/delete-test/28/ HTTP/1.1" 302 0
+INFO 2025-08-28 17:21:11,965 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 27712
+INFO 2025-08-28 17:21:13,975 basehttp "POST /api/controller-panel/delete-test/29/ HTTP/1.1" 302 0
+INFO 2025-08-28 17:21:13,983 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 25335
+INFO 2025-08-28 17:21:15,955 basehttp "POST /api/controller-panel/delete-test/30/ HTTP/1.1" 302 0
+INFO 2025-08-28 17:21:15,964 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 22958
+INFO 2025-08-28 17:21:17,935 basehttp "POST /api/controller-panel/delete-test/31/ HTTP/1.1" 302 0
+INFO 2025-08-28 17:21:17,943 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 20582
+INFO 2025-08-28 17:21:20,380 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19113
+WARNING 2025-08-28 17:21:20,395 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:21:20,396 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:21:21,997 basehttp "GET /api/test-api/test/32/ HTTP/1.1" 200 40345
+WARNING 2025-08-28 17:21:22,017 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:21:22,018 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:21:23,118 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:21:24,542 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:21:25,328 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:21:27,391 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:21:27,705 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:21:28,086 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:21:28,166 basehttp "POST /api/test-api/test/32/ HTTP/1.1" 302 0
+INFO 2025-08-28 17:21:28,190 basehttp "GET /api/test-api/result/33/ HTTP/1.1" 200 19758
+INFO 2025-08-28 17:21:29,484 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+WARNING 2025-08-28 17:21:29,492 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:21:29,493 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:21:29,501 basehttp - Broken pipe from ('127.0.0.1', 8408)
+INFO 2025-08-28 17:21:29,519 basehttp - Broken pipe from ('127.0.0.1', 8483)
+INFO 2025-08-28 17:21:30,981 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19119
+WARNING 2025-08-28 17:21:31,001 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:21:31,002 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:21:32,685 basehttp "GET /api/test-api/test/32/ HTTP/1.1" 200 4937
+WARNING 2025-08-28 17:21:32,708 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:21:32,709 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:21:33,517 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19119
+WARNING 2025-08-28 17:21:33,538 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:21:33,539 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:21:37,679 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 20878
+INFO 2025-08-28 17:21:37,792 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 17:21:40,823 basehttp "GET /admin/main/studenttest/33/change/ HTTP/1.1" 200 33443
+INFO 2025-08-28 17:21:40,891 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 17:21:44,546 basehttp "POST /admin/main/studenttest/33/change/ HTTP/1.1" 302 0
+INFO 2025-08-28 17:21:44,571 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 21105
+INFO 2025-08-28 17:21:44,618 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 17:21:47,265 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19113
+WARNING 2025-08-28 17:21:47,281 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:21:47,282 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:21:48,677 basehttp "GET /api/test-api/test/32/ HTTP/1.1" 200 40345
+WARNING 2025-08-28 17:21:48,701 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:21:48,702 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:21:50,704 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:21:53,071 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-08-28 17:21:53,147 basehttp "POST /api/test-api/test/32/ HTTP/1.1" 302 0
+INFO 2025-08-28 17:21:53,170 basehttp "GET /api/test-api/result/34/ HTTP/1.1" 200 20314
+WARNING 2025-08-28 17:21:54,701 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2025-08-28 17:21:54,703 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+WARNING 2025-08-28 17:21:54,703 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:21:54,711 basehttp - Broken pipe from ('127.0.0.1', 8755)
+INFO 2025-08-28 17:21:54,730 basehttp - Broken pipe from ('127.0.0.1', 7556)
+INFO 2025-08-28 17:21:56,140 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19119
+WARNING 2025-08-28 17:21:56,162 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-08-28 17:21:56,163 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3157
+INFO 2025-08-28 17:21:58,579 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 21722
+INFO 2025-08-28 17:21:58,614 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-08-28 17:22:31,481 autoreload C:\project\TEST_v1\TEST\backend\main\serializers.py changed, reloading.
+INFO 2025-08-28 17:22:32,775 autoreload Watching for file changes with StatReloader
