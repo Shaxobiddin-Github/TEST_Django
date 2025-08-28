@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barcha Test Natijalari</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+            background: url('/static/main/1.png') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Animated particles background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.3), transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.2), transparent),
+                radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.4), transparent),
+                radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.3), transparent),
+                radial-gradient(2px 2px at 160px 30px, rgba(255,255,255,0.2), transparent);
+            background-repeat: repeat;
+            background-size: 200px 100px;
+            animation: sparkle 25s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes sparkle {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+
+        .container-fluid {
+            position: relative;
+            z-index: 2;
+            padding: 2rem 1rem;
+        }
+
+        .page-header {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                0 2px 8px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .page-title {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            letter-spacing: -0.5px;
+        }
+
+        .dashboard-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            color: rgba(255, 255, 255, 0.95);
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .dashboard-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            color: rgba(255, 255, 255, 1);
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .accordion {
+            border: none;
+        }
+
+        .accordion-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .accordion-button {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 1.2rem 1.5rem;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 1);
+            box-shadow: none;
+        }
+
+        .accordion-button:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: rgba(255, 255, 255, 1);
+        }
+
+        .accordion-button:focus {
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.1);
+        }
+
+        .accordion-button::after {
+            filter: brightness(0) invert(1);
+            opacity: 0.8;
+        }
+
+        .accordion-body {
+            background: rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+        }
+
+        .level-1 {
+            background: linear-gradient(135deg, rgba(0, 123, 255, 0.3) 0%, rgba(0, 123, 255, 0.2) 100%);
+            border: 1px solid rgba(0, 123, 255, 0.4);
+        }
+
+        .level-2 {
+            background: linear-gradient(135deg, rgba(40, 167, 69, 0.3) 0%, rgba(40, 167, 69, 0.2) 100%);
+            border: 1px solid rgba(40, 167, 69, 0.4);
+            margin-left: 1rem;
+        }
+
+        .level-3 {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.3) 0%, rgba(255, 193, 7, 0.2) 100%);
+            border: 1px solid rgba(255, 193, 7, 0.4);
+            margin-left: 2rem;
+            color: rgba(255, 255, 255, 0.95) !important;
+        }
+
+        .group-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            gap: 0.5rem;
+        }
+
+        .btn-toggle {
+            flex-grow: 1;
+            text-align: left;
+            border-radius: 12px;
+            background: rgba(40, 167, 69, 0.2);
+            border: 1px solid rgba(40, 167, 69, 0.4);
+            color: rgba(255, 255, 255, 0.95);
+            padding: 1rem 1.5rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .btn-toggle:hover {
+            background: rgba(40, 167, 69, 0.3);
+            color: rgba(255, 255, 255, 1);
+            transform: translateY(-1px);
+        }
+
+        .btn-excel {
+
+        .test-result {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            margin-left: 3rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .answer-item {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .answer-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .correct {
+            color: #4ade80;
+            font-weight: 600;
+        }
+
+        .incorrect {
+            color: #f87171;
+            font-weight: 600;
+        }
+
+        .question-text {
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+
+        .badge-custom {
+            background: rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.4rem 0.8rem;
+        }
+
+        .progress {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            height: 8px;
+        }
+
+        .progress-bar {
+            border-radius: 6px;
+        }
+
+        .bg-success {
+            background: linear-gradient(90deg, #4ade80, #22c55e) !important;
+        }
+
+        .bg-warning {
+            background: linear-gradient(90deg, #fbbf24, #f59e0b) !important;
+        }
+
+        .bg-danger {
+            background: linear-gradient(90deg, #f87171, #ef4444) !important;
+        }
+
+        .text-muted {
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+
+        .border-top {
+            border-color: rgba(255, 255, 255, 0.2) !important;
+        }
+
+        h5, h6 {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .alert-info {
+            background: rgba(13, 202, 240, 0.15);
+            border: 1px solid rgba(13, 202, 240, 0.3);
+            color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .container-fluid {
+                padding: 1rem 0.5rem;
+            }
+            
+            .page-header {
+                padding: 1.5rem 1rem;
+                border-radius: 16px;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .level-2 {
+                margin-left: 0.5rem;
+            }
+            
+            .level-3 {
+                margin-left: 1rem;
+            }
+            
+            .test-result {
+                margin-left: 1rem;
+                padding: 1rem;
+            }
+            
+            .group-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .btn-toggle,
+            .btn-excel {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 1.8rem;
+            }
+            
+            .accordion-button {
+                padding: 1rem;
+                font-size: 1rem;
+            }
+            
+            .test-result {
+                margin-left: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="page-header">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <h1 class="page-title">📊 Barcha Test Natijalari</h1>
+                <div class="d-flex flex-column gap-2">
+                    <!-- Excelga yuklash, select va tugmalar butunlay olib tashlandi -->
+                    <a href="{% url 'controller_dashboard' %}" class="dashboard-btn mt-2">
+                        <span>🏠</span>
+                        <span>Dashboard</span>
+                    </a>
+                </div>
+            </div>
+            <script>
+            // Excelga yuklash uchun scriptlar butunlay olib tashlandi
+            </script>
+        </div>
+
+        {% if organized_data %}
+            <div class="accordion" id="resultsAccordion">
+                {% for subject_name, groups in organized_data.items %}
+                    <!-- Fan darajasi -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="subject{{ forloop.counter }}">
+                            <button class="accordion-button collapsed level-1 d-flex align-items-center flex-grow-1" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#collapseSubject{{ forloop.counter }}" 
+                                    aria-expanded="false" aria-controls="collapseSubject{{ forloop.counter }}">
+                                <span class="me-3">📚</span>
+                                <span class="flex-grow-1">{{ subject_name }}</span>
+                                <span class="badge-custom ms-2">{{ groups|length }} guruh</span>
+                            </button>
+                            <a href="{% url 'export_subject_results_pdf' subject_name %}"
+                               class="btn btn-danger"
+                               title="PDFga yuklash"
+                               style="position: absolute; right: 24px; top: 50%; transform: translateY(-50%); min-width: 70px; display: flex; align-items: center; justify-content: center; z-index: 2;">
+                                <span style="font-size: 1.1rem;">📄</span> <span class="d-none d-md-inline ms-1">PDF</span>
+                            </a>
+                        </h2>
+                        <div id="collapseSubject{{ forloop.counter }}" class="accordion-collapse collapse" 
+                             aria-labelledby="subject{{ forloop.counter }}" data-bs-parent="#resultsAccordion">
+                            <div class="accordion-body">
+                                
+                                {% for group_name, group_data in groups.items %}
+                                    <!-- Guruh darajasi -->
+                                    <div class="group-header">
+                                        <button class="btn btn-toggle" type="button" 
+                                                data-bs-toggle="collapse" data-bs-target="#collapseGroup{{ forloop.parentloop.counter }}{{ forloop.counter }}" 
+                                                aria-expanded="false" aria-controls="collapseGroup{{ forloop.parentloop.counter }}{{ forloop.counter }}">
+                                            <span class="me-2">👥</span>
+                                            <span class="flex-grow-1">{{ group_name }}</span>
+                                            <span class="badge-custom">{{ group_data.students|length }} talaba</span>
+                                        </button>
+                                        <!-- Excel tugmasi va linklari to'liq olib tashlandi -->
+                                    </div>
+                                    <div id="collapseGroup{{ forloop.parentloop.counter }}{{ forloop.counter }}" class="collapse">
+                                        <div class="ms-2">
+                                            
+                                            {% for student_username, student_data in group_data.students.items %}
+                                                <!-- Talaba darajasi -->
+                                                <div class="accordion mb-3" id="studentAccordion{{ forloop.parentloop.parentloop.counter }}{{ forloop.parentloop.counter }}{{ forloop.counter }}">
+                                                    <div class="accordion-item">
+                                                        <h2 class="accordion-header" id="student{{ forloop.parentloop.parentloop.counter }}{{ forloop.parentloop.counter }}{{ forloop.counter }}">
+                                                            <button class="accordion-button collapsed level-3" type="button" 
+                                                                    data-bs-toggle="collapse" data-bs-target="#collapseStudent{{ forloop.parentloop.parentloop.counter }}{{ forloop.parentloop.counter }}{{ forloop.counter }}" 
+                                                                    aria-expanded="false" aria-controls="collapseStudent{{ forloop.parentloop.parentloop.counter }}{{ forloop.parentloop.counter }}{{ forloop.counter }}">
+                                                                <span class="me-3">👤</span>
+                                                                <span class="flex-grow-1">{{ student_data.student.first_name }} {{ student_data.student.last_name }} (@{{ student_username }})</span>
+                                                                <span class="badge-custom">{{ student_data.tests|length }} test</span>
+                                                            </button>
+                                                        </h2>
+                                                        <div id="collapseStudent{{ forloop.parentloop.parentloop.counter }}{{ forloop.parentloop.counter }}{{ forloop.counter }}" class="accordion-collapse collapse" 
+                                                             aria-labelledby="student{{ forloop.parentloop.parentloop.counter }}{{ forloop.parentloop.counter }}{{ forloop.counter }}" data-bs-parent="#studentAccordion{{ forloop.parentloop.parentloop.counter }}{{ forloop.parentloop.counter }}{{ forloop.counter }}">
+                                                            <div class="accordion-body">
+                                                                
+                                                                <!-- Test natijalari -->
+                                                                {% for test_result in student_data.tests %}
+                                                                    <div class="test-result">
+                                                                        <div class="row mb-3">
+                                                                            <div class="col-md-8">
+                                                                                <h6 class="mb-1">
+                                                                                    <span class="me-2">📝</span>
+                                                                                    Test: {{ test_result.student_test.test.subject.name }}
+                                                                                </h6>
+                                                                                <small class="text-muted">
+                                                                                    <span class="me-2">📅</span>
+                                                                                    {{ test_result.student_test.start_time|date:"d.m.Y H:i" }}
+                                                                                </small>
+                                                                            </div>
+                                                                            <div class="col-md-4 text-end">
+                                                                                <h5 class="mb-2">{{ test_result.score }}/{{ test_result.student_test.test.total_score }} ball</h5>
+                                                                                <div class="progress mb-2">
+                                                                                    <div class="progress-bar bg-{% if test_result.percent >= 60 %}success{% elif test_result.percent >= 40 %}warning{% else %}danger{% endif %}" 
+                                                                                         role="progressbar" style="width: {{ test_result.percent }}%">
+                                                                                        {{ test_result.percent }}%
+                                                                                    </div>
+                                                                                </div>
+                                                                                <small class="text-muted">{{ test_result.correct }}/{{ test_result.total }} to'g'ri</small>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="border-top pt-3">
+                                                                            <h6 class="mb-3">
+                                                                                <span class="me-2">📋</span>
+                                                                                Batafsil javoblar:
+                                                                            </h6>
+                                                                            {% for answer in test_result.answer_details %}
+                                                                                <div class="answer-item">
+                                                                                    <div class="question-text">
+                                                                                        <span class="me-2">❓</span>
+                                                                                        Savol: {{ answer.question.text }}
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-4">
+                                                                                            <strong style="color: rgba(255, 255, 255, 0.9);">Javob:</strong> 
+                                                                                            <span style="color: rgba(255, 255, 255, 0.8);">{{ answer.user_answer|default:"Javob berilmagan" }}</span>
+                                                                                        </div>
+                                                                                        <div class="col-md-4">
+                                                                                            <strong style="color: rgba(255, 255, 255, 0.9);">Status:</strong> 
+                                                                                            <span class="{% if answer.is_correct %}correct{% else %}incorrect{% endif %}">
+                                                                                                {% if answer.is_correct %}✅ To'g'ri{% else %}❌ Xato{% endif %}
+                                                                                            </span>
+                                                                                            <br>
+                                                                                            <strong style="color: rgba(255, 255, 255, 0.9);">Ball:</strong> 
+                                                                                            <span style="color: rgba(255, 255, 255, 0.8);">{{ answer.score }}</span>
+                                                                                        </div>
+                                                                                        <div class="col-md-4">
+                                                                                            {% if not answer.is_correct %}
+                                                                                                <strong style="color: rgba(255, 255, 255, 0.9);">To'g'ri javob:</strong> 
+                                                                                                <span class="correct">{{ answer.correct_answer }}</span>
+                                                                                            {% endif %}
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            {% endfor %}
+                                                                        </div>
+                                                                    </div>
+                                                                {% endfor %}
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                            
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                                
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="alert alert-info">
+                <h4 style="color: rgba(255, 255, 255, 0.95);">
+                    <span class="me-2">ℹ️</span>
+                    Ma'lumot yo'q
+                </h4>
+                <p style="color: rgba(255, 255, 255, 0.8); margin: 0;">Hozircha hech qanday test natijalari mavjud emas.</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

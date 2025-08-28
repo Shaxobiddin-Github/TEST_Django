@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Savol qo‘shish</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    background: url('/static/main/1.png') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Animated background particles */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)" opacity="0.6"><animate attributeName="cy" values="20;80;20" dur="4s" repeatCount="indefinite"/></circle><circle cx="80" cy="80" r="3" fill="rgba(255,255,255,0.08)" opacity="0.4"><animate attributeName="cx" values="80;20;80" dur="6s" repeatCount="indefinite"/></circle><circle cx="50" cy="50" r="1.5" fill="rgba(255,255,255,0.12)" opacity="0.8"><animate attributeName="r" values="1.5;3;1.5" dur="3s" repeatCount="indefinite"/></circle></svg>') repeat;
+    pointer-events: none;
+    z-index: 1;
+}
+.container {
+    position: relative;
+    z-index: 2;
+    max-width: 730px;
+    margin: 38px auto;
+    padding: 42px 30px 18px 30px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border-radius: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.7s;
+}
+@keyframes fadeIn { from { opacity: 0;} to { opacity: 1;} }
+h2 {
+    text-align: center;
+    color: #232e3a;
+    font-size: 2.26rem;
+    font-weight: 700;
+    margin-bottom: 32px;
+    letter-spacing: 0.7px;
+}
+label {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 7px;
+    font-weight: 600;
+    color: #23334b;
+    font-size: 1.08rem;
+}
+select, input[type="number"], textarea, input[type="file"] {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1.7px solid #e2e8f0;
+    border-radius: 11px;
+    font-size: 1.12rem;
+    background: #f6fafd;
+    margin-bottom: 2px;
+    transition: border-color 0.19s, box-shadow 0.19s;
+}
+select:focus, textarea:focus, input[type="number"]:focus {
+    border-color: #1976d2;
+    outline: none;
+    box-shadow: 0 0 0 2px #e3f0fc;
+    background: #fff;
+}
+textarea {
+    resize: vertical;
+    min-height: 85px;
+    font-size: 1.18rem;
+}
+.textarea-wrapper {
+    position: relative;
+    width: 100%;
+}
+.formula-calc-btn {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    width: 36px;
+    height: 36px;
+    background: #e3f2fd;
+    border: 1.5px solid #b6dafc;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.15s;
+    z-index: 10;
+    box-shadow: 0 2px 8px 0 rgba(49,130,206,0.08);
+}
+.formula-calc-btn:hover { background: #bbdefb; }
+.formula-calc-btn svg {
+    width: 22px; height: 22px; color: #1976d2;
+}
+.formula-popup {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    margin-left: 10px;
+    background: #fff;
+    border: 2px solid #b6dafc;
+    box-shadow: 0 4px 22px 0 rgba(25, 118, 210, 0.18);
+    border-radius: 14px;
+    padding: 15px 14px 12px 14px;
+    min-width: 320px;
+    max-width: 470px;
+    max-height: 340px;
+    overflow-y: auto;
+    grid-template-columns: repeat(auto-fill, minmax(56px,1fr));
+    display: grid;
+    grid-gap: 7px;
+    z-index: 99;
+}
+.formula-popup.open {
+    display: grid;
+}
+.formula-popup button {
+    background: #f7fbff;
+    border: 1.2px solid #b6dafc;
+    color: #1976d2;
+    padding: 8px 10px;
+    border-radius: 7px;
+    font-size: 1.24rem;
+    min-width: 38px;
+    cursor: pointer;
+    transition: background 0.14s, color 0.14s, box-shadow 0.13s;
+    box-shadow: 0 1px 7px 0 rgba(25,118,210,0.06);
+}
+.formula-popup button:hover {
+    background: #1976d2;
+    color: #fff;
+    border-color: #1976d2;
+}
+.preview-label {
+    font-size: 1.04rem;
+    color: #3d5068;
+    margin-top: 12px;
+    margin-bottom: 2px;
+    font-weight: 500;
+}
+.preview-box {
+    background: linear-gradient(90deg,#f5f7fa 0%, #e3f0fc 100%);
+    min-height: 38px;
+    padding: 13px 14px;
+    border-radius: 8px;
+    font-size: 1.28rem;
+    color: #1a253c;
+    margin-bottom: 10px;
+    margin-top: 2px;
+    border: 1.5px solid #e2e8f0;
+    box-shadow: 0 2px 8px 0 rgba(31,38,135,0.06);
+    overflow-x: auto;
+    font-family: inherit;
+}
+button[type="submit"] {
+    margin-top: 18px;
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(90deg,#1976d2 0%, #42a5f5 100%);
+    color: white;
+    border: none;
+    border-radius: 9px;
+    font-size: 1.16rem;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    box-shadow: 0 3px 14px 0 rgba(25, 118, 210, 0.15);
+    transition: background 0.14s, box-shadow 0.14s;
+}
+button[type="submit"]:hover {
+    background: linear-gradient(90deg,#1565c0 0%, #2196f3 100%);
+    box-shadow: 0 6px 24px 0 rgba(25, 118, 210, 0.18);
+}
+.back-link {
+    text-align: center;
+    margin-top: 24px;
+}
+.back-link a {
+    color: #1976d2;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 1.08rem;
+    letter-spacing: 0.3px;
+    transition: color 0.13s;
+}
+.back-link a:hover {
+    color: #0d47a1;
+    text-decoration: underline;
+}
+.remove-variant-btn {
+    margin-left: 5px;
+    color: #dc3545;
+    background: none;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    line-height: 18px;
+    text-align: center;
+    transition: background 0.15s, color 0.15s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+.remove-variant-btn:hover {
+    background: #f8d7da;
+    color: #a71d2a;
+}
+.single-choice-row, .multiple-choice-row, .matching-row, .ordering-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+    background: #f5f8fd;
+    border-radius: 7px;
+    padding: 8px 10px 8px 10px;
+    box-shadow: 0 1px 7px 0 rgba(49,130,206,0.04);
+}
+.single-choice-row input[type="text"],
+.multiple-choice-row input[type="text"],
+.matching-row input[type="text"],
+.ordering-row input[type="text"] {
+    flex: 1 1 auto;
+    font-size: 1.08rem;
+    background: #fff;
+    border: 1.1px solid #c8d3e1;
+    border-radius: 6px;
+}
+.variant-preview {
+    margin-left: 12px;
+    color: #1976d2;
+    font-size: 1.18rem;
+    min-width: 40px;
+    min-height: 28px;
+    font-family: inherit;
+}
+@media (max-width:700px){
+    .container { max-width: 98vw; padding: 4vw 2vw 5vw 2vw;}
+    h2 {font-size: 1.49rem;}
+    .formula-popup {min-width: 96vw;}
+    .formula-popup button, .preview-box {font-size: 1rem;}
+    .single-choice-row, .multiple-choice-row, .matching-row, .ordering-row {font-size: 0.97rem; padding: 5px 6px;}
+}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Savol qo‘shish</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {% if target == 'student' %}
+                <label>Fakultet:</label>
+                <select name="faculty" id="faculty-select" required onchange="loadGroupsByFaculty()">
+                    <option value="">Fakultetni tanlang</option>
+                    {% for faculty in faculties %}
+                        <option value="{{ faculty.id }}" {% if selected.faculty == faculty.id|stringformat:'s' %}selected{% endif %}>{{ faculty.name }}</option>
+                    {% endfor %}
+                </select>
+
+                <label>Guruh:</label>
+                <select name="group" id="group-select" required>
+                    <option value="">Guruhni tanlang</option>
+                    {% for group in groups %}
+                        <option value="{{ group.id }}" data-faculty="{{ group.faculty_id }}" {% if selected.group == group.id|stringformat:'s' %}selected{% endif %}>{{ group.name }}</option>
+                    {% endfor %}
+                </select>
+<script>
+function loadGroupsByFaculty() {
+    var facultyId = document.getElementById('faculty-select').value;
+    var groupSelect = document.getElementById('group-select');
+    for (var i = 0; i < groupSelect.options.length; i++) {
+        var opt = groupSelect.options[i];
+        if (!opt.value) continue;
+        if (opt.getAttribute('data-faculty') === facultyId) {
+            opt.style.display = '';
+        } else {
+            opt.style.display = 'none';
+            if (opt.selected) groupSelect.selectedIndex = 0;
+        }
+    }
+}
+window.onload = function() {
+    updatePreview();
+    toggleAnswerFields();
+    document.getElementById('formula-popup').style.display = 'none';
+    loadGroupsByFaculty();
+};
+</script>
+
+                <label>Semestr:</label>
+                <select name="semester" id="semester-select" required>
+                    {% for semester in semesters %}
+                        <option value="{{ semester.id }}" {% if selected.semester == semester.id|stringformat:'s' %}selected{% endif %}>{{ semester.number }}-semestr</option>
+                    {% endfor %}
+                </select>
+
+                <label>Fan:</label>
+                <select name="subject" id="subject-select" required>
+                    <option value="">Fanni tanlang</option>
+                    {% for subject in subjects %}
+                        <option value="{{ subject.id }}" {% if selected.subject == subject.id|stringformat:'s' %}selected{% endif %}>{{ subject.name }}</option>
+                    {% endfor %}
+                </select>
+
+<script>
+async function loadSubjects() {
+    const groupId = document.getElementById('group-select').value;
+    const semesterId = document.getElementById('semester-select').value;
+    if (!groupId || !semesterId) return;
+
+    try {
+        const response = await fetch(`/api/teacher-panel/get-subjects-by-group-semester/?group_id=${groupId}&semester_id=${semesterId}`);
+        const data = await response.json();
+        const subjectSelect = document.getElementById('subject-select');
+        subjectSelect.innerHTML = '<option value="">Fanni tanlang</option>';
+        data.subjects.forEach(subject => {
+            const option = document.createElement('option');
+            option.value = subject.id;
+            option.textContent = subject.name;
+            subjectSelect.appendChild(option);
+        });
+    } catch (error) {
+        console.error('Error loading subjects:', error);
+    }
+}
+
+// Event listener qo'shish
+document.getElementById('group-select').addEventListener('change', loadSubjects);
+document.getElementById('semester-select').addEventListener('change', loadSubjects);
+</script>
+
+            {% elif target == 'tutor' %}
+                <label>Kafedra:</label>
+                <select name="kafedra" required>
+                    {% for kafedra in kafedralar %}
+                        <option value="{{ kafedra.id }}" {% if selected.kafedra == kafedra.id|stringformat:'s' %}selected{% endif %}>{{ kafedra.name }} ({{ kafedra.faculty.name }})</option>
+                    {% endfor %}
+                </select>
+            {% elif target == 'employee' %}
+                <label>Bo'lim:</label>
+                <select name="bulim" required>
+                    {% for bulim in bulimlar %}
+                        <option value="{{ bulim.id }}" {% if selected.bulim == bulim.id|stringformat:'s' %}selected{% endif %}>{{ bulim.name }}</option>
+                    {% endfor %}
+                </select>
+            {% endif %}
+
+            <label>Savol matni:</label>
+            <div class="textarea-wrapper" style="margin-bottom:0; position:relative;">
+                <textarea id="question-text" name="text" rows="3" required oninput="updatePreview()">{% if edit_mode %}{{ question.text }}{% endif %}</textarea>
+                <div class="formula-calc-btn" tabindex="0" onclick="toggleFormulaPopupForQuestion(event)" title="Matematik formula qo'shish">
+                    <!-- Calculator SVG Icon -->
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="2"/>
+                        <rect x="7" y="7" width="2" height="2" fill="currentColor"/>
+                        <rect x="11" y="7" width="2" height="2" fill="currentColor"/>
+                        <rect x="15" y="7" width="2" height="2" fill="currentColor"/>
+                        <rect x="7" y="11" width="2" height="2" fill="currentColor"/>
+                        <rect x="11" y="11" width="2" height="2" fill="currentColor"/>
+                        <rect x="15" y="11" width="2" height="2" fill="currentColor"/>
+                        <rect x="7" y="15" width="2" height="2" fill="currentColor"/>
+                        <rect x="11" y="15" width="2" height="2" fill="currentColor"/>
+                        <rect x="15" y="15" width="2" height="2" fill="currentColor"/>
+                    </svg>
+                </div>
+                <div class="formula-popup" id="formula-popup" style="display:none;">
+<script>
+// Savol matni uchun kalkulyator popup
+function toggleFormulaPopupForQuestion(e) {
+    e.stopPropagation();
+    var popup = document.getElementById('formula-popup');
+    if (popup.style.display === 'none' || popup.style.display === '') {
+        popup.style.display = 'grid';
+        function handler(ev) {
+            if (!popup.contains(ev.target)) {
+                popup.style.display = 'none';
+                document.removeEventListener('mousedown', handler);
+            }
+        }
+        setTimeout(function() { document.addEventListener('mousedown', handler); }, 0);
+    } else {
+        popup.style.display = 'none';
+    }
+}
+</script>
+                    <button type="button" onclick="insertLatex('\\frac{a}{b}')">\( \frac{a}{b} \)</button>
+                    <button type="button" onclick="insertLatex('\\sqrt{x}')">\( \sqrt{x} \)</button>
+                    <button type="button" onclick="insertLatex('x^2')">\( x^2 \)</button>
+                    <button type="button" onclick="insertLatex('x_2')">\( x_2 \)</button>
+                    <button type="button" onclick="insertLatex('+')">+</button>
+                    <button type="button" onclick="insertLatex('-')">-</button>
+                    <button type="button" onclick="insertLatex('\\cdot')">\( \cdot \)</button>
+                    <button type="button" onclick="insertLatex('\\times')">\( \times \)</button>
+                    <button type="button" onclick="insertLatex('\\div')">\( \div \)</button>
+                    <button type="button" onclick="insertLatex('=')">=</button>
+                    <button type="button" onclick="insertLatex('<')">&lt;</button>
+                    <button type="button" onclick="insertLatex('>')">&gt;</button>
+                    <button type="button" onclick="insertLatex('\\leq')">\( \leq \)</button>
+                    <button type="button" onclick="insertLatex('\\geq')">\( \geq \)</button>
+                    <button type="button" onclick="insertLatex('\\neq')">\( \neq \)</button>
+                    <button type="button" onclick="insertLatex('\\approx')">\( \approx \)</button>
+                    <button type="button" onclick="insertLatex('\\pm')">\( \pm \)</button>
+                    <button type="button" onclick="insertLatex('\\mp')">\( \mp \)</button>
+                    <button type="button" onclick="insertLatex('\\infty')">\( \infty \)</button>
+                    <button type="button" onclick="insertLatex('\\pi')">\( \pi \)</button>
+                    <button type="button" onclick="insertLatex('\\phi')">\( \phi \)</button>
+                    <button type="button" onclick="insertLatex('\\alpha')">\( \alpha \)</button>
+                    <button type="button" onclick="insertLatex('\\beta')">\( \beta \)</button>
+                    <button type="button" onclick="insertLatex('\\gamma')">\( \gamma \)</button>
+                    <button type="button" onclick="insertLatex('\\theta')">\( \theta \)</button>
+                    <button type="button" onclick="insertLatex('\\lambda')">\( \lambda \)</button>
+                    <button type="button" onclick="insertLatex('\\mu')">\( \mu \)</button>
+                    <button type="button" onclick="insertLatex('\\sigma')">\( \sigma \)</button>
+                    <button type="button" onclick="insertLatex('\\omega')">\( \omega \)</button>
+                    <button type="button" onclick="insertLatex('\\sum_{i=1}^{n}')">\( \sum_{i=1}^{n} \)</button>
+                    <button type="button" onclick="insertLatex('\\prod_{i=1}^{n}')">\( \prod_{i=1}^{n} \)</button>
+                    <button type="button" onclick="insertLatex('\\int_{a}^{b}')">\( \int_{a}^{b} \)</button>
+                    <button type="button" onclick="insertLatex('\\iint')">\( \iint \)</button>
+                    <button type="button" onclick="insertLatex('\\iiint')">\( \iiint \)</button>
+                    <button type="button" onclick="insertLatex('\\lim_{x \\to 0}')">\( \lim_{x \to 0} \)</button>
+                    <button type="button" onclick="insertLatex('\\log')">\( \log \)</button>
+                    <button type="button" onclick="insertLatex('\\ln')">\( \ln \)</button>
+                    <button type="button" onclick="insertLatex('\\exp')">\( \exp \)</button>
+                    <button type="button" onclick="insertLatex('\\sqrt[3]{x}')">\( \sqrt[3]{x} \)</button>
+                    <button type="button" onclick="insertLatex('\\sin')">\( \sin \)</button>
+                    <button type="button" onclick="insertLatex('\\cos')">\( \cos \)</button>
+                    <button type="button" onclick="insertLatex('\\tan')">\( \tan \)</button>
+                    <button type="button" onclick="insertLatex('\\csc')">\( \csc \)</button>
+                    <button type="button" onclick="insertLatex('\\sec')">\( \sec \)</button>
+                    <button type="button" onclick="insertLatex('\\cot')">\( \cot \)</button>
+                    <button type="button" onclick="insertLatex('\\arcsin')">\( \arcsin \)</button>
+                    <button type="button" onclick="insertLatex('\\arccos')">\( \arccos \)</button>
+                    <button type="button" onclick="insertLatex('\\arctan')">\( \arctan \)</button>
+                    <button type="button" onclick="insertLatex('\\mathrm{d}')">\( \mathrm{d} \)</button>
+                    <button type="button" onclick="insertLatex('\\left(')">\( ( \)</button>
+                    <button type="button" onclick="insertLatex('\\right)')">\( ) \)</button>
+                    <button type="button" onclick="insertLatex('\\left[')">\( [ \)</button>
+                    <button type="button" onclick="insertLatex('\\right]')">\( ] \)</button>
+                    <button type="button" onclick="insertLatex('\\left\\{')">\( \{ \)</button>
+                    <button type="button" onclick="insertLatex('\\right\\}')">\( \} \)</button>
+                    <button type="button" onclick="insertLatex('\\vec{v}')">\( \vec{v} \)</button>
+                    <button type="button" onclick="insertLatex('\\overrightarrow{AB}')">\( \overrightarrow{AB} \)</button>
+                    <button type="button" onclick="insertLatex('\\overleftarrow{AB}')">\( \overleftarrow{AB} \)</button>
+                    <button type="button" onclick="insertLatex('\\bar{x}')">\( \bar{x} \)</button>
+                    <button type="button" onclick="insertLatex('\\hat{x}')">\( \hat{x} \)</button>
+                    <button type="button" onclick="insertLatex('\\underline{x}')">\( \underline{x} \)</button>
+                    <button type="button" onclick="insertLatex('\\displaystyle')">\( \displaystyle \)</button>
+                    <button type="button" onclick="insertLatex('\\mathbb{R}')">\( \mathbb{R} \)</button>
+                    <button type="button" onclick="insertLatex('\\mathbb{N}')">\( \mathbb{N} \)</button>
+                    <button type="button" onclick="insertLatex('\\mathbb{Z}')">\( \mathbb{Z} \)</button>
+                    <button type="button" onclick="insertLatex('\\mathbb{Q}')">\( \mathbb{Q} \)</button>
+                    <button type="button" onclick="insertLatex('\\mathbb{C}')">\( \mathbb{C} \)</button>
+                    <button type="button" onclick="insertLatex('\\mathcal{A}')">\( \mathcal{A} \)</button>
+                    <button type="button" onclick="insertLatex('\\mathcal{B}')">\( \mathcal{B} \)</button>
+                    <button type="button" onclick="insertLatex('\\mathcal{F}')">\( \mathcal{F} \)</button>
+                    <button type="button" onclick="insertLatex('\\cup')">\( \cup \)</button>
+                    <button type="button" onclick="insertLatex('\\cap')">\( \cap \)</button>
+                    <button type="button" onclick="insertLatex('\\subset')">\( \subset \)</button>
+                    <button type="button" onclick="insertLatex('\\supset')">\( \supset \)</button>
+                    <button type="button" onclick="insertLatex('\\subseteq')">\( \subseteq \)</button>
+                    <button type="button" onclick="insertLatex('\\supseteq')">\( \supseteq \)</button>
+                    <button type="button" onclick="insertLatex('\\in')">\( \in \)</button>
+                    <button type="button" onclick="insertLatex('\\notin')">\( \notin \)</button>
+                    <button type="button" onclick="insertLatex('\\forall')">\( \forall \)</button>
+                    <button type="button" onclick="insertLatex('\\exists')">\( \exists \)</button>
+                    <button type="button" onclick="insertLatex('\\neg')">\( \neg \)</button>
+                    <button type="button" onclick="insertLatex('\\implies')">\( \implies \)</button>
+                    <button type="button" onclick="insertLatex('\\iff')">\( \iff \)</button>
+                    <button type="button" onclick="insertLatex('\\to')">\( \to \)</button>
+                    <button type="button" onclick="insertLatex('\\rightarrow')">\( \rightarrow \)</button>
+                    <button type="button" onclick="insertLatex('\\leftarrow')">\( \leftarrow \)</button>
+                    <button type="button" onclick="insertLatex('\\uparrow')">\( \uparrow \)</button>
+                    <button type="button" onclick="insertLatex('\\downarrow')">\( \downarrow \)</button>
+                    <button type="button" onclick="insertLatex('\\Rightarrow')">\( \Rightarrow \)</button>
+                    <button type="button" onclick="insertLatex('\\Leftarrow')">\( \Leftarrow \)</button>
+                    <button type="button" onclick="insertLatex('\\Leftrightarrow')">\( \Leftrightarrow \)</button>
+                    <button type="button" onclick="insertLatex('\\dots')">\( \dots \)</button>
+                    <button type="button" onclick="insertLatex('\\ldots')">\( \ldots \)</button>
+                    <button type="button" onclick="insertLatex('\\cdots')">\( \cdots \)</button>
+                    <button type="button" onclick="insertLatex('\\vdots')">\( \vdots \)</button>
+                    <button type="button" onclick="insertLatex('\\ddots')">\( \ddots \)</button>
+                </div>
+            </div>
+            <!-- Rasm yuklash maydoni -->
+            <label>Rasm yuklash (ixtiyoriy):</label>
+            <input type="file" name="question_image" accept="image/*" style="margin-bottom: 12px;">
+            <div class="preview-label">Ko‘rinishi:</div>
+            <div class="preview-box" id="formula-preview"></div>
+
+            <label>Savol turi:</label>
+            <select name="question_type" id="question-type-select" required onchange="toggleAnswerFields()">
+                {% for value, label in question_types %}
+                    <option value="{{ value }}" {% if selected.question_type == value %}selected{% endif %}>{{ label }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Qo‘shish</button>
+            <div id="single-choice-fields" style="display:none;">
+                <label>Javob variantlari (bitta to‘g‘ri):</label>
+                <div id="single-choice-options">
+                    <div class="single-choice-row">
+                        <div style="position:relative; flex:1 1 auto; display:flex; align-items:center;">
+                            <input type="text" name="single_option_1" placeholder="Variant 1" class="variant-input" oninput="updateVariantPreview(this)">
+                            <div class="variant-preview" style="margin-top:2px; min-height:22px; background:#f8f9fa; border-radius:4px; padding:2px 8px; font-size:15px; color:#333;"></div>
+                            <div class="formula-calc-btn" tabindex="0" onclick="toggleFormulaPopup(event, this)" title="Matematik formula qo'shish" style="margin-left:4px; position:relative;">
+                                <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="2"/><rect x="7" y="7" width="2" height="2" fill="currentColor"/><rect x="11" y="7" width="2" height="2" fill="currentColor"/><rect x="15" y="7" width="2" height="2" fill="currentColor"/><rect x="7" y="11" width="2" height="2" fill="currentColor"/><rect x="11" y="11" width="2" height="2" fill="currentColor"/><rect x="15" y="11" width="2" height="2" fill="currentColor"/><rect x="7" y="15" width="2" height="2" fill="currentColor"/><rect x="11" y="15" width="2" height="2" fill="currentColor"/><rect x="15" y="15" width="2" height="2" fill="currentColor"/></svg>
+                                <div class="formula-popup" style="display:none; left:auto; right:0; top:40px; min-width:220px; max-width:350px; z-index:1000;" onclick="event.stopPropagation()">
+                                    <button type="button" onclick="insertLatexToInput('\\frac{a}{b}', this)">\( \frac{a}{b} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\sqrt{x}', this)">\( \sqrt{x} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('x^2', this)">\( x^2 \)</button>
+                                    <button type="button" onclick="insertLatexToInput('x_2', this)">\( x_2 \)</button>
+                                    <button type="button" onclick="insertLatexToInput('+', this)">+</button>
+                                    <button type="button" onclick="insertLatexToInput('-', this)">-</button>
+                                    <button type="button" onclick="insertLatexToInput('\\cdot', this)">\( \cdot \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\times', this)">\( \times \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\div', this)">\( \div \)</button>
+                                    <button type="button" onclick="insertLatexToInput('=', this)">=</button>
+                                    <button type="button" onclick="insertLatexToInput('<', this)">&lt;</button>
+                                    <button type="button" onclick="insertLatexToInput('>', this)">&gt;</button>
+                                    <button type="button" onclick="insertLatexToInput('\\leq', this)">\( \leq \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\geq', this)">\( \geq \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\neq', this)">\( \neq \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\approx', this)">\( \approx \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\pm', this)">\( \pm \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\mp', this)">\( \mp \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\infty', this)">\( \infty \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\pi', this)">\( \pi \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\phi', this)">\( \phi \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\alpha', this)">\( \alpha \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\beta', this)">\( \beta \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\gamma', this)">\( \gamma \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\theta', this)">\( \theta \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\lambda', this)">\( \lambda \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\mu', this)">\( \mu \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\sigma', this)">\( \sigma \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\omega', this)">\( \omega \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\sum_{i=1}^{n}', this)">\( \sum_{i=1}^{n} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\prod_{i=1}^{n}', this)">\( \prod_{i=1}^{n} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\int_{a}^{b}', this)">\( \int_{a}^{b} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\iint', this)">\( \iint \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\iiint', this)">\( \iiint \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\lim_{x \\to 0}', this)">\( \lim_{x \to 0} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\log', this)">\( \log \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\ln', this)">\( \ln \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\exp', this)">\( \exp \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\sqrt[3]{x}', this)">\( \sqrt[3]{x} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\sin', this)">\( \sin \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\cos', this)">\( \cos \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\tan', this)">\( \tan \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\csc', this)">\( \csc \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\sec', this)">\( \sec \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\cot', this)">\( \cot \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\arcsin', this)">\( \arcsin \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\arccos', this)">\( \arccos \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\arctan', this)">\( \arctan \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\mathrm{d}', this)">\( \mathrm{d} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\left(', this)">\( ( \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\right)', this)">\( ) \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\left[', this)">\( [ \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\right]', this)">\( ] \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\left\\{', this)">\( \{ \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\right\\}', this)">\( \} \)</button>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="radio" name="single_correct" value="1"> To‘g‘ri
+                        <button type="button" class="remove-variant-btn" onclick="removeVariant(this)" title="O‘chirish">&times;</button>
+                    </div>
+                    <div class="single-choice-row">
+                        <div style="position:relative; flex:1 1 auto; display:flex; align-items:center;">
+                            <input type="text" name="single_option_2" placeholder="Variant 2" class="variant-input" oninput="updateVariantPreview(this)">
+                            <div class="variant-preview" style="margin-top:2px; min-height:22px; background:#f8f9fa; border-radius:4px; padding:2px 8px; font-size:15px; color:#333;"></div>
+                            <div class="formula-calc-btn" tabindex="0" onclick="toggleFormulaPopup(event, this)" title="Matematik formula qo'shish" style="margin-left:4px; position:relative;">
+                                <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="2"/><rect x="7" y="7" width="2" height="2" fill="currentColor"/><rect x="11" y="7" width="2" height="2" fill="currentColor"/><rect x="15" y="7" width="2" height="2" fill="currentColor"/><rect x="7" y="11" width="2" height="2" fill="currentColor"/><rect x="11" y="11" width="2" height="2" fill="currentColor"/><rect x="15" y="11" width="2" height="2" fill="currentColor"/><rect x="7" y="15" width="2" height="2" fill="currentColor"/><rect x="11" y="15" width="2" height="2" fill="currentColor"/><rect x="15" y="15" width="2" height="2" fill="currentColor"/></svg>
+                                <div class="formula-popup" style="display:none; left:auto; right:0; top:40px; min-width:220px; max-width:350px; z-index:1000;" onclick="event.stopPropagation()">
+                                    <!-- same buttons as above -->
+                                    <button type="button" onclick="insertLatexToInput('\\frac{a}{b}', this)">\( \frac{a}{b} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\sqrt{x}', this)">\( \sqrt{x} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('x^2', this)">\( x^2 \)</button>
+                                    <button type="button" onclick="insertLatexToInput('x_2', this)">\( x_2 \)</button>
+                                    <button type="button" onclick="insertLatexToInput('+', this)">+</button>
+                                    <button type="button" onclick="insertLatexToInput('-', this)">-</button>
+                                    <button type="button" onclick="insertLatexToInput('\\cdot', this)">\( \cdot \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\times', this)">\( \times \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\div', this)">\( \div \)</button>
+                                    <button type="button" onclick="insertLatexToInput('=', this)">=</button>
+                                    <button type="button" onclick="insertLatexToInput('<', this)">&lt;</button>
+                                    <button type="button" onclick="insertLatexToInput('>', this)">&gt;</button>
+                                    <button type="button" onclick="insertLatexToInput('\\leq', this)">\( \leq \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\geq', this)">\( \geq \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\neq', this)">\( \neq \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\approx', this)">\( \approx \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\pm', this)">\( \pm \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\mp', this)">\( \mp \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\infty', this)">\( \infty \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\pi', this)">\( \pi \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\phi', this)">\( \phi \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\alpha', this)">\( \alpha \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\beta', this)">\( \beta \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\gamma', this)">\( \gamma \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\theta', this)">\( \theta \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\lambda', this)">\( \lambda \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\mu', this)">\( \mu \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\sigma', this)">\( \sigma \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\omega', this)">\( \omega \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\sum_{i=1}^{n}', this)">\( \sum_{i=1}^{n} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\prod_{i=1}^{n}', this)">\( \prod_{i=1}^{n} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\int_{a}^{b}', this)">\( \int_{a}^{b} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\iint', this)">\( \iint \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\iiint', this)">\( \iiint \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\lim_{x \\to 0}', this)">\( \lim_{x \\to 0} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\log', this)">\( \log \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\ln', this)">\( \ln \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\exp', this)">\( \exp \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\sqrt[3]{x}', this)">\( \sqrt[3]{x} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\sin', this)">\( \sin \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\cos', this)">\( \cos \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\tan', this)">\( \tan \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\csc', this)">\( \csc \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\sec', this)">\( \sec \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\cot', this)">\( \cot \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\arcsin', this)">\( \arcsin \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\arccos', this)">\( \arccos \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\arctan', this)">\( \arctan \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\mathrm{d}', this)">\( \mathrm{d} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\left(', this)">\( ( \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\right)', this)">\( ) \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\left[', this)">\( [ \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\right]', this)">\( ] \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\left\\{', this)">\( \{ \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\right\\}', this)">\( \} \)</button>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="radio" name="single_correct" value="2"> To‘g‘ri
+                        <button type="button" class="remove-variant-btn" onclick="removeVariant(this)" title="O‘chirish">&times;</button>
+                    </div>
+                    <div class="single-choice-row">
+                        <div style="position:relative; flex:1 1 auto; display:flex; align-items:center;">
+                            <input type="text" name="single_option_3" placeholder="Variant 3" class="variant-input" oninput="updateVariantPreview(this)">
+                            <div class="variant-preview" style="margin-top:2px; min-height:22px; background:#f8f9fa; border-radius:4px; padding:2px 8px; font-size:15px; color:#333;"></div>
+                            <div class="formula-calc-btn" tabindex="0" onclick="toggleFormulaPopup(event, this)" title="Matematik formula qo'shish" style="margin-left:4px; position:relative;">
+                                <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="2"/><rect x="7" y="7" width="2" height="2" fill="currentColor"/><rect x="11" y="7" width="2" height="2" fill="currentColor"/><rect x="15" y="7" width="2" height="2" fill="currentColor"/><rect x="7" y="11" width="2" height="2" fill="currentColor"/><rect x="11" y="11" width="2" height="2" fill="currentColor"/><rect x="15" y="11" width="2" height="2" fill="currentColor"/><rect x="7" y="15" width="2" height="2" fill="currentColor"/><rect x="11" y="15" width="2" height="2" fill="currentColor"/><rect x="15" y="15" width="2" height="2" fill="currentColor"/></svg>
+                                <div class="formula-popup" style="display:none; left:auto; right:0; top:40px; min-width:220px; max-width:350px; z-index:1000;" onclick="event.stopPropagation()">
+                                    <!-- same buttons as above -->
+                                    <button type="button" onclick="insertLatexToInput('\\frac{a}{b}', this)">\( \frac{a}{b} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\sqrt{x}', this)">\( \sqrt{x} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('x^2', this)">\( x^2 \)</button>
+                                    <button type="button" onclick="insertLatexToInput('x_2', this)">\( x_2 \)</button>
+                                    <button type="button" onclick="insertLatexToInput('+', this)">+</button>
+                                    <button type="button" onclick="insertLatexToInput('-', this)">-</button>
+                                    <button type="button" onclick="insertLatexToInput('\\cdot', this)">\( \cdot \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\times', this)">\( \times \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\div', this)">\( \div \)</button>
+                                    <button type="button" onclick="insertLatexToInput('=', this)">=</button>
+                                    <button type="button" onclick="insertLatexToInput('<', this)">&lt;</button>
+                                    <button type="button" onclick="insertLatexToInput('>', this)">&gt;</button>
+                                    <button type="button" onclick="insertLatexToInput('\\leq', this)">\( \leq \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\geq', this)">\( \geq \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\neq', this)">\( \neq \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\approx', this)">\( \approx \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\pm', this)">\( \pm \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\mp', this)">\( \mp \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\infty', this)">\( \infty \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\pi', this)">\( \pi \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\phi', this)">\( \phi \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\alpha', this)">\( \alpha \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\beta', this)">\( \beta \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\gamma', this)">\( \gamma \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\theta', this)">\( \theta \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\lambda', this)">\( \lambda \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\mu', this)">\( \mu \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\sigma', this)">\( \sigma \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\omega', this)">\( \omega \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\sum_{i=1}^{n}', this)">\( \sum_{i=1}^{n} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\prod_{i=1}^{n}', this)">\( \prod_{i=1}^{n} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\int_{a}^{b}', this)">\( \int_{a}^{b} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\iint', this)">\( \iint \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\iiint', this)">\( \iiint \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\lim_{x \\to 0}', this)">\( \lim_{x \\to 0} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\log', this)">\( \log \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\ln', this)">\( \ln \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\exp', this)">\( \exp \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\sqrt[3]{x}', this)">\( \sqrt[3]{x} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\sin', this)">\( \sin \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\cos', this)">\( \cos \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\tan', this)">\( \tan \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\csc', this)">\( \csc \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\sec', this)">\( \sec \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\cot', this)">\( \cot \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\arcsin', this)">\( \arcsin \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\arccos', this)">\( \arccos \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\arctan', this)">\( \arctan \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\mathrm{d}', this)">\( \mathrm{d} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\left(', this)">\( ( \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\right)', this)">\( ) \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\left[', this)">\( [ \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\right]', this)">\( ] \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\left\\{', this)">\( \{ \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\right\\}', this)">\( \} \)</button>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="radio" name="single_correct" value="3"> To‘g‘ri
+                        <button type="button" class="remove-variant-btn" onclick="removeVariant(this)" title="O‘chirish">&times;</button>
+                    </div>
+                    <div class="single-choice-row">
+                        <div style="position:relative; flex:1 1 auto; display:flex; align-items:center;">
+                            <input type="text" name="single_option_4" placeholder="Variant 4" class="variant-input" oninput="updateVariantPreview(this)">
+                            <div class="variant-preview" style="margin-top:2px; min-height:22px; background:#f8f9fa; border-radius:4px; padding:2px 8px; font-size:15px; color:#333;"></div>
+                            <div class="formula-calc-btn" tabindex="0" onclick="toggleFormulaPopup(event, this)" title="Matematik formula qo'shish" style="margin-left:4px; position:relative;">
+                                <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="2"/><rect x="7" y="7" width="2" height="2" fill="currentColor"/><rect x="11" y="7" width="2" height="2" fill="currentColor"/><rect x="15" y="7" width="2" height="2" fill="currentColor"/><rect x="7" y="11" width="2" height="2" fill="currentColor"/><rect x="11" y="11" width="2" height="2" fill="currentColor"/><rect x="15" y="11" width="2" height="2" fill="currentColor"/><rect x="7" y="15" width="2" height="2" fill="currentColor"/><rect x="11" y="15" width="2" height="2" fill="currentColor"/><rect x="15" y="15" width="2" height="2" fill="currentColor"/></svg>
+                                <div class="formula-popup" style="display:none; left:auto; right:0; top:40px; min-width:220px; max-width:350px; z-index:1000;" onclick="event.stopPropagation()">
+                                    <!-- same buttons as above -->
+                                    <button type="button" onclick="insertLatexToInput('\\frac{a}{b}', this)">\( \frac{a}{b} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\sqrt{x}', this)">\( \sqrt{x} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('x^2', this)">\( x^2 \)</button>
+                                    <button type="button" onclick="insertLatexToInput('x_2', this)">\( x_2 \)</button>
+                                    <button type="button" onclick="insertLatexToInput('+', this)">+</button>
+                                    <button type="button" onclick="insertLatexToInput('-', this)">-</button>
+                                    <button type="button" onclick="insertLatexToInput('\\cdot', this)">\( \cdot \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\times', this)">\( \times \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\div', this)">\( \div \)</button>
+                                    <button type="button" onclick="insertLatexToInput('=', this)">=</button>
+                                    <button type="button" onclick="insertLatexToInput('<', this)">&lt;</button>
+                                    <button type="button" onclick="insertLatexToInput('>', this)">&gt;</button>
+                                    <button type="button" onclick="insertLatexToInput('\\leq', this)">\( \leq \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\geq', this)">\( \geq \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\neq', this)">\( \neq \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\approx', this)">\( \approx \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\pm', this)">\( \pm \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\mp', this)">\( \mp \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\infty', this)">\( \infty \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\pi', this)">\( \pi \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\phi', this)">\( \phi \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\alpha', this)">\( \alpha \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\beta', this)">\( \beta \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\gamma', this)">\( \gamma \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\theta', this)">\( \theta \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\lambda', this)">\( \lambda \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\mu', this)">\( \mu \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\sigma', this)">\( \sigma \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\omega', this)">\( \omega \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\sum_{i=1}^{n}', this)">\( \sum_{i=1}^{n} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\prod_{i=1}^{n}', this)">\( \prod_{i=1}^{n} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\int_{a}^{b}', this)">\( \int_{a}^{b} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\iint', this)">\( \iint \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\iiint', this)">\( \iiint \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\lim_{x \\to 0}', this)">\( \lim_{x \\to 0} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\log', this)">\( \log \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\ln', this)">\( \ln \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\exp', this)">\( \exp \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\sqrt[3]{x}', this)">\( \sqrt[3]{x} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\sin', this)">\( \sin \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\cos', this)">\( \cos \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\tan', this)">\( \tan \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\csc', this)">\( \csc \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\sec', this)">\( \sec \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\cot', this)">\( \cot \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\arcsin', this)">\( \arcsin \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\arccos', this)">\( \arccos \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\arctan', this)">\( \arctan \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\mathrm{d}', this)">\( \mathrm{d} \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\left(', this)">\( ( \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\right)', this)">\( ) \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\left[', this)">\( [ \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\right]', this)">\( ] \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\left\\{', this)">\( \{ \)</button>
+                                    <button type="button" onclick="insertLatexToInput('\\right\\}', this)">\( \} \)</button>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="radio" name="single_correct" value="4"> To‘g‘ri
+                        <button type="button" class="remove-variant-btn" onclick="removeVariant(this)" title="O‘chirish">&times;</button>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-outline-secondary btn-sm mt-2" onclick="addSingleChoiceOption()">Yana variant qo‘shish</button>
+            </div>
+            <div id="multiple-choice-fields" style="display:none;">
+                <label>Javob variantlari (bir nechta to‘g‘ri):</label>
+                <div id="multiple-choice-options">
+                    <div class="multiple-choice-row">
+                        <input type="text" name="multi_option_1" placeholder="Variant 1">
+                        <input type="checkbox" name="multi_correct_1"> To‘g‘ri
+                        <button type="button" class="remove-variant-btn" onclick="removeVariant(this)" title="O‘chirish">&times;</button>
+                    </div>
+                    <div class="multiple-choice-row">
+                        <input type="text" name="multi_option_2" placeholder="Variant 2">
+                        <input type="checkbox" name="multi_correct_2"> To‘g‘ri
+                        <button type="button" class="remove-variant-btn" onclick="removeVariant(this)" title="O‘chirish">&times;</button>
+                    </div>
+                    <div class="multiple-choice-row">
+                        <input type="text" name="multi_option_3" placeholder="Variant 3">
+                        <input type="checkbox" name="multi_correct_3"> To‘g‘ri
+                        <button type="button" class="remove-variant-btn" onclick="removeVariant(this)" title="O‘chirish">&times;</button>
+                    </div>
+                    <div class="multiple-choice-row">
+                        <input type="text" name="multi_option_4" placeholder="Variant 4">
+                        <input type="checkbox" name="multi_correct_4"> To‘g‘ri
+                        <button type="button" class="remove-variant-btn" onclick="removeVariant(this)" title="O‘chirish">&times;</button>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-outline-secondary btn-sm mt-2" onclick="addMultipleChoiceOption()">Yana variant qo‘shish</button>
+            </div>
+            <div id="fill-blank-fields" style="display:none;">
+                <label>To‘g‘ri javob (bo‘sh joyni to‘ldirish):</label>
+                <input type="text" name="fill_blank_answer" placeholder="To‘g‘ri javob">
+            </div>
+            <div id="true-false-fields" style="display:none;">
+                <label>To‘g‘ri javob:</label>
+                <select name="true_false_answer">
+                    <option value="true">To‘g‘ri</option>
+                    <option value="false">Noto‘g‘ri</option>
+                </select>
+            </div>
+            <div id="matching-fields" style="display:none;">
+                <label>Matching variantlari (chapda so‘z, o‘ngda javob):</label>
+                <div style="color:#007bff; font-size:15px; margin-bottom:8px;">
+                    Har bir javob uchun <b>matn yoki rasm</b> kiritish mumkin. Agar rasm yuklansa, matn bo‘sh qolishi mumkin.
+                </div>
+                <div id="matching-options">
+                    <div class="matching-row d-flex align-items-center mb-2">
+                        <input type="text" name="matching_left_1" placeholder="So‘z (masalan: I)" style="width:30%; margin-right:8px;">
+                        <span style="font-weight:600; margin-right:8px;">—</span>
+                        <input type="text" name="matching_right_1" placeholder="Javob (masalan: am)" style="width:30%; margin-right:8px;">
+                        <input type="file" name="matching_image_1" accept="image/*" style="width:20%; margin-right:8px;">
+                        <button type="button" class="remove-variant-btn" onclick="removeVariant(this)" title="O‘chirish">&times;</button>
+                    </div>
+                    <div class="matching-row d-flex align-items-center mb-2">
+                        <input type="text" name="matching_left_2" placeholder="So‘z (masalan: you)" style="width:30%; margin-right:8px;">
+                        <span style="font-weight:600; margin-right:8px;">—</span>
+                        <input type="text" name="matching_right_2" placeholder="Javob (masalan: are)" style="width:30%; margin-right:8px;">
+                        <input type="file" name="matching_image_2" accept="image/*" style="width:20%; margin-right:8px;">
+                        <button type="button" class="remove-variant-btn" onclick="removeVariant(this)" title="O‘chirish">&times;</button>
+                    </div>
+                    <div class="matching-row d-flex align-items-center mb-2">
+                        <input type="text" name="matching_left_3" placeholder="So‘z (masalan: it)" style="width:30%; margin-right:8px;">
+                        <span style="font-weight:600; margin-right:8px;">—</span>
+                        <input type="text" name="matching_right_3" placeholder="Javob (masalan: is)" style="width:30%; margin-right:8px;">
+                        <input type="file" name="matching_image_3" accept="image/*" style="width:20%; margin-right:8px;">
+                        <button type="button" class="remove-variant-btn" onclick="removeVariant(this)" title="O‘chirish">&times;</button>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-outline-secondary btn-sm mt-2" onclick="addMatchingOption2()">Yana qator qo‘shish</button>
+            </div>
+
+        </form>
+        <script>
+function toggleFormulaPopup(e, btn) {
+    e.stopPropagation();
+    // Yopiq popuplarni yopamiz
+    document.querySelectorAll('.formula-popup').forEach(function(popup) {
+        popup.style.display = 'none';
+    });
+    let popup = btn.querySelector('.formula-popup');
+    if (!popup) popup = btn.nextElementSibling;
+    if (popup && (popup.style.display === 'none' || popup.style.display === '')) {
+        popup.style.display = 'grid';
+        // Faqat shu popup uchun handler
+        function handler(ev) {
+            if (!popup.contains(ev.target) && !btn.contains(ev.target)) {
+                popup.style.display = 'none';
+                document.removeEventListener('mousedown', handler);
+            }
+        }
+        setTimeout(function() { document.addEventListener('mousedown', handler); }, 0);
+    } else if (popup) {
+        popup.style.display = 'none';
+    }
+}
+            function insertLatexToInput(latex, btn) {
+                // Find the closest input[type="text"] in the same answer row as the button
+                let row = btn.closest('.single-choice-row, .multiple-choice-row, .matching-row, .ordering-row');
+                let input = row ? row.querySelector('input[type="text"]') : null;
+                if (!input) {
+                    // fallback: try parent div
+                    input = btn.closest('div').querySelector('input[type="text"]');
+                }
+                if (!input) return;
+                const start = input.selectionStart;
+                const end = input.selectionEnd;
+                const before = input.value.substring(0, start);
+                const after = input.value.substring(end);
+                input.value = before + latex + after;
+                input.focus();
+                input.setSelectionRange(start + latex.length, start + latex.length);
+                updateVariantPreview(input);
+            }
+            function updateVariantPreview(input) {
+                // Show a preview for each variant under the row
+                let row = input.closest('.single-choice-row');
+                let preview = row ? row.querySelector('.variant-preview') : null;
+                if (!preview) return;
+                let latex = input.value;
+                preview.innerHTML = latex ? '\\(' + latex + '\\)' : '';
+                if (window.MathJax && MathJax.typeset) MathJax.typeset([preview]);
+            }
+            function insertLatex(latex) {
+                const textarea = document.getElementById('question-text');
+                const start = textarea.selectionStart;
+                const end = textarea.selectionEnd;
+                const before = textarea.value.substring(0, start);
+                const after = textarea.value.substring(end);
+                textarea.value = before + latex + after;
+                textarea.focus();
+                textarea.setSelectionRange(start + latex.length, start + latex.length);
+                updatePreview();
+            }
+            function updatePreview() {
+                let latex = document.getElementById('question-text').value;
+                document.getElementById('formula-preview').innerHTML = latex ? '\\(' + latex + '\\)' : '';
+                if (window.MathJax && MathJax.typeset) MathJax.typeset([document.getElementById('formula-preview')]);
+            }
+            // Variant functions
+            function removeVariant(btn) {
+                var parentRow = btn.closest('.single-choice-row, .multiple-choice-row, .matching-row, .ordering-row');
+                if (parentRow) parentRow.remove();
+            }
+            var matchingCount = 4;
+            function addMatchingOption() {
+                matchingCount++;
+                var container = document.getElementById('matching-options');
+                var div = document.createElement('div');
+                div.className = 'matching-row';
+                div.innerHTML = '<input type="text" name="matching_' + matchingCount + '" placeholder="' + matchingCount + ': ...">' +
+                    '<button type="button" class="remove-variant-btn" onclick="removeVariant(this)" title="O‘chirish">&times;</button>';
+                container.appendChild(div);
+            }
+            var orderingCount = 4;
+            function addOrderingOption() {
+                orderingCount++;
+                var container = document.getElementById('ordering-options');
+                var div = document.createElement('div');
+                div.className = 'ordering-row';
+                div.innerHTML = '<input type="text" name="ordering_' + orderingCount + '" placeholder="' + orderingCount + '-variant">' +
+                    '<button type="button" class="remove-variant-btn" onclick="removeVariant(this)" title="O‘chirish">&times;</button>';
+                container.appendChild(div);
+            }
+            function toggleAnswerFields() {
+                var type = document.getElementById('question-type-select').value;
+                document.getElementById('single-choice-fields').style.display = (type === 'single_choice') ? 'block' : 'none';
+                document.getElementById('multiple-choice-fields').style.display = (type === 'multiple_choice') ? 'block' : 'none';
+                document.getElementById('fill-blank-fields').style.display = (type === 'fill_in_blank') ? 'block' : 'none';
+                document.getElementById('true-false-fields').style.display = (type === 'true_false') ? 'block' : 'none';
+                document.getElementById('matching-fields').style.display = (type === 'matching') ? 'block' : 'none';
+                
+            }
+            var singleChoiceCount = 4;
+            function addSingleChoiceOption() {
+                singleChoiceCount++;
+                var container = document.getElementById('single-choice-options');
+                var div = document.createElement('div');
+                div.className = 'single-choice-row';
+                div.innerHTML = '<input type="text" name="single_option_' + singleChoiceCount + '" placeholder="Variant ' + singleChoiceCount + '">' +
+                    ' <input type="radio" name="single_correct" value="' + singleChoiceCount + '"> To‘g‘ri' +
+                    '<button type="button" class="remove-variant-btn" onclick="removeVariant(this)" title="O‘chirish">&times;</button>';
+                container.appendChild(div);
+            }
+            var multipleChoiceCount = 4;
+            function addMultipleChoiceOption() {
+                multipleChoiceCount++;
+                var container = document.getElementById('multiple-choice-options');
+                var div = document.createElement('div');
+                div.className = 'multiple-choice-row';
+                div.innerHTML = '<input type="text" name="multi_option_' + multipleChoiceCount + '" placeholder="Variant ' + multipleChoiceCount + '">' +
+                    ' <input type="checkbox" name="multi_correct_' + multipleChoiceCount + '"> To‘g‘ri' +
+                    '<button type="button" class="remove-variant-btn" onclick="removeVariant(this)" title="O‘chirish">&times;</button>';
+                container.appendChild(div);
+            }
+            window.onload = function() {
+                updatePreview();
+                toggleAnswerFields();
+                document.getElementById('formula-popup').style.display = 'none';
+            };
+        </script>
+        <div class="back-link">
+            <a href="/api/teacher-panel/dashboard/">← Panelga qaytish</a>
+        </div>
+    </div>
+</body>
+</html>
