@@ -1,5 +1,5 @@
 # --- LOGGING ---
-LOGIN_URL = '/login/'
+LOGIN_URL = '/api/login/'
 
 from pathlib import Path
 

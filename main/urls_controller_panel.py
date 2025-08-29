@@ -2,7 +2,9 @@ from django.urls import path
 
 
 
+
 from . import views_controller_panel
+from . import views_participated
 
 urlpatterns = [
     path('group-subjects/', views_controller_panel.group_subjects_list, name='group_subjects_list'),
@@ -18,4 +20,8 @@ urlpatterns = [
     path('export-users-excel/', views_controller_panel.export_users_excel, name='export_users_excel'),
     path('export-users-word/', views_controller_panel.export_users_word, name='export_users_word'),
     path('export-users-pdf/', views_controller_panel.export_users_pdf, name='export_users_pdf'),
+
+    # Qatnashganlar ro'yxati va qayta topshirish
+    path('participated-students/', views_participated.participated_students_list, name='participated_students_list'),
+    path('allow-retake/', views_participated.allow_retake, name='allow_retake'),
 ]
