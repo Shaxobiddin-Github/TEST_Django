@@ -36,14 +36,29 @@ def export_subject_results_pdf(request, subject_name):
     elements.append(Spacer(1, 10))
 
     # Table header and data
-    data = [[
-        Paragraph('<b>№</b>', ParagraphStyle('th', alignment=TA_CENTER, fontSize=10)),
-        Paragraph('<b>F.I.O</b>', ParagraphStyle('th', alignment=TA_CENTER, fontSize=10)),
-        Paragraph('<b>Guruh</b>', ParagraphStyle('th', alignment=TA_CENTER, fontSize=10)),
-        Paragraph('<b>Savollar soni</b>', ParagraphStyle('th', alignment=TA_CENTER, fontSize=10)),
-        Paragraph('<b>To\'g\'ri javoblar soni</b>', ParagraphStyle('th', alignment=TA_CENTER, fontSize=10)),
-        Paragraph('<b>Foizi</b>', ParagraphStyle('th', alignment=TA_CENTER, fontSize=10)),
-    ]]
+    is_super = request.user.is_authenticated and request.user.is_superuser
+    if is_super:
+        data = [[
+            Paragraph('<b>№</b>', ParagraphStyle('th', alignment=TA_CENTER, fontSize=10)),
+            Paragraph('<b>F.I.O</b>', ParagraphStyle('th', alignment=TA_CENTER, fontSize=10)),
+            Paragraph('<b>Guruh</b>', ParagraphStyle('th', alignment=TA_CENTER, fontSize=10)),
+            Paragraph('<b>Savollar soni</b>', ParagraphStyle('th', alignment=TA_CENTER, fontSize=10)),
+            Paragraph('<b>To\'g\'ri javoblar</b>', ParagraphStyle('th', alignment=TA_CENTER, fontSize=10)),
+            Paragraph('<b>Asl foiz</b>', ParagraphStyle('th', alignment=TA_CENTER, fontSize=10)),
+            Paragraph('<b>Yakuniy foiz</b>', ParagraphStyle('th', alignment=TA_CENTER, fontSize=10)),
+            Paragraph('<b>Final ball</b>', ParagraphStyle('th', alignment=TA_CENTER, fontSize=10)),
+            Paragraph('<b>O\'tgan?</b>', ParagraphStyle('th', alignment=TA_CENTER, fontSize=10)),
+            Paragraph('<b>Status</b>', ParagraphStyle('th', alignment=TA_CENTER, fontSize=10)),
+        ]]
+    else:
+        data = [[
+            Paragraph('<b>№</b>', ParagraphStyle('th', alignment=TA_CENTER, fontSize=10)),
+            Paragraph('<b>F.I.O</b>', ParagraphStyle('th', alignment=TA_CENTER, fontSize=10)),
+            Paragraph('<b>Guruh</b>', ParagraphStyle('th', alignment=TA_CENTER, fontSize=10)),
+            Paragraph('<b>Savollar soni</b>', ParagraphStyle('th', alignment=TA_CENTER, fontSize=10)),
+            Paragraph('<b>To\'g\'ri javoblar</b>', ParagraphStyle('th', alignment=TA_CENTER, fontSize=10)),
+            Paragraph('<b>Foizi</b>', ParagraphStyle('th', alignment=TA_CENTER, fontSize=10)),
+        ]]
     for idx, stest in enumerate(tests, 1):
         fio = f"{stest.student.last_name.upper()} {stest.student.first_name.upper()} {getattr(stest.student, 'middle_name', '')}".strip()
         group = stest.test.group.name if stest.test.group else "-"
@@ -54,19 +69,50 @@ def export_subject_results_pdf(request, subject_name):
             answers = StudentAnswer.objects.filter(student_test=stest)
         total = answers.count()
         correct = answers.filter(is_correct=True).count()
-        percent = (correct/total)*100 if total else 0
-        percent_str = f"{percent:.1f}".replace('.', ',') + "%"
-        data.append([
-            idx,
-            Paragraph(fio, ParagraphStyle('td', alignment=TA_LEFT, fontSize=10)),
-            group,
-            total,
-            correct,
-            percent_str
-        ])
+        # Original foiz (savollarning to'g'ri javobidan kelib chiqqan holda)
+        original_percent = (correct/total)*100 if total else 0
+        # Yakuniy foiz (override bo'lsa final_score / test.total_score)
+        if hasattr(stest, 'final_score'):
+            try:
+                final_percent = (stest.final_score / stest.test.total_score) * 100 if stest.test.total_score else original_percent
+            except Exception:
+                final_percent = original_percent
+        else:
+            final_percent = original_percent
+        original_percent_str = f"{original_percent:.1f}".replace('.', ',') + "%"
+        final_percent_str = f"{final_percent:.1f}".replace('.', ',') + "%"
+        if is_super:
+            status_text = "Override" if (getattr(stest, 'overridden_score', None) is not None or getattr(stest, 'pass_override', False)) else "Normal"
+            final_ball_str = f"{getattr(stest,'final_score', stest.total_score):.1f}".replace('.', ',')
+            final_passed = getattr(stest, 'final_passed', False)
+            passed_label = "Ha" if final_passed else "Yo'q"
+            data.append([
+                idx,
+                Paragraph(fio, ParagraphStyle('td', alignment=TA_LEFT, fontSize=10)),
+                group,
+                total,
+                correct,
+                original_percent_str,
+                final_percent_str,
+                final_ball_str,
+                passed_label,
+                status_text
+            ])
+        else:
+            data.append([
+                idx,
+                Paragraph(fio, ParagraphStyle('td', alignment=TA_LEFT, fontSize=10)),
+                group,
+                total,
+                correct,
+                final_percent_str
+            ])
 
     # Table column widths (ixcham va bir xil)
-    table = Table(data, colWidths=[13*mm, 55*mm, 28*mm, 28*mm, 38*mm, 22*mm])
+    if is_super:
+        table = Table(data, colWidths=[8*mm, 45*mm, 20*mm, 18*mm, 18*mm, 18*mm, 18*mm, 18*mm, 15*mm, 18*mm])
+    else:
+        table = Table(data, colWidths=[13*mm, 55*mm, 28*mm, 28*mm, 38*mm, 22*mm])
     table.setStyle(TableStyle([
         ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
         ('FONTSIZE', (0,0), (-1,0), 10),
@@ -635,10 +681,10 @@ def testapi_stats(request):
 def testapi_all_results(request):
     if not request.user.is_authenticated:
         return redirect('/api/login/')
-    
-    # Faqat admin va controller ko'ra oladi
+    # Faqat admin, controller ko'radi; override detallarini faqat superuser
     if request.user.role not in ['admin', 'controller']:
         return redirect('testapi_dashboard')
+    show_override = request.user.is_superuser
     
     # Barcha tugatilgan testlarni fan va guruh bo'yicha gruppalash
     student_tests = StudentTest.objects.filter(completed=True).select_related(
@@ -712,6 +758,7 @@ def testapi_all_results(request):
                 correct_answer = "To'g'ri moslashtirish"
             
             answer_details.append({
+                'id': answer.id,
                 'question': question,
                 'user_answer': user_answer,
                 'correct_answer': correct_answer,
@@ -720,15 +767,33 @@ def testapi_all_results(request):
             })
         
         # Test ma'lumotlarini qo'shish
-        organized_data[subject_name][group_name]['students'][student_username]['tests'].append({
+        test_entry = {
             'student_test': stest,
             'total': total,
             'correct': correct,
             'incorrect': incorrect,
             'score': score,
             'percent': percent,
-            'answer_details': answer_details
-        })
+            'answer_details': answer_details,
+        }
+        if show_override:
+            # Qo'shimcha override ma'lumotlari
+            try:
+                final_percent_calc = (stest.final_score / stest.test.total_score) * 100 if stest.test.total_score else percent
+            except Exception:
+                final_percent_calc = percent
+            test_entry.update({
+                'final_score': stest.final_score if hasattr(stest, 'final_score') else score,
+                'is_overridden': stest.is_overridden if hasattr(stest, 'is_overridden') else False,
+                'overridden_score': stest.overridden_score,
+                'pass_override': stest.pass_override,
+                'override_reason': stest.override_reason,
+                'overridden_by': stest.overridden_by,
+                'overridden_at': stest.overridden_at,
+                'final_percent': int(final_percent_calc),
+                'final_passed': stest.final_passed if hasattr(stest, 'final_passed') else None,
+            })
+        organized_data[subject_name][group_name]['students'][student_username]['tests'].append(test_entry)
     
     from main.models import Group, Kafedra, Bulim
     groups_list = Group.objects.all().order_by('name')
@@ -738,7 +803,8 @@ def testapi_all_results(request):
         'organized_data': organized_data,
         'groups_list': groups_list,
         'kafedralar_list': kafedralar_list,
-        'bulimlar_list': bulimlar_list
+        'bulimlar_list': bulimlar_list,
+        'show_override': show_override
     })
 
 # Universal Excel eksport (rolga mos)
@@ -777,9 +843,11 @@ def export_all_results_excel(request):
 
     headers = [
         "Fan", "Guruh", "Talaba F.I.Sh.", "Username", "Test sanasi",
-        "Savollar soni", "To'g'ri javob", "Xato javob", "Ball", "Maksimal ball", "Foiz",
-        "Savol", "Talaba javobi", "To'g'ri javob", "Holat", "Ball (savol)"
+        "Savollar soni", "To'g'ri javob", "Xato javob", "Ball", "Maksimal ball", "Foiz"
     ]
+    if request.user.is_superuser:
+        headers.extend(["Yakuniy ball", "Final o'tdi?"])
+    headers.extend(["Savol", "Talaba javobi", "To'g'ri javob", "Holat", "Ball (savol)"])
     for col, header in enumerate(headers, 1):
         cell = ws.cell(row=1, column=col, value=header)
         cell.font = header_font
@@ -805,6 +873,8 @@ def export_all_results_excel(request):
         incorrect = total - correct
         score = sum([a.score for a in answers])
         percent = int((correct / total) * 100) if total else 0
+        final_score = getattr(stest, 'final_score', score)
+        final_passed = getattr(stest, 'final_passed', None)
 
         if answers.exists():
             for answer in answers:
@@ -826,26 +896,29 @@ def export_all_results_excel(request):
                 elif question.question_type == 'matching':
                     user_answer = "Moslashtirish javobi"
                     correct_answer = "To'g'ri moslashtirish"
-                data = [
-                    subject, group, student_fio, username, test_date,
-                    total, correct, incorrect, score, stest.test.total_score, f"{percent}%",
-                    question.text, user_answer, correct_answer,
-                    "To'g'ri" if answer.is_correct else "Xato", answer.score
-                ]
+                data = [subject, group, student_fio, username, test_date,
+                        total, correct, incorrect, score, stest.test.total_score, f"{percent}%"]
+                if request.user.is_superuser:
+                    data.extend([final_score, "Ha" if final_passed else "Yo'q"])
+                data.extend([question.text, user_answer, correct_answer,
+                             "To'g'ri" if answer.is_correct else "Xato", answer.score])
                 for col, value in enumerate(data, 1):
                     ws.cell(row=row, column=col, value=value)
                 row += 1
         else:
-            data = [
-                subject, group, student_fio, username, test_date,
-                0, 0, 0, 0, stest.test.total_score, "0%",
-                "Javob berilmagan", "", "", "", 0
-            ]
+            data = [subject, group, student_fio, username, test_date,
+                    0, 0, 0, 0, stest.test.total_score, "0%"]
+            if request.user.is_superuser:
+                data.extend([final_score, "Ha" if final_passed else "Yo'q"])
+            data.extend(["Javob berilmagan", "", "", "", 0])
             for col, value in enumerate(data, 1):
                 ws.cell(row=row, column=col, value=value)
             row += 1
 
-    column_widths = [20, 18, 22, 15, 18, 10, 12, 12, 10, 12, 8, 40, 30, 30, 10, 8]
+    column_widths = [20, 18, 22, 15, 18, 10, 12, 12, 10, 12, 8]
+    if request.user.is_superuser:
+        column_widths.extend([12, 10])
+    column_widths.extend([40, 30, 30, 10, 8])
     for col, width in enumerate(column_widths, 1):
         ws.column_dimensions[get_column_letter(col)].width = width
 

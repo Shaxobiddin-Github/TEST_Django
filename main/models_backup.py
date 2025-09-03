@@ -251,7 +251,6 @@ class Test(models.Model):
     total_score = models.PositiveIntegerField(verbose_name="Umumiy ball")
     duration = models.DurationField(verbose_name="Test muddati")
     minutes = models.PositiveIntegerField(verbose_name="Test vaqti (daqiqa)", default=30)
-    pass_percent = models.PositiveIntegerField(verbose_name="O'tish foizi", default=56, help_text="Talabaning foiz natijasi shu qiymatdan >= bo'lsa o'tgan hisoblanadi")
     active = models.BooleanField(default=True, verbose_name="Faol testmi")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Yaratilgan sana")
     start_time = models.DateTimeField(auto_now_add=True, verbose_name="Boshlanish vaqti", blank=True, null=True)
@@ -306,12 +305,6 @@ class StudentTest(models.Model):
     completed = models.BooleanField(default=False, verbose_name="Tugatilganmi")
     question_ids = models.JSONField(default=list, blank=True, verbose_name="Tanlangan savollar ID")
     can_retake = models.BooleanField(default=False, verbose_name="Qayta topshirishga ruxsat (controller)")
-    # --- Override bilan bog'liq maydonlar (faqat superuser ko'radi) ---
-    overridden_score = models.FloatField(null=True, blank=True, verbose_name="Qo'lda o'zgartirilgan ball")
-    pass_override = models.BooleanField(default=False, verbose_name="Majburan o'tkazish (override)")
-    override_reason = models.TextField(null=True, blank=True, verbose_name="O'zgartirish sababi")
-    overridden_by = models.ForeignKey('User', null=True, blank=True, on_delete=models.SET_NULL, related_name='overridden_tests', verbose_name="Kim o'zgartirdi")
-    overridden_at = models.DateTimeField(null=True, blank=True, verbose_name="O'zgartirilgan vaqt")
 
     class Meta:
         verbose_name = "Talaba testi"
@@ -326,26 +319,6 @@ class StudentTest(models.Model):
 
     def __str__(self):
         return f"{self.student.username} - {self.subject.name if self.subject else ''} ({self.semester})"
-
-    @property
-    def final_score(self):
-        return self.overridden_score if self.overridden_score is not None else self.total_score
-
-    @property
-    def is_overridden(self):
-        return (self.overridden_score is not None) or self.pass_override
-
-    @property
-    def final_passed(self):
-        # 1) pass_override ustun
-        if self.pass_override:
-            return True
-        # 2) Testdagi pass_percent bo'yicha foiz hisoblash
-        if self.test and self.test.total_score:
-            percent = (self.final_score / self.test.total_score) * 100 if self.final_score is not None else 0
-            return percent >= getattr(self.test, 'pass_percent', 56)
-        # 3) Zaxira holat
-        return self.final_score > 0
 
 
 
@@ -385,27 +358,3 @@ class Log(models.Model):
 
     def __str__(self):
         return f"{self.user.username if self.user else 'Noma’lum'} - {self.action}"
-
-
-# --- Override tarixini saqlash uchun model ---
-class StudentTestModification(models.Model):
-    student_test = models.ForeignKey(StudentTest, on_delete=models.CASCADE, related_name='modifications', verbose_name="Talaba testi")
-    previous_score = models.FloatField(null=True, blank=True, verbose_name="Oldingi ball")
-    new_score = models.FloatField(null=True, blank=True, verbose_name="Yangi ball")
-    previous_pass_override = models.BooleanField(default=False, verbose_name="Oldingi majburiy o'tkazish")
-    new_pass_override = models.BooleanField(default=False, verbose_name="Yangi majburiy o'tkazish")
-    reason = models.TextField(verbose_name="Sabab")
-    changed_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='score_changes', verbose_name="O'zgartirgan foydalanuvchi")
-    change_type = models.CharField(max_length=20, choices=(
-        ('override', 'Override'),
-        ('revert', 'Revert'),
-    ), verbose_name="O'zgarish turi")
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Yaratilgan vaqt")
-
-    class Meta:
-        verbose_name = "Natija o'zgarishi"
-        verbose_name_plural = "Natija o'zgarishlari"
-        ordering = ['-created_at']
-
-    def __str__(self):
-        return f"{self.student_test_id} | {self.change_type} | {self.created_at}"

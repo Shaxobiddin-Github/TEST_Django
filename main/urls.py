@@ -26,7 +26,7 @@ router.register(r'student-answers', StudentAnswerViewSet)
 router.register(r'logs', LogViewSet)
 
 urlpatterns = [
-    path('api/', include(router.urls)),
+    path('', include(router.urls)),
     path('', common_login, name='root_login'),
     path('login/', include('main.urls_common_login')),
     path('test-api/', include('main.urls_test_api')),

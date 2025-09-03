@@ -47,14 +47,19 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from django.utils import timezone
-from .models import User, University, Faculty, Group, Subject, Question, AnswerOption, Test, TestQuestion, StudentTest, StudentAnswer, Log
+import random
+from .models import (
+    User, University, Faculty, Group, Subject, Question, AnswerOption, Test,
+    TestQuestion, StudentTest, StudentAnswer, Log, StudentTestModification
+)
 from django.db import models
 from .serializers import (
     UserSerializer, UniversitySerializer, FacultySerializer, GroupSerializer, SubjectSerializer,
     QuestionSerializer, AnswerOptionSerializer, TestSerializer, TestQuestionSerializer,
-    StudentTestSerializer, StudentAnswerSerializer, LogSerializer
+    StudentTestSerializer, StudentTestAdminSerializer, StudentAnswerSerializer, LogSerializer,
+    StudentTestModificationSerializer
 )
-from .permissions import IsAdmin, IsTeacher, IsController, IsStudent, HasMultipleRoles
+from .permissions import IsAdmin, IsTeacher, IsController, IsStudent, HasMultipleRoles, IsRTTM, IsStudentOrSuper, IsSuperUser
 
 # Mavjud view’lar (qisqartirilgan)
 class UserViewSet(viewsets.ModelViewSet):
@@ -135,19 +140,37 @@ class TestViewSet(viewsets.ModelViewSet):
         response['Content-Disposition'] = f'attachment; filename="test_{test.id}_stats.csv"'
         
         writer = csv.writer(response)
-        writer.writerow(['Talaba', 'To‘g‘ri javoblar', 'Noto‘g‘ri javoblar', 'Umumiy ball', 'Foiz'])
+        is_super = request.user.is_authenticated and request.user.is_superuser
+        if is_super:
+            writer.writerow(['Talaba', 'To‘g‘ri javoblar', 'Noto‘g‘ri javoblar', 'Asl ball', 'Yakuniy ball', 'Asl foiz', 'Yakuniy foiz', 'Status'])
+        else:
+            writer.writerow(['Talaba', 'To‘g‘ri javoblar', 'Noto‘g‘ri javoblar', 'Ball', 'Foiz'])
         
         for student_test in student_tests:
             correct_answers = student_test.answers.filter(is_correct=True).count()
             incorrect_answers = student_test.answers.count() - correct_answers
-            percentage = (student_test.total_score / test.total_score) * 100 if test.total_score else 0
-            writer.writerow([
-                student_test.student.username,
-                correct_answers,
-                incorrect_answers,
-                student_test.total_score,
-                f"{percentage:.2f}%"
-            ])
+            original_percentage = (student_test.total_score / test.total_score) * 100 if test.total_score else 0
+            final_percentage = (student_test.final_score / test.total_score) * 100 if test.total_score else original_percentage
+            if is_super:
+                status = 'Override' if student_test.is_overridden else 'Normal'
+                writer.writerow([
+                    student_test.student.username,
+                    correct_answers,
+                    incorrect_answers,
+                    f"{student_test.total_score:.2f}",
+                    f"{student_test.final_score:.2f}",
+                    f"{original_percentage:.2f}%",
+                    f"{final_percentage:.2f}%",
+                    status
+                ])
+            else:
+                writer.writerow([
+                    student_test.student.username,
+                    correct_answers,
+                    incorrect_answers,
+                    f"{student_test.final_score:.2f}",
+                    f"{final_percentage:.2f}%"
+                ])
         
         Log.objects.create(user=self.request.user, action=f"Test statistikasi eksport qilindi: {test.id}")
         return response
@@ -159,10 +182,18 @@ class TestQuestionViewSet(viewsets.ModelViewSet):
 
 class StudentTestViewSet(viewsets.ModelViewSet):
     queryset = StudentTest.objects.all()
-    serializer_class = StudentTestSerializer
-    permission_classes = [IsStudent]
+    permission_classes = [IsStudentOrSuper]
+
+    def get_serializer_class(self):
+        # Superuser uchun to'liq ma'lumot
+        if self.request and self.request.user and self.request.user.is_superuser:
+            return StudentTestAdminSerializer
+        return StudentTestSerializer
 
     def get_queryset(self):
+        # Superuser barcha natijalarni ko'rishi mumkin
+        if self.request.user.is_superuser:
+            return StudentTest.objects.all()
         return StudentTest.objects.filter(student=self.request.user)
 
     def perform_create(self, serializer):
@@ -220,6 +251,89 @@ class StudentTestViewSet(viewsets.ModelViewSet):
         Log.objects.create(user=self.request.user, action=f"Test yakunlandi: {student_test.test.subject.name}")
         return Response({"status": "Test yakunlandi", "total_score": total_score})
 
+    # --- Override (faqat superuser) ---
+    @action(detail=True, methods=['post'], permission_classes=[IsSuperUser])
+    def override(self, request, pk=None):
+        st = self.get_object()
+        if not st.completed:
+            return Response({'detail': 'Test hali yakunlanmagan'}, status=400)
+        new_score = request.data.get('new_score', None)
+        pass_override = request.data.get('pass_override', None)
+        reason = request.data.get('reason')
+        if not reason:
+            return Response({'detail': 'Sabab majburiy'}, status=400)
+        if new_score is None and pass_override is None:
+            return Response({'detail': 'Hech qanday o\'zgarish berilmadi'}, status=400)
+        try:
+            if new_score is not None:
+                new_score = float(new_score)
+                if new_score < 0 or new_score > st.test.total_score:
+                    return Response({'detail': 'Yaroqsiz ball qiymati'}, status=400)
+        except ValueError:
+            return Response({'detail': 'Ball noto\'g\'ri formatda'}, status=400)
+
+        prev_score = st.overridden_score if st.overridden_score is not None else st.total_score
+        prev_pass_override = st.pass_override
+
+        if new_score is not None:
+            st.overridden_score = new_score
+        if pass_override is not None:
+            st.pass_override = bool(pass_override)
+        st.override_reason = reason
+        from django.utils import timezone as dj_tz
+        st.overridden_by = request.user
+        st.overridden_at = dj_tz.now()
+        st.save()
+
+        StudentTestModification.objects.create(
+            student_test=st,
+            previous_score=prev_score,
+            new_score=st.overridden_score if st.overridden_score is not None else st.total_score,
+            previous_pass_override=prev_pass_override,
+            new_pass_override=st.pass_override,
+            reason=reason,
+            changed_by=request.user,
+            change_type='override'
+        )
+        Log.objects.create(user=request.user, action=f"RESULT_OVERRIDE st_test={st.id} old={prev_score} new={st.final_score} pass={st.pass_override}")
+        serializer = self.get_serializer(st)
+        return Response(serializer.data)
+
+    @action(detail=True, methods=['post'], permission_classes=[IsSuperUser])
+    def revert(self, request, pk=None):
+        st = self.get_object()
+        if not st.is_overridden:
+            return Response({'detail': 'Override mavjud emas'}, status=409)
+        reason = request.data.get('reason') or 'Revert'
+        prev_score = st.overridden_score if st.overridden_score is not None else st.total_score
+        prev_pass_override = st.pass_override
+        st.overridden_score = None
+        st.pass_override = False
+        st.override_reason = None
+        st.overridden_by = None
+        st.overridden_at = None
+        st.save()
+        StudentTestModification.objects.create(
+            student_test=st,
+            previous_score=prev_score,
+            new_score=st.total_score,
+            previous_pass_override=prev_pass_override,
+            new_pass_override=False,
+            reason=reason,
+            changed_by=request.user,
+            change_type='revert'
+        )
+        Log.objects.create(user=request.user, action=f"RESULT_REVERT st_test={st.id} restore_to={st.total_score}")
+        serializer = self.get_serializer(st)
+        return Response(serializer.data)
+
+    @action(detail=True, methods=['get'], permission_classes=[IsSuperUser])
+    def history(self, request, pk=None):
+        st = self.get_object()
+        mods = st.modifications.all()
+        ser = StudentTestModificationSerializer(mods, many=True)
+        return Response(ser.data)
+
     @action(detail=True, methods=['get'])
     def check_unanswered(self, request, pk=None):
         student_test = self.get_object()
@@ -255,9 +369,12 @@ class StudentTestViewSet(viewsets.ModelViewSet):
 class StudentAnswerViewSet(viewsets.ModelViewSet):
     queryset = StudentAnswer.objects.all()
     serializer_class = StudentAnswerSerializer
-    permission_classes = [IsStudent]
+    # Superuser ham (admin paneldan) answerlarni ko'rishi va tuzatishi uchun
+    permission_classes = [IsStudentOrSuper]
 
     def get_queryset(self):
+        if self.request.user.is_superuser:
+            return StudentAnswer.objects.all()
         return StudentAnswer.objects.filter(student_test__student=self.request.user)
 
     def perform_create(self, serializer):
@@ -284,6 +401,65 @@ class StudentAnswerViewSet(viewsets.ModelViewSet):
         student_answer.save()
         
         Log.objects.create(user=self.request.user, action=f"Javob yuborildi: {question.text[:50]}...")
+
+    @action(detail=True, methods=['post'], permission_classes=[IsSuperUser])
+    def adjust(self, request, pk=None):
+        """Superuser javobni tuzatishi.
+        Faqat is_correct keladi (UI shunday). Agar to'g'ri bo'lsa ball = total_score/question_count, aks holda 0.
+        Agar score yoki text_answer keladigan bo'lsa (kelajak ehtimoli) ular ham qo'llab-quvvatlanadi.
+        Yakunda StudentTest.total_score qayta hisoblanadi.
+        """
+        ans = self.get_object()
+        data = request.data
+        changed = False
+        prev_score = ans.score
+        prev_correct = ans.is_correct
+        new_text = data.get('text_answer', None)
+        if new_text is not None:
+            ans.text_answer = new_text
+            changed = True
+        is_correct_present = 'is_correct' in data
+        score_present = 'score' in data
+        if is_correct_present:
+            ans.is_correct = bool(data.get('is_correct'))
+            changed = True
+        if score_present:
+            try:
+                new_score = float(data.get('score'))
+                if new_score < 0:
+                    return Response({'detail': 'Score manfiy bo\'lmasin'}, status=400)
+                ans.score = new_score
+            except ValueError:
+                return Response({'detail': 'Score noto\'g\'ri format'}, status=400)
+            changed = True
+        # UI soddalashtirilgan: is_correct kelsa va score keltirilmasa — teng taqsimlangan ball
+        if is_correct_present and not score_present:
+            test = ans.student_test.test
+            # Teng taqsimlash: umumiy ball / savollar soni (float saqlaymiz)
+            try:
+                question_count = test.question_count or test.test_questions.count() or 1
+            except Exception:
+                question_count = 1
+            per_question = (test.total_score / question_count) if question_count else 0
+            ans.score = per_question if ans.is_correct else 0
+        if not changed:
+            return Response({'detail': 'Hech narsa o\'zgarmadi'}, status=400)
+        ans.save()
+        st = ans.student_test
+        st.total_score = sum(a.score for a in st.answers.all())
+        st.save(update_fields=['total_score'])
+        StudentTestModification.objects.create(
+            student_test=st,
+            previous_score=prev_score,
+            new_score=ans.score,
+            previous_pass_override=st.pass_override,
+            new_pass_override=st.pass_override,
+            reason=f"Answer adjust (answer_id={ans.id})",
+            changed_by=request.user,
+            change_type='override'  # agar xohlasak 'answer_adjust' deb alohida tur kiritishimiz mumkin
+        )
+        Log.objects.create(user=request.user, action=f"ANSWER_ADJUST ans={ans.id} prev_score={prev_score} new_score={ans.score} prev_correct={prev_correct} new_correct={ans.is_correct}")
+        return Response({'status':'updated','answer_id':ans.id,'new_score':ans.score,'is_correct':ans.is_correct,'student_test_total':st.total_score})
 
 
 # Log ViewSet

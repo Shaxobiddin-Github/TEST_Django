@@ -9,6 +9,7 @@ class StudentTestInline(admin.TabularInline):
     readonly_fields = ('test', 'start_time', 'end_time', 'total_score', 'completed')
     can_delete = False
     show_change_link = True  # Talaba testini alohida ko‘rish uchun havola
+    fk_name = 'student'  # Bir nechta User FK mavjudligi sababli aniq ko'rsatiladi
 
 # User modeli uchun admin sozlamalari
 class UserAdmin(BaseUserAdmin):
@@ -115,9 +116,9 @@ class TestQuestionInline(admin.TabularInline):
 # Test modeli uchun admin sozlamalari
 @admin.register(Test)
 class TestAdmin(admin.ModelAdmin):
-    list_display = ('group', 'question_count', 'total_score', 'duration', 'created_by', 'active', 'created_at')
+    list_display = ('group', 'question_count', 'total_score', 'pass_percent', 'duration', 'created_by', 'active', 'created_at')
     search_fields = ('group__name', 'created_by__username')
-    list_filter = ('group', 'active', 'created_at')
+    list_filter = ('group', 'pass_percent', 'active', 'created_at')
     inlines = [TestQuestionInline]
     ordering = ('group', 'created_at')
 
@@ -155,10 +156,10 @@ class StudentAnswerInline(admin.TabularInline):
 # Talaba testi uchun admin sozlamalari
 @admin.register(StudentTest)
 class StudentTestAdmin(admin.ModelAdmin):
-    list_display = ('student', 'test', 'group', 'subject', 'semester', 'completed', 'can_retake', 'total_score', 'start_time', 'end_time', 'question_ids')
+    list_display = ('student', 'test', 'group', 'subject', 'semester', 'completed', 'can_retake', 'total_score', 'overridden_score', 'pass_override', 'start_time', 'end_time')
     search_fields = ('student__username', 'test__id', 'group__name', 'subject__name', 'semester__number')
     list_filter = ('completed', 'can_retake', 'group', 'subject', 'semester', 'test', 'start_time', 'end_time')
-    readonly_fields = ('start_time', 'end_time', 'total_score', 'question_ids')
+    readonly_fields = ('start_time', 'end_time', 'total_score', 'question_ids', 'overridden_score', 'pass_override', 'override_reason', 'overridden_by', 'overridden_at')
     inlines = [StudentAnswerInline]
     ordering = ('-start_time',)
 

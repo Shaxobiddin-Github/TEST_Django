@@ -28,3 +28,24 @@ class HasMultipleRoles(permissions.BasePermission):
 
     def has_permission(self, request, view):
         return request.user.is_authenticated and request.user.role in self.allowed_roles
+
+
+class IsSuperUser(permissions.BasePermission):
+    def has_permission(self, request, view):
+        return request.user.is_authenticated and request.user.is_superuser
+
+
+class IsRTTM(permissions.BasePermission):
+    """RTTM boshlig'i yoki superuser."""
+    def has_permission(self, request, view):
+        return request.user.is_authenticated and (request.user.is_superuser or getattr(request.user, 'role', None) == 'rttm_manager')
+
+
+class IsStudentOrSuper(permissions.BasePermission):
+    """Talaba yoki superuserga ruxsat."""
+    def has_permission(self, request, view):
+        if not request.user.is_authenticated:
+            return False
+        if request.user.is_superuser:
+            return True
+        return getattr(request.user, 'role', None) == 'student'
