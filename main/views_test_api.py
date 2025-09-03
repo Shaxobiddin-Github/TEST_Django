@@ -28,7 +28,7 @@ def export_subject_results_pdf(request, subject_name):
 
     # Header (title, date right, subtitle)
     elements.append(Spacer(1, 10))
-    elements.append(Paragraph("Samarqand davlat universitetining Kattaqo'rg'on filiali", ParagraphStyle('header', parent=styles['Normal'], alignment=TA_CENTER, fontSize=14, spaceAfter=0, leading=16)))
+    elements.append(Paragraph("Kattaqurg'on Davlat Pedagogika instituti", ParagraphStyle('header', parent=styles['Normal'], alignment=TA_CENTER, fontSize=14, spaceAfter=0, leading=16)))
     test_date = tests.first().test.date.strftime('%d.%m.%Y') if tests and hasattr(tests.first().test, 'date') and tests.first().test.date else datetime.now().strftime('%d.%m.%Y')
     elements.append(Paragraph("Yakuniy nazorat test sinovlari natijalari", ParagraphStyle('subtitle', parent=styles['Normal'], alignment=TA_CENTER, fontSize=12, spaceAfter=2, leading=14)))
     elements.append(Spacer(1, 32))

@@ -593,28 +593,12 @@
         
 
 
-        // Test oynasini tark etish hodisasi (drag&drop paytida blur hisobga olinmaydi)
-        let blurCount = 0;
+        // Yangi cheklovlar va ishonchli monitoring
+        let violationCount = 0;
         let isDragging = false;
-        window.addEventListener('dragstart', function() { isDragging = true; });
-        window.addEventListener('dragend', function() { setTimeout(() => { isDragging = false; }, 100); });
-        window.addEventListener('blur', function() {
-            if (isDragging) return;
-            blurCount++;
-            if (blurCount === 1) {
-                alert("Diqqat! Test oynasini tark etdingiz. Yana bir marta chiqib ketsangiz, test yakunlanadi.");
-            } else if (blurCount === 2) {
-                alert("Siz test oynasini ikki marta tark etdingiz. Test avtomatik yakunlanadi.");
-                document.getElementById('testForm').submit();
-            }
-        });
-
-
-
-        // Django template orqali foydalanuvchi id ni uzatish
+        let blockModal = null;
         var USER_ID = {{ request.user.id|default:'null' }};
 
-        // Harakatlarni logga yozish uchun funksiya
         function logAction(action) {
             fetch('/api/log-blur/', {
                 method: 'POST',
@@ -626,9 +610,83 @@
             });
         }
 
-        // Sahifani tark etsa (tab, alt+tab, boshqa oynaga o‘tish)
+        function showBlockModal(msg, canContinue) {
+            if (!blockModal) {
+                blockModal = document.createElement('div');
+                blockModal.style.position = 'fixed';
+                blockModal.style.zIndex = '999999';
+                blockModal.style.top = '0';
+                blockModal.style.left = '0';
+                blockModal.style.width = '100vw';
+                blockModal.style.height = '100vh';
+                blockModal.style.background = 'rgba(0,0,0,0.7)';
+                blockModal.style.display = 'flex';
+                blockModal.style.alignItems = 'center';
+                blockModal.style.justifyContent = 'center';
+                blockModal.innerHTML = '<div style="background:#fff;padding:32px 28px 24px 28px;border-radius:18px;box-shadow:0 8px 32px rgba(0,0,0,0.18);max-width:90vw;text-align:center;">' +
+                    '<div id="blockModalMsg" style="font-size:1.15rem;font-weight:600;color:#e53e3e;margin-bottom:18px;"></div>' +
+                    '<button id="blockModalBtn" style="background:#2262a3;color:#fff;font-weight:600;font-size:1.1rem;padding:10px 32px;border:none;border-radius:8px;cursor:pointer;">Davom etish</button>' +
+                '</div>';
+                document.body.appendChild(blockModal);
+            }
+            document.getElementById('blockModalMsg').textContent = msg;
+            var btn = document.getElementById('blockModalBtn');
+            btn.textContent = canContinue ? 'Davom etish' : 'Testni yakunlash';
+            btn.onclick = function() {
+                if (canContinue) {
+                    blockModal.style.display = 'none';
+                    if (document.fullscreenEnabled && !document.fullscreenElement) {
+                        document.documentElement.requestFullscreen().catch(function(err){});
+                    }
+                } else {
+                    document.getElementById('testForm').submit();
+                }
+            };
+            blockModal.style.display = 'flex';
+        }
+
+        // Drag&drop paytida blur hisobga olinmaydi
+        window.addEventListener('dragstart', function() { isDragging = true; });
+        window.addEventListener('dragend', function() { setTimeout(() => { isDragging = false; }, 100); });
+
+
+        // Debounce: bir eventdan keyin 500ms ichida boshqa event kelsa, faqat bir marta violation hisoblanadi
+        let lastViolationTime = 0;
+        let lastViolationType = '';
+        function handleViolation(reason) {
+            const now = Date.now();
+            // Agar oxirgi violation 500ms ichida bo‘lsa va turi boshqacha bo‘lsa, hisobga olma
+            if (now - lastViolationTime < 500 && lastViolationType !== reason) {
+                lastViolationType = reason;
+                return;
+            }
+            lastViolationTime = now;
+            lastViolationType = reason;
+            violationCount++;
+            logAction(reason + ' (violation #' + violationCount + ')');
+            if (violationCount === 1) {
+                showBlockModal('Diqqat! Test oynasini tark etdingiz yoki boshqa tabga o‘tdingiz. Yana bir marta chiqib ketsangiz, test yakunlanadi.', true);
+            } else if (violationCount >= 2) {
+                showBlockModal('Siz test oynasini ikki marta tark etdingiz yoki cheklovni buzdingiz. Test avtomatik yakunlanadi.', false);
+            }
+        }
+
+        document.addEventListener('visibilitychange', function() {
+            if (document.visibilityState === 'hidden') {
+                handleViolation('visibilitychange');
+            }
+        });
+
         window.addEventListener('blur', function() {
-            logAction('Sahifani tark etdi');
+            if (isDragging) return;
+            handleViolation('blur');
+        });
+
+        // Fullscreen'dan chiqqanda ham cheklov
+        document.addEventListener('fullscreenchange', function() {
+            if (!document.fullscreenElement) {
+                handleViolation('Fullscreen rejimidan chiqdi');
+            }
         });
 
         // Sahifaga qaytsa

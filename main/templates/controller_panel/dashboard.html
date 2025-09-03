@@ -456,22 +456,44 @@
         <div class="dashboard-body">
             <!-- Old action rowni yangilaymiz: Natijalar tugmasini ham qo‘shamiz -->
 
-            <div class="d-flex justify-content-between mb-3 flex-wrap gap-2">
-                <a href="{% url 'participated_students_list' %}" class="btn btn-success">qayta topshirish</a>
-                <a href="/api/test-api/all-results/" class="btn btn-outline-light">
-                    📊 Barcha natijalar
-                </a>
-                <a href="/api/controller-panel/group-subjects/" class="btn btn-warning">
-                    ➕ Malumot qushish
-                </a>
-                <a href="#" class="btn btn-primary" id="usersBtn">
-                    👤 Foydalanuvchilar
-                </a>
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addTestModal">➕ Test yaratish</button>
+            <div class="mb-3" style="max-width:350px;">
+              <select class="form-select" id="dashboardActionsSelect">
+                <option selected disabled>Amal tanlang...</option>
+                <option value="addtest">➕ Test yaratish</option>
+                <option value="participated">⏳Qayta topshirish</option>
+                <option value="results">📊 Barcha natijalar</option>
+                <option value="addinfo">➕ Malumot qushish</option>
+                <option value="users">👤 Foydalanuvchilar</option>
+                
+              </select>
             </div>
+            <script>
+            document.getElementById('dashboardActionsSelect').addEventListener('change', function() {
+                var v = this.value;
+                if(v === 'participated') window.location.href = "{% url 'participated_students_list' %}";
+                if(v === 'results') window.location.href = "/api/test-api/all-results/";
+                if(v === 'addinfo') window.location.href = "/api/controller-panel/group-subjects/";
+                if(v === 'users') {
+                    var isStaff = {{ request.user.is_staff|yesno:'true,false' }};
+                    var isController = "{{ request.user.role|default:'' }}" === "controller";
+                    if (isStaff && isController) {
+                        window.location.href = '/api/controller-panel/add-user/';
+                    } else {
+                        alert('Siz admin yoki controller emassiz!');
+                    }
+                }
+                if(v === 'addtest') {
+                    var modal = new bootstrap.Modal(document.getElementById('addTestModal'));
+                    modal.show();
+                }
+            });
+            </script>
 
             <div class="test-list-title mb-3">📋 Mavjud testlar:</div>
 <script>
+
+    
+
 document.addEventListener('DOMContentLoaded', function() {
     var usersBtn = document.getElementById('usersBtn');
     if (usersBtn) {
@@ -574,9 +596,15 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>
     </div>
+
+    
 </body>
 
+
+
     <!-- Modal oynasi -->
+
+
     <!-- Modal oynasi (subjectQuestionsModal) - bu yerda block content ishlatilmaydi -->
                         
     </script>
