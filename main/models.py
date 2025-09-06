@@ -409,3 +409,21 @@ class StudentTestModification(models.Model):
 
     def __str__(self):
         return f"{self.student_test_id} | {self.change_type} | {self.created_at}"
+
+
+# QR kod orqali PDF tasdiqlash uchun yozuvlar
+class PdfVerification(models.Model):
+    hash_code = models.CharField(max_length=32, unique=True, verbose_name="QR hash")
+    subject_name = models.CharField(max_length=255, verbose_name="Fan nomi")
+    record_count = models.PositiveIntegerField(default=0, verbose_name="Qatorlar soni")
+    payload = models.TextField(verbose_name="Asl ma'lumot")
+    created_at = models.DateTimeField(auto_now_add=True)
+    generated_by = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL, related_name='pdf_verifications')
+
+    class Meta:
+        verbose_name = "PDF tasdiq (QR)"
+        verbose_name_plural = "PDF tasdiqlar (QR)"
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"{self.subject_name} | {self.hash_code}"

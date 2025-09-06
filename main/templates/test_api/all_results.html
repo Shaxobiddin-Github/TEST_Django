@@ -337,12 +337,13 @@
                                 <span class="flex-grow-1">{{ subject_name }}</span>
                                 <span class="badge-custom ms-2">{{ groups|length }} guruh</span>
                             </button>
-                            <a href="{% url 'export_subject_results_pdf' subject_name %}"
-                               class="btn btn-danger"
-                               title="PDFga yuklash"
+                            <button type="button"
+                               class="btn btn-danger pdf-filter-btn"
+                               data-subject="{{ subject_name }}"
+                               title="PDFga yuklash (filtr bilan)"
                                style="position: absolute; right: 24px; top: 50%; transform: translateY(-50%); min-width: 70px; display: flex; align-items: center; justify-content: center; z-index: 2;">
                                 <span style="font-size: 1.1rem;">📄</span> <span class="d-none d-md-inline ms-1">PDF</span>
-                            </a>
+                            </button>
                         </h2>
                         <div id="collapseSubject{{ forloop.counter }}" class="accordion-collapse collapse" 
                              aria-labelledby="subject{{ forloop.counter }}" data-bs-parent="#resultsAccordion">
@@ -524,7 +525,78 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        {% if show_override %}
+        
+        <!-- PDF Filter Modal -->
+        <div class="modal fade" id="pdfFilterModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="background:#1e1e2f; color:#fff; border:1px solid #444;">
+                    <div class="modal-header">
+                        <h5 class="modal-title">PDF Filtrlash</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="pdfFilterForm">
+                            <input type="hidden" id="pdf-subject-name">
+                            <div class="mb-3">
+                                <label class="form-label mb-1">Guruh (ixtiyoriy)</label>
+                                <select id="pdf-group" class="form-select form-select-sm" style="background:#111827; color:#fff; border:1px solid #333;">
+                                    <option value="">-- Barchasi --</option>
+                                    {% for g in groups_list %}
+                                        <option value="{{ g.name }}">{{ g.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label mb-1">Semestr (ixtiyoriy)</label>
+                                <select id="pdf-semester" class="form-select form-select-sm" style="background:#111827; color:#fff; border:1px solid #333;">
+                                    <option value="">-- Barchasi --</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+                            <div class="mb-1">
+                                <label class="form-label mb-1">Urinish filtrlari (ixtiyoriy)</label>
+                                <div class="row g-1 mb-1">
+                                    <div class="col-6">
+                                        <input type="number" min="1" id="pdf-attempt-exact" class="form-control form-control-sm" placeholder="Exact n" style="background:#111827; color:#fff; border:1px solid #333;">
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="number" min="1" id="pdf-attempt-gte" class="form-control form-control-sm" placeholder=">= n" style="background:#111827; color:#fff; border:1px solid #333;">
+                                    </div>
+                                </div>
+                                <div class="row g-1 mb-1">
+                                    <div class="col-6">
+                                        <input type="number" min="1" id="pdf-attempt-min" class="form-control form-control-sm" placeholder="Min" style="background:#111827; color:#fff; border:1px solid #333;">
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="number" min="1" id="pdf-attempt-max" class="form-control form-control-sm" placeholder="Max" style="background:#111827; color:#fff; border:1px solid #333;">
+                                    </div>
+                                </div>
+                                <div class="row g-1">
+                                    <div class="col-12">
+                                        <input type="number" min="1" id="pdf-attempt-nth" class="form-control form-control-sm" placeholder="Faqat n-urinish natijasi" style="background:#111827; color:#fff; border:1px solid #333;">
+                                    </div>
+                                </div>
+                                <small class="text-muted" style="font-size:0.6rem;">Ustuvorlik: n-urinish > exact > diapazon / >= . Bir vaqtning o'zida bir nechta kiritilsa yuqoridagi tartib bilan tanlanadi.</small>
+                            </div>
+                        </form>
+                        <div id="pdf-filter-alert" class="alert alert-danger py-2 px-3 d-none" style="font-size:0.7rem;"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Bekor</button>
+                        <button class="btn btn-primary btn-sm" id="pdf-filter-download">Yuklash</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Override Modal -->
         <div class="modal fade" id="overrideModal" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
@@ -624,8 +696,8 @@
                 </div>
             </div>
         </div>
-        <script>
-        (function(){
+    <script>
+    (function(){
                 // --- CSRF helper ---
                 function getCookie(name){
                     const value = `; ${document.cookie}`;
@@ -815,8 +887,50 @@
         highlightOverride?.addEventListener('change', applyOverrideHighlight);
         // Initial
         applyFilter(); toggleAnswerVisibility(); applyOverrideHighlight();
-        })();
-        </script>
-        {% endif %}
+
+    // --- PDF Filter Modal Logic (har doim mavjud) ---
+        const pdfModalEl = document.getElementById('pdfFilterModal');
+        let pdfModal = null; if(pdfModalEl) pdfModal = new bootstrap.Modal(pdfModalEl);
+    document.querySelectorAll('.pdf-filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.getElementById('pdf-subject-name').value = btn.dataset.subject;
+                document.getElementById('pdf-group').value='';
+                document.getElementById('pdf-semester').value='';
+        ['exact','gte','min','max','nth'].forEach(s=>{const el=document.getElementById('pdf-attempt-'+s); if(el) el.value='';});
+                const alertBox = document.getElementById('pdf-filter-alert');
+                if(alertBox) alertBox.classList.add('d-none');
+                pdfModal.show();
+            });
+        });
+        const pdfDownloadBtn = document.getElementById('pdf-filter-download');
+        if(pdfDownloadBtn){
+            pdfDownloadBtn.addEventListener('click', () => {
+                const subject = document.getElementById('pdf-subject-name').value;
+                let url = `/api/test-api/export-subject/${encodeURIComponent(subject)}/pdf/`;
+                const params = new URLSearchParams();
+                const g = document.getElementById('pdf-group').value.trim(); if(g) params.append('group', g);
+                const s = document.getElementById('pdf-semester').value.trim(); if(s) params.append('semester', s);
+                const nth = document.getElementById('pdf-attempt-nth').value.trim();
+                const exact = document.getElementById('pdf-attempt-exact').value.trim();
+                const gte = document.getElementById('pdf-attempt-gte').value.trim();
+                const minv = document.getElementById('pdf-attempt-min').value.trim();
+                const maxv = document.getElementById('pdf-attempt-max').value.trim();
+                if(nth) params.append('attempt_nth', nth);
+                else if(exact) params.append('attempt_count', exact);
+                else {
+                    if(gte) params.append('attempt_gte', gte);
+                    if(minv) params.append('attempt_min', minv);
+                    if(maxv) params.append('attempt_max', maxv);
+                }
+                const qs = params.toString(); if(qs) url += `?${qs}`;
+                // Close modal then navigate
+                pdfModal.hide();
+                // Accordion state saqlash
+                collectOpenAccordions();
+                window.location.href = url;
+            });
+        }
+    })();
+    </script>
 </body>
 </html>

@@ -14,5 +14,6 @@ urlpatterns = [
     path('export-tutors-kafedra/<int:kafedra_id>/', views_test_api.export_tutors_by_kafedra_excel, name='export_tutors_by_kafedra_excel'),
     path('export-employees-bulim/<int:bulim_id>/', views_test_api.export_employees_by_bulim_excel, name='export_employees_by_bulim_excel'),
     path('export-subject/<str:subject_name>/pdf/', views_test_api.export_subject_results_pdf, name='export_subject_results_pdf'),
+    path('verify-qr/<str:hash_code>/', views_test_api.verify_qr, name='verify_qr'),
     path('logout/', views_test_api.testapi_logout, name='testapi_logout'),
 ]

@@ -3,12 +3,99 @@ from reportlab.pdfgen import canvas
 from reportlab.lib import colors
 from reportlab.lib.units import mm
 from reportlab.platypus import Table, TableStyle, SimpleDocTemplate, Paragraph, Spacer
+from reportlab.lib.utils import ImageReader
 from reportlab.lib.styles import getSampleStyleSheet
+import qrcode
+from qrcode.constants import ERROR_CORRECT_H
+import io
+from PIL import Image, ImageDraw, ImageFont
+from django.shortcuts import render
+from .models import StudentTest, StudentAnswer, PdfVerification
 # Fan bo'yicha PDF natija yuklash
 from django.utils.encoding import smart_str
 def export_subject_results_pdf(request, subject_name):
     from datetime import datetime
-    tests = StudentTest.objects.filter(test__subject__name=subject_name, completed=True).select_related('student', 'test', 'test__group')
+    # Asosiy queryset
+    tests_qs = StudentTest.objects.filter(test__subject__name=subject_name, completed=True).select_related('student', 'test', 'test__group')
+
+    # --- Query parametrlardan filtrlar ---
+    group_name = request.GET.get('group') or ''
+    semester_number = request.GET.get('semester') or ''
+    attempt_count_param = request.GET.get('attempt_count') or ''  # exact
+    attempt_gte_param = request.GET.get('attempt_gte') or ''       # >=
+    attempt_min_param = request.GET.get('attempt_min') or ''       # range min
+    attempt_max_param = request.GET.get('attempt_max') or ''       # range max
+    attempt_nth_param = request.GET.get('attempt_nth') or ''       # specific nth attempt
+
+    if group_name:
+        tests_qs = tests_qs.filter(test__group__name=group_name)
+    if semester_number:
+        # Aniqroq semestr filtri: GroupSubject orqali group id larini topamiz
+        from main.models import GroupSubject
+        if group_name:
+            group_subject_ids = GroupSubject.objects.filter(
+                group__name=group_name,
+                subject__name=subject_name,
+                semester__number=semester_number
+            ).values_list('group_id', flat=True)
+            tests_qs = tests_qs.filter(test__group_id__in=group_subject_ids)
+        else:
+            group_ids = GroupSubject.objects.filter(
+                subject__name=subject_name,
+                semester__number=semester_number
+            ).values_list('group_id', flat=True)
+            tests_qs = tests_qs.filter(test__group_id__in=group_ids)
+    tests_qs = tests_qs.distinct()
+
+    # Attempt (urinish) filtrlash rejimlari:
+    # 1) attempt_nth_param: har bir talabadan faqat n-chi urinish (agar mavjud bo'lsa)
+    # 2) attempt_count_param: aynan n marta topshirgan talabalar (oxirgi urinish)
+    # 3) attempt_gte_param: kamida n marta topshirganlar (oxirgi urinish)
+    # 4) attempt_min_param / attempt_max_param: oraliq (oxirgi urinish)
+    from collections import defaultdict
+    bucket = defaultdict(list)
+    ordered_qs = tests_qs.order_by('student_id', 'start_time')
+    for st in ordered_qs:
+        bucket[st.student_id].append(st)
+
+    tests = []
+    attempt_count_val = None  # exact
+    attempt_gte_val = None
+    attempt_min_val = None
+    attempt_max_val = None
+    attempt_nth_val = None
+
+    # Parse ints safely
+    def to_int(val):
+        try:
+            return int(val)
+        except (TypeError, ValueError):
+            return None
+
+    attempt_nth_val = to_int(attempt_nth_param)
+    if attempt_nth_val and attempt_nth_val > 0:
+        # Faqat n-chi urinish
+        for arr in bucket.values():
+            if len(arr) >= attempt_nth_val:
+                tests.append(arr[attempt_nth_val-1])
+    else:
+        attempt_count_val = to_int(attempt_count_param)
+        attempt_gte_val = to_int(attempt_gte_param)
+        attempt_min_val = to_int(attempt_min_param)
+        attempt_max_val = to_int(attempt_max_param)
+        for arr in bucket.values():
+            total_attempts = len(arr)
+            ok = True
+            if attempt_count_val and total_attempts != attempt_count_val:
+                ok = False
+            if ok and attempt_gte_val and total_attempts < attempt_gte_val:
+                ok = False
+            if ok and attempt_min_val and total_attempts < attempt_min_val:
+                ok = False
+            if ok and attempt_max_val and total_attempts > attempt_max_val:
+                ok = False
+            if ok:
+                tests.append(arr[-1])  # oxirgi urinish
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = f'attachment; filename="{smart_str(subject_name)}_test_natijalari.pdf"'
 
@@ -29,11 +116,41 @@ def export_subject_results_pdf(request, subject_name):
     # Header (title, date right, subtitle)
     elements.append(Spacer(1, 10))
     elements.append(Paragraph("Kattaqurg'on Davlat Pedagogika instituti", ParagraphStyle('header', parent=styles['Normal'], alignment=TA_CENTER, fontSize=14, spaceAfter=0, leading=16)))
-    test_date = tests.first().test.date.strftime('%d.%m.%Y') if tests and hasattr(tests.first().test, 'date') and tests.first().test.date else datetime.now().strftime('%d.%m.%Y')
+    # Eng erta real boshlanish vaqtini aniqlash (filtrlangan ro'yxat ichida)
+    from django.utils.timezone import localtime
+    if tests:
+        earliest = min([t.start_time for t in tests if t.start_time]) if any(t.start_time for t in tests) else None
+    else:
+        earliest = None
+    if earliest:
+        test_date_display = localtime(earliest).strftime('%d.%m.%Y')
+    else:
+        test_date_display = datetime.now().strftime('%d.%m.%Y')
     elements.append(Paragraph("Yakuniy nazorat test sinovlari natijalari", ParagraphStyle('subtitle', parent=styles['Normal'], alignment=TA_CENTER, fontSize=12, spaceAfter=2, leading=14)))
     elements.append(Spacer(1, 32))
-    elements.append(Paragraph(f"Fanning nomi: {subject_name}", ParagraphStyle('subj', parent=styles['Normal'], fontSize=10, alignment=TA_LEFT)))
-    elements.append(Spacer(1, 10))
+    elements.append(Paragraph(f"Fanning nomi: {subject_name}", ParagraphStyle('subj', parent=styles['Normal'], fontSize=11, alignment=TA_LEFT, spaceAfter=2)))
+    elements.append(Paragraph(f"Test o'tkazilgan sana: {test_date_display}", ParagraphStyle('dateHead', parent=styles['Normal'], fontSize=9, alignment=TA_LEFT, textColor=colors.black)))
+    elements.append(Spacer(1, 12))
+
+    # Filter summary (foydalanuvchi tanlagan parametrlar)
+    filter_bits = []
+    if group_name:
+        filter_bits.append(f"Guruh: {group_name}")
+    if semester_number:
+        filter_bits.append(f"Semestr: {semester_number}")
+    if attempt_nth_val:
+        filter_bits.append(f"{attempt_nth_val}-urinish natijalari")
+    else:
+        if attempt_count_val:
+            filter_bits.append(f"Aynan {attempt_count_val} marta (oxirgi urinish)")
+        if attempt_gte_val:
+            filter_bits.append(f">= {attempt_gte_val} marta (oxirgi urinish)")
+        if attempt_min_val or attempt_max_val:
+            span_min = attempt_min_val if attempt_min_val else 1
+            span_max = attempt_max_val if attempt_max_val else '∞'
+            filter_bits.append(f"Oraliq: {span_min}–{span_max} marta (oxirgi urinish)")
+    if filter_bits:
+        elements.append(Paragraph("Filtrlar: " + ", ".join(filter_bits), ParagraphStyle('filters', parent=styles['Normal'], fontSize=8, textColor=colors.grey, spaceAfter=6)))
 
     # Table header and data
     is_super = request.user.is_authenticated and request.user.is_superuser
@@ -134,37 +251,147 @@ def export_subject_results_pdf(request, subject_name):
         ('BOTTOMPADDING', (0,0), (-1,-1), 3),
     ]))
     elements.append(table)
-    elements.append(Spacer(1, 10))
-    # Test sanasi jadval ostida, o‘ngda
-    elements.append(Paragraph(f"Test o'tkazilgan sana: {test_date}", ParagraphStyle('date', parent=styles['Normal'], fontSize=10, alignment=TA_LEFT)))
-    elements.append(Spacer(1, 20))
+    elements.append(Spacer(1, 12))
 
-    # Signature block (ikki ustun, pastda, oraliq bilan)
-    elements.append(Spacer(1, 20))
-    sign_data = [
-        ["O‘UBB:", "I.Madatov"],
-        ["RTTM xodimi:", "S.Yavkachtiyev"],
-        ["RTTM xodimi:", "J.Ixmatullayev"],
-    ]
-    sign_table = Table(sign_data, colWidths=[95*mm, 95*mm])
-    sign_table.setStyle(TableStyle([
-        ('ALIGN', (0,0), (0,-1), 'LEFT'),
-        ('ALIGN', (1,0), (1,-1), 'LEFT'),
-        ('FONTNAME', (0,0), (-1,-1), 'Helvetica'),
-        ('FONTSIZE', (0,0), (-1,-1), 10),
-        ('TOPPADDING', (0,0), (-1,-1), 10),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 10),
-        ('LEFTPADDING', (0,0), (-1,-1), 2),
-        ('RIGHTPADDING', (0,0), (-1,-1), 2),
-        ('LINEBELOW', (0,-1), (-1,-1), 0, colors.white),
+    # Imzo blokini jadval tugagan joydan keyin (foydalanuvchi so'rovi bo'yicha)
+    elements.append(Spacer(1, 8))
+    # Imzo satri: O'UBB:  __________(imzoga joy)  I.Madatov
+    sig_mid_style = ParagraphStyle('sigmid', parent=left_style, alignment=TA_CENTER, fontSize=10, spaceAfter=0)
+    sig_left_style = ParagraphStyle('sigleft', parent=left_style, fontSize=10, spaceAfter=0)
+    sig_name_style = ParagraphStyle('signame', parent=left_style, fontSize=10, spaceAfter=0)
+    signature_data = [[
+        Paragraph("O'UBB:", sig_left_style),
+        Paragraph("____________", sig_mid_style),
+        Paragraph("I.Madatov", sig_name_style)
+    ]]
+    signature_table = Table(signature_data, colWidths=[25*mm, 70*mm, 35*mm])
+    signature_table.setStyle(TableStyle([
+        ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
+        ('ALIGN', (0,0), (0,0), 'LEFT'),
+        ('ALIGN', (1,0), (1,0), 'CENTER'),
+        ('ALIGN', (2,0), (2,0), 'LEFT'),
+        ('LEFTPADDING', (0,0), (-1,-1), 0),
+        ('RIGHTPADDING', (0,0), (-1,-1), 4),
+        ('TOPPADDING', (0,0), (-1,-1), 2),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 2),
+        # No borders
+        ('BOX', (0,0), (-1,-1), 0, colors.white),
+        ('INNERGRID', (0,0), (-1,-1), 0, colors.white),
     ]))
-    elements.append(sign_table)
+    elements.append(signature_table)
+    elements.append(Spacer(1, 16))
 
-    doc.build(elements)
+    # QR kod va imzo footerga (past) joylashtiriladi
+    import hashlib, time
+    record_count = len(tests)
+    payload_raw = f"SUBJECT={subject_name};COUNT={record_count};TS={int(time.time())}"
+    sig_hash = hashlib.sha256(payload_raw.encode()).hexdigest()[:32]
+    verification_obj, created = PdfVerification.objects.get_or_create(
+        hash_code=sig_hash,
+        defaults={
+            'subject_name': subject_name,
+            'record_count': record_count,
+            'payload': payload_raw,
+            'generated_by': request.user if request.user.is_authenticated else None
+        }
+    )
+    qr_text = request.build_absolute_uri(f"/api/test-api/verify-qr/{verification_obj.hash_code}/")
+    # Yangi: yuqori xatolik tuzatish (H) va avtomatik versiya tanlash, biroz katta modul
+    qr = qrcode.QRCode(version=None, error_correction=ERROR_CORRECT_H, box_size=4, border=2)
+    qr.add_data(qr_text)
+    qr.make(fit=True)
+    # Rangli modul va fon (yuqori kontrast saqlanadi)
+    module_color = (19, 46, 120)      # chuqur ko'k
+    background_color = (255, 255, 255)
+    img = qr.make_image(fill_color=module_color, back_color=background_color).convert('RGBA')
+
+    # --- Markaziy 'RTTM' overlay (gradient bilan) ---
+    draw = ImageDraw.Draw(img)
+    W, H = img.size
+    overlay_ratio = 0.18  # modul maydonining kichik qismi
+    base_size = int(W * overlay_ratio)
+    try:
+        font = ImageFont.truetype("arial.ttf", base_size)
+    except Exception:
+        font = ImageFont.load_default()
+    text = "RTTM"
+    tb = draw.textbbox((0,0), text, font=font)
+    tw, th = tb[2]-tb[0], tb[3]-tb[1]
+    pad_x = 8
+    pad_y = 6
+    box_x0 = (W - tw)//2 - pad_x
+    box_y0 = (H - th)//2 - pad_y
+    box_x1 = box_x0 + tw + pad_x*2
+    box_y1 = box_y0 + th + pad_y*2
+    # Gradient tayyorlash
+    grad_w = int(box_x1 - box_x0)
+    grad_h = int(box_y1 - box_y0)
+    from math import sqrt
+    gradient = Image.new('RGBA', (grad_w, grad_h))
+    gdraw = ImageDraw.Draw(gradient)
+    # Gradient ranglari (chapdan o'ngga ko'k -> binafsha)
+    start_col = (37, 99, 235)
+    end_col = (147, 51, 234)
+    for x in range(grad_w):
+        t = x / max(1, grad_w-1)
+        r = int(start_col[0] + (end_col[0]-start_col[0])*t)
+        g = int(start_col[1] + (end_col[1]-start_col[1])*t)
+        b = int(start_col[2] + (end_col[2]-start_col[2])*t)
+        gdraw.line([(x,0),(x,grad_h)], fill=(r,g,b,235))
+    # Yumaloq mask
+    mask = Image.new('L', (grad_w, grad_h), 0)
+    mask_draw = ImageDraw.Draw(mask)
+    try:
+        mask_draw.rounded_rectangle([0,0,grad_w,grad_h], radius=10, fill=255)
+    except Exception:
+        mask_draw.rectangle([0,0,grad_w,grad_h], fill=255)
+    # Soyali effekt (shadow) orqa fon uchun
+    shadow = Image.new('RGBA', (grad_w+6, grad_h+6), (0,0,0,0))
+    sdraw = ImageDraw.Draw(shadow)
+    sdraw.ellipse([3,3,grad_w+3,grad_h+3], fill=(0,0,0,60))
+    img.alpha_composite(shadow, (int(box_x0-3), int(box_y0-3)))
+    img.paste(gradient, (int(box_x0), int(box_y0)), mask)
+    # Matn (oq, ozgina soyali)
+    text_x = (W - tw)//2
+    text_y = (H - th)//2
+    # Soyasi (1px)
+    draw.text((text_x+1, text_y+1), text, font=font, fill=(0,0,0,90))
+    draw.text((text_x, text_y), text, font=font, fill=(255,255,255,240))
+    qr_buffer = io.BytesIO()
+    img.save(qr_buffer, format='PNG')
+
+    def footer(c, doc):
+        # Faqat QR kodni pastki o'ng burchakka joylashtirish
+        from reportlab.lib.pagesizes import A4 as _A4
+        size = 25*mm
+        qr_buffer.seek(0)
+        c.drawImage(ImageReader(qr_buffer), _A4[0]-doc.rightMargin-size, doc.bottomMargin, size, size, preserveAspectRatio=True, mask='auto')
+
+    doc.build(elements, onFirstPage=footer, onLaterPages=footer)
     pdf = buffer.getvalue()
     buffer.close()
     response.write(pdf)
     return response
+
+
+def verify_qr(request, hash_code):
+    """QR kod orqali kelgan hashni tekshirish.
+    Topilsa: ma'lumot + 'Haqiqiy'. Topilmasa: 'Noto'g'ri' xabari.
+    """
+    obj = PdfVerification.objects.filter(hash_code=hash_code).first()
+    if not obj:
+        return render(request, 'test_api/verify_qr.html', {
+            'status': 'invalid',
+            'hash': hash_code,
+        })
+    return render(request, 'test_api/verify_qr.html', {
+        'status': 'valid',
+        'hash': obj.hash_code,
+        'subject': obj.subject_name,
+        'count': obj.record_count,
+        'created_at': obj.created_at,
+        'payload': obj.payload,
+    })
 from django.contrib.auth.decorators import login_required
 @login_required
 def testapi_logout(request):

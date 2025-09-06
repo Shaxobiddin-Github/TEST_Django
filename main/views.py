@@ -442,9 +442,42 @@ class StudentAnswerViewSet(viewsets.ModelViewSet):
                 question_count = 1
             per_question = (test.total_score / question_count) if question_count else 0
             ans.score = per_question if ans.is_correct else 0
+
+        # Agar endi to'g'ri deb belgilansa (oldin noto'g'ri bo'lgan) – javob matnini/variantlarini ham to'g'ri qilib qo'yamiz
+        update_selected_answers = False
+        if is_correct_present and ans.is_correct and not prev_correct:
+            q = ans.question
+            # keyinchalik javob_option.set() qilish uchun avval save qilamiz (agar hali saqlanmagan bo'lsa)
+            # (ans hali saqlanmagan bo'lishi mumkin, lekin odatda pk mavjud)
+            update_selected_answers = True
+            # Turiga qarab to'g'ri javobni set qilamiz
+            correct_options_qs = q.answer_options.filter(is_correct=True)
+            if q.question_type in ['single_choice', 'true_false']:
+                # faqat bitta to'g'ri: birinchi correct ni tanlaymiz
+                first = correct_options_qs.first()
+                if first:
+                    # M2M ni keyin set qilamiz
+                    selected_ids = [first.id]
+                else:
+                    selected_ids = []
+            elif q.question_type == 'multiple_choice':
+                selected_ids = list(correct_options_qs.values_list('id', flat=True))
+            elif q.question_type in ['fill_in_blank', 'sentence_ordering', 'matching']:
+                # text_answer ni canonical correct ga o'zgartiramiz
+                first = correct_options_qs.first()
+                if first and first.text:
+                    ans.text_answer = first.text
+                selected_ids = None  # M2M ishlatilmaydi
+            else:
+                selected_ids = None
+        else:
+            selected_ids = None
         if not changed:
             return Response({'detail': 'Hech narsa o\'zgarmadi'}, status=400)
         ans.save()
+        # M2M yangilash (faqat yuqoridagi shartda kerak bo'lsa)
+        if update_selected_answers and selected_ids is not None:
+            ans.answer_option.set(selected_ids)
         st = ans.student_test
         st.total_score = sum(a.score for a in st.answers.all())
         st.save(update_fields=['total_score'])
@@ -459,7 +492,19 @@ class StudentAnswerViewSet(viewsets.ModelViewSet):
             change_type='override'  # agar xohlasak 'answer_adjust' deb alohida tur kiritishimiz mumkin
         )
         Log.objects.create(user=request.user, action=f"ANSWER_ADJUST ans={ans.id} prev_score={prev_score} new_score={ans.score} prev_correct={prev_correct} new_correct={ans.is_correct}")
-        return Response({'status':'updated','answer_id':ans.id,'new_score':ans.score,'is_correct':ans.is_correct,'student_test_total':st.total_score})
+        resp = {
+            'status': 'updated',
+            'answer_id': ans.id,
+            'new_score': ans.score,
+            'is_correct': ans.is_correct,
+            'student_test_total': st.total_score,
+        }
+        # Qo'shimcha: yangilangan variantlar yoki matnni qaytaramiz front-end darhol yangilashi uchun
+        if selected_ids is not None:
+            resp['answer_option_ids'] = selected_ids
+        if ans.text_answer:
+            resp['text_answer'] = ans.text_answer
+        return Response(resp)
 
 
 # Log ViewSet

@@ -457,30 +457,36 @@
             <!-- Old action rowni yangilaymiz: Natijalar tugmasini ham qo‘shamiz -->
 
             <div class="mb-3" style="max-width:350px;">
-              <select class="form-select" id="dashboardActionsSelect">
-                <option selected disabled>Amal tanlang...</option>
-                <option value="addtest">➕ Test yaratish</option>
-                <option value="participated">⏳Qayta topshirish</option>
-                <option value="results">📊 Barcha natijalar</option>
-                <option value="addinfo">➕ Malumot qushish</option>
-                <option value="users">👤 Foydalanuvchilar</option>
-                
-              </select>
+                            <select class="form-select" id="dashboardActionsSelect">
+                                <option selected disabled>Amal tanlang...</option>
+                                <!-- Har doim controllerlarga ko'rinadi -->
+                                <option value="addtest">➕ Test yaratish</option>
+                                <option value="addinfo">➕ Malumot qushish</option>
+                                {% if request.user.is_superuser or request.user.is_staff %}
+                                    <option value="participated">⏳Qayta topshirish</option>
+                                    <option value="results">📊 Barcha natijalar</option>
+                                    <option value="users">👤 Foydalanuvchilar</option>
+                                {% endif %}
+                            </select>
             </div>
             <script>
             document.getElementById('dashboardActionsSelect').addEventListener('change', function() {
                 var v = this.value;
-                if(v === 'participated') window.location.href = "{% url 'participated_students_list' %}";
-                if(v === 'results') window.location.href = "/api/test-api/all-results/";
                 if(v === 'addinfo') window.location.href = "/api/controller-panel/group-subjects/";
+                if(v === 'participated') {
+                    if({{ request.user.is_superuser|yesno:'true,false' }} || {{ request.user.is_staff|yesno:'true,false' }}) {
+                        window.location.href = "{% url 'participated_students_list' %}";
+                    } else { alert('Ruxsat yo\'q'); }
+                }
+                if(v === 'results') {
+                    if({{ request.user.is_superuser|yesno:'true,false' }} || {{ request.user.is_staff|yesno:'true,false' }}) {
+                        window.location.href = "/api/test-api/all-results/";
+                    } else { alert('Ruxsat yo\'q'); }
+                }
                 if(v === 'users') {
-                    var isStaff = {{ request.user.is_staff|yesno:'true,false' }};
-                    var isController = "{{ request.user.role|default:'' }}" === "controller";
-                    if (isStaff && isController) {
+                    if({{ request.user.is_superuser|yesno:'true,false' }} || {{ request.user.is_staff|yesno:'true,false' }}) {
                         window.location.href = '/api/controller-panel/add-user/';
-                    } else {
-                        alert('Siz admin yoki controller emassiz!');
-                    }
+                    } else { alert('Ruxsat yo\'q'); }
                 }
                 if(v === 'addtest') {
                     var modal = new bootstrap.Modal(document.getElementById('addTestModal'));

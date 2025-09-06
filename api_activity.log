@@ -895,3 +895,669 @@ INFO 2025-09-03 17:19:51,847 basehttp "POST /api/student-answers/248/adjust/ HTT
 INFO 2025-09-03 17:19:52,162 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 495059
 INFO 2025-09-03 17:21:22,808 autoreload C:\project\TEST_v1\TEST\backend\main\permissions.py changed, reloading.
 INFO 2025-09-03 17:21:23,399 autoreload Watching for file changes with StatReloader
+INFO 2025-09-03 18:17:36,101 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 19303
+INFO 2025-09-03 18:17:42,723 basehttp "GET /api/controller-panel/participated-students/ HTTP/1.1" 200 36740
+INFO 2025-09-03 18:17:54,749 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 41129
+INFO 2025-09-03 18:17:54,762 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-09-03 18:18:22,513 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 41129
+INFO 2025-09-03 18:18:22,525 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-09-03 18:19:11,648 basehttp "POST /admin/main/studenttest/ HTTP/1.1" 200 21407
+INFO 2025-09-03 18:19:11,658 basehttp "GET /static/admin/js/cancel.js HTTP/1.1" 200 884
+INFO 2025-09-03 18:19:14,676 basehttp "POST /admin/main/studenttest/ HTTP/1.1" 302 0
+INFO 2025-09-03 18:19:14,706 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 27309
+INFO 2025-09-03 18:19:14,718 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-09-03 18:19:18,957 basehttp "GET /api/controller-panel/participated-students/ HTTP/1.1" 200 22553
+INFO 2025-09-03 18:19:53,583 basehttp "POST /admin/main/studenttest/ HTTP/1.1" 200 13696
+INFO 2025-09-03 18:19:54,599 basehttp "POST /admin/main/studenttest/ HTTP/1.1" 302 0
+INFO 2025-09-03 18:19:54,627 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 25458
+INFO 2025-09-03 18:19:54,643 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-09-03 18:19:59,799 basehttp "GET /admin/main/studenttest/50/change/ HTTP/1.1" 200 36445
+INFO 2025-09-03 18:19:59,816 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-09-03 18:20:12,326 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 25313
+INFO 2025-09-03 18:20:23,114 basehttp "POST /admin/main/studenttest/ HTTP/1.1" 200 13692
+INFO 2025-09-03 18:20:24,177 basehttp "POST /admin/main/studenttest/ HTTP/1.1" 302 0
+INFO 2025-09-03 18:20:24,201 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 24524
+INFO 2025-09-03 18:20:24,215 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-09-03 18:20:26,678 basehttp "GET /api/controller-panel/participated-students/ HTTP/1.1" 200 21637
+INFO 2025-09-03 18:20:40,913 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 19303
+INFO 2025-09-03 18:20:45,571 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 118157
+INFO 2025-09-03 18:21:02,618 basehttp "POST /api/student-answers/232/adjust/ HTTP/1.1" 200 97
+INFO 2025-09-03 18:21:02,688 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 117744
+INFO 2025-09-03 18:21:06,573 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 19303
+INFO 2025-09-03 18:21:10,201 basehttp "GET /api/controller-panel/participated-students/ HTTP/1.1" 200 21639
+INFO 2025-09-03 18:21:39,187 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 19303
+INFO 2025-09-03 18:21:41,521 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 117744
+INFO 2025-09-03 18:22:05,974 basehttp "GET /api/test-api/export-subject/matematika/pdf/ HTTP/1.1" 200 3047
+INFO 2025-09-03 18:26:10,530 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 119143
+INFO 2025-09-03 18:26:48,477 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+INFO 2025-09-03 18:27:07,683 basehttp "POST /api/login/ HTTP/1.1" 302 0
+INFO 2025-09-03 18:27:07,683 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26439
+INFO 2025-09-03 18:27:11,574 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 86729
+INFO 2025-09-03 18:27:38,343 basehttp "GET /api/test-api/export-subject/matematika/pdf/ HTTP/1.1" 200 2688
+INFO 2025-09-03 18:27:54,610 basehttp "GET /api/test-api/export-subject/matematika/pdf/ HTTP/1.1" 200 3047
+INFO 2025-09-03 18:30:15,532 basehttp "POST /api/student-tests/61/override/ HTTP/1.1" 200 754
+INFO 2025-09-03 18:30:15,617 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 121123
+INFO 2025-09-03 18:30:36,947 basehttp "POST /api/student-tests/61/revert/ HTTP/1.1" 200 690
+INFO 2025-09-03 18:30:37,029 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 119143
+INFO 2025-09-03 18:31:08,156 basehttp "POST /api/student-tests/61/override/ HTTP/1.1" 200 754
+INFO 2025-09-03 18:31:08,243 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 121123
+INFO 2025-09-03 18:31:17,130 basehttp "GET /api/student-tests/61/history/ HTTP/1.1" 200 988
+INFO 2025-09-03 18:31:43,078 basehttp "GET /api/student-tests/69/history/ HTTP/1.1" 200 2
+INFO 2025-09-03 18:32:24,406 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26439
+INFO 2025-09-03 18:32:29,096 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 86729
+INFO 2025-09-03 18:32:43,056 basehttp "GET /api/test-api/export-subject/matematika/pdf/ HTTP/1.1" 200 3064
+INFO 2025-09-03 18:51:38,806 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26439
+INFO 2025-09-03 18:51:42,557 basehttp "GET /api/controller-panel/participated-students/ HTTP/1.1" 200 21639
+INFO 2025-09-03 18:51:51,253 basehttp "POST /api/controller-panel/allow-retake/ HTTP/1.1" 200 17
+INFO 2025-09-03 18:51:51,273 basehttp "GET /api/controller-panel/participated-students/ HTTP/1.1" 200 21152
+INFO 2025-09-03 18:52:08,387 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26439
+INFO 2025-09-03 18:52:09,705 basehttp "GET /api/controller-panel/logout/ HTTP/1.1" 302 0
+INFO 2025-09-03 18:52:09,708 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+INFO 2025-09-03 18:52:18,435 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 19303
+INFO 2025-09-03 18:52:21,516 basehttp "GET /api/controller-panel/add-user/ HTTP/1.1" 200 17765
+INFO 2025-09-03 18:52:36,298 basehttp "POST /api/login/ HTTP/1.1" 302 0
+INFO 2025-09-03 18:52:36,298 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 17921
+INFO 2025-09-03 18:52:49,671 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+INFO 2025-09-03 18:52:53,028 basehttp "POST /api/login/ HTTP/1.1" 302 0
+INFO 2025-09-03 18:52:53,034 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 17921
+INFO 2025-09-03 18:53:03,337 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+INFO 2025-09-03 18:53:06,453 basehttp "POST /api/login/ HTTP/1.1" 302 0
+INFO 2025-09-03 18:53:06,469 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 17921
+INFO 2025-09-03 18:53:09,351 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 19303
+INFO 2025-09-03 18:53:35,710 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 302 0
+INFO 2025-09-03 18:53:35,735 basehttp "GET /api/login/?next=/api/controller-panel/dashboard/ HTTP/1.1" 200 20829
+INFO 2025-09-03 18:53:36,564 basehttp "GET /static/main/1.png HTTP/1.1" 200 48202
+WARNING 2025-09-03 18:53:36,623 log Not Found: /favicon.ico
+WARNING 2025-09-03 18:53:36,623 basehttp "GET /favicon.ico HTTP/1.1" 404 3046
+INFO 2025-09-03 18:53:52,778 basehttp "POST /api/login/?next=/api/controller-panel/dashboard/ HTTP/1.1" 302 0
+INFO 2025-09-03 18:53:52,788 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26439
+INFO 2025-09-03 18:53:58,820 basehttp "GET /api/controller-panel/edit-test/36/ HTTP/1.1" 200 3314
+INFO 2025-09-03 18:54:07,637 basehttp "POST /api/controller-panel/edit-test/36/ HTTP/1.1" 302 0
+INFO 2025-09-03 18:54:07,648 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26423
+INFO 2025-09-03 18:54:12,812 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19111
+INFO 2025-09-03 18:54:14,571 basehttp "GET /api/test-api/test/36/ HTTP/1.1" 200 70857
+INFO 2025-09-03 18:54:15,994 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-03 18:54:17,580 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-03 18:54:19,036 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-03 18:54:19,903 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-03 18:54:29,650 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-03 18:54:30,585 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-03 18:54:31,470 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-03 18:54:37,940 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-03 18:54:38,065 basehttp "POST /api/test-api/test/36/ HTTP/1.1" 302 0
+INFO 2025-09-03 18:54:38,085 basehttp "GET /api/test-api/result/70/ HTTP/1.1" 200 17998
+INFO 2025-09-03 18:54:38,102 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-03 18:54:39,574 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19117
+INFO 2025-09-03 18:54:48,298 basehttp "GET /api/controller-panel/participated-students/ HTTP/1.1" 200 22555
+INFO 2025-09-03 18:54:54,807 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 19303
+INFO 2025-09-03 18:55:02,729 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 140701
+INFO 2025-09-03 18:55:37,801 basehttp "GET /api/student-tests/70/history/ HTTP/1.1" 200 2
+INFO 2025-09-03 19:02:05,270 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-09-03 19:02:06,194 autoreload Watching for file changes with StatReloader
+INFO 2025-09-03 19:04:17,308 autoreload Watching for file changes with StatReloader
+INFO 2025-09-03 19:04:20,494 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 140701
+INFO 2025-09-03 19:04:23,891 basehttp "GET /api/test-api/export-subject/matematika/pdf/ HTTP/1.1" 200 4575
+INFO 2025-09-03 19:04:45,470 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 102503
+INFO 2025-09-03 19:04:46,796 basehttp "GET /api/test-api/export-subject/matematika/pdf/ HTTP/1.1" 200 4127
+INFO 2025-09-03 19:04:51,725 basehttp "GET /api/test-api/export-subject/matematika/pdf/ HTTP/1.1" 200 4147
+INFO 2025-09-03 19:09:41,371 autoreload C:\project\TEST_v1\TEST\backend\main\models.py changed, reloading.
+INFO 2025-09-03 19:09:41,879 autoreload Watching for file changes with StatReloader
+INFO 2025-09-03 19:10:03,913 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-09-03 19:10:04,381 autoreload Watching for file changes with StatReloader
+INFO 2025-09-03 19:10:09,498 autoreload C:\project\TEST_v1\TEST\backend\main\urls_test_api.py changed, reloading.
+INFO 2025-09-03 19:10:09,980 autoreload Watching for file changes with StatReloader
+INFO 2025-09-03 19:11:40,884 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 102503
+INFO 2025-09-03 19:11:43,719 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 102503
+INFO 2025-09-03 19:11:51,557 basehttp "GET /api/test-api/export-subject/matematika/pdf/ HTTP/1.1" 200 4604
+INFO 2025-09-03 19:13:59,497 basehttp "GET /api/test-api/verify-qr/b89f4e72334704fb98abf39786326e43/ HTTP/1.1" 200 1446
+INFO 2025-09-03 19:16:26,762 basehttp "GET /api/test-api/verify-qr/b89f4e72334704fb98abf39786326e43/ HTTP/1.1" 200 2757
+INFO 2025-09-03 19:16:30,798 basehttp "GET /api/test-api/verify-qr/b89f4e72334704fb98abf39786326e43/ HTTP/1.1" 200 2757
+INFO 2025-09-03 19:17:12,726 basehttp "GET /api/test-api/verify-qr/b89f4e72334704fb98abf39786326e43/ HTTP/1.1" 200 2757
+INFO 2025-09-03 19:19:04,552 basehttp "GET /api/test-api/verify-qr/b89f4e72334704fb98abf39786326e43/ HTTP/1.1" 200 4484
+INFO 2025-09-03 19:19:48,517 basehttp "GET /api/test-api/export-subject/matematika/pdf/ HTTP/1.1" 200 4663
+INFO 2025-09-03 19:19:57,373 basehttp "GET /api/test-api/verify-qr/b89f4e72334704fb98abf39786326e43/ HTTP/1.1" 200 4484
+INFO 2025-09-03 19:20:06,733 basehttp "GET /api/test-api/verify-qr/b89f4e72334704fb98bf39786326e43/ HTTP/1.1" 200 3924
+INFO 2025-09-03 19:21:34,703 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-09-03 19:21:35,367 autoreload Watching for file changes with StatReloader
+INFO 2025-09-04 08:52:38,969 basehttp "GET /api/test-api/verify-qr/b89f4e72334704fb98abf39786326e43/ HTTP/1.1" 200 4484
+INFO 2025-09-04 08:52:45,526 basehttp "GET /api/test-api/verify-qr/b89f4e72334704fb98abf9786326e43/ HTTP/1.1" 200 3924
+INFO 2025-09-04 08:52:58,833 basehttp "GET /api/test-api/verify-qr/b89f4e72334704fb98abf9786326e43/ HTTP/1.1" 200 3924
+INFO 2025-09-04 08:53:03,787 basehttp "GET /api/test-api/verify-qr/b89f4e72334704fb98abf39786326e43/ HTTP/1.1" 200 4484
+INFO 2025-09-04 08:56:57,426 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-09-04 08:56:58,002 autoreload Watching for file changes with StatReloader
+INFO 2025-09-04 09:00:40,429 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 302 0
+INFO 2025-09-04 09:00:40,441 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+INFO 2025-09-04 09:00:59,921 basehttp "POST /api/login/ HTTP/1.1" 302 0
+INFO 2025-09-04 09:00:59,936 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26439
+INFO 2025-09-04 09:01:03,382 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 102503
+INFO 2025-09-04 09:01:11,000 basehttp "GET /api/test-api/export-subject/matematika/pdf/ HTTP/1.1" 200 4555
+INFO 2025-09-04 09:57:24,118 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 302 0
+INFO 2025-09-04 09:57:24,121 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+INFO 2025-09-04 09:57:41,930 basehttp "POST /api/login/ HTTP/1.1" 302 0
+INFO 2025-09-04 09:57:41,942 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 19303
+INFO 2025-09-04 10:04:43,089 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-09-04 10:04:43,626 autoreload Watching for file changes with StatReloader
+INFO 2025-09-04 10:05:03,832 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 102503
+INFO 2025-09-04 10:05:05,478 basehttp "GET /api/test-api/export-subject/matematika/pdf/ HTTP/1.1" 200 5347
+INFO 2025-09-04 10:06:49,643 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-09-04 10:06:50,250 autoreload Watching for file changes with StatReloader
+INFO 2025-09-04 10:07:49,526 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 102503
+INFO 2025-09-04 10:07:51,149 basehttp "GET /api/test-api/export-subject/matematika/pdf/ HTTP/1.1" 200 9855
+INFO 2025-09-04 10:09:00,171 basehttp "GET /api/test-api/verify-qr/1a098f4fba4ed35092dd4bbf89295681/ HTTP/1.1" 200 4484
+INFO 2025-09-04 10:09:14,888 basehttp "GET /api/test-api/verify-qr/1a098f4fba4ed35092dd4bbf8295681/ HTTP/1.1" 200 3924
+INFO 2025-09-04 10:09:32,644 basehttp "GET /api/test-api/verify-qr/1a098f4fba4ed35092dd4bbf89295681/ HTTP/1.1" 200 4484
+INFO 2025-09-04 10:11:14,098 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-09-04 10:11:14,648 autoreload Watching for file changes with StatReloader
+INFO 2025-09-04 10:11:19,810 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-09-04 10:11:20,304 autoreload Watching for file changes with StatReloader
+INFO 2025-09-04 10:11:42,855 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 102503
+INFO 2025-09-04 10:11:44,362 basehttp "GET /api/test-api/export-subject/matematika/pdf/ HTTP/1.1" 200 9587
+INFO 2025-09-04 10:12:31,659 basehttp "GET /api/test-api/verify-qr/b4a9c62620dccca31d7cc426356743f2/ HTTP/1.1" 200 4484
+INFO 2025-09-04 10:17:27,871 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-09-04 10:17:28,388 autoreload Watching for file changes with StatReloader
+INFO 2025-09-04 10:17:32,495 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 102503
+INFO 2025-09-04 10:17:33,750 basehttp "GET /api/test-api/export-subject/matematika/pdf/ HTTP/1.1" 200 9415
+INFO 2025-09-04 10:21:20,010 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-09-04 10:21:20,571 autoreload Watching for file changes with StatReloader
+INFO 2025-09-04 10:21:46,799 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 102503
+INFO 2025-09-04 10:21:48,408 basehttp "GET /api/test-api/export-subject/matematika/pdf/ HTTP/1.1" 200 10777
+INFO 2025-09-04 10:26:00,565 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-09-04 10:26:01,355 autoreload Watching for file changes with StatReloader
+INFO 2025-09-04 10:26:23,376 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-09-04 10:26:23,861 autoreload Watching for file changes with StatReloader
+INFO 2025-09-04 10:26:48,132 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-09-04 10:26:48,602 autoreload Watching for file changes with StatReloader
+INFO 2025-09-04 10:26:50,997 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 102503
+INFO 2025-09-04 10:26:54,025 basehttp "GET /api/test-api/export-subject/matematika/pdf/ HTTP/1.1" 200 9485
+INFO 2025-09-04 10:26:59,654 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-09-04 10:27:00,152 autoreload Watching for file changes with StatReloader
+INFO 2025-09-04 10:27:24,326 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-09-04 10:27:24,854 autoreload Watching for file changes with StatReloader
+INFO 2025-09-04 10:27:28,439 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 102503
+INFO 2025-09-04 10:27:30,012 basehttp "GET /api/test-api/export-subject/matematika/pdf/ HTTP/1.1" 200 9541
+INFO 2025-09-04 10:27:54,932 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-09-04 10:27:55,428 autoreload Watching for file changes with StatReloader
+INFO 2025-09-04 10:27:58,448 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 102503
+INFO 2025-09-04 10:28:00,422 basehttp "GET /api/test-api/export-subject/matematika/pdf/ HTTP/1.1" 200 9483
+INFO 2025-09-04 10:55:27,621 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-09-04 10:55:28,179 autoreload Watching for file changes with StatReloader
+INFO 2025-09-04 11:05:45,879 basehttp "GET /api/test-api/verify-qr/b4a9c62620dccca317cc426356743f2/ HTTP/1.1" 200 3924
+INFO 2025-09-04 11:06:06,196 basehttp "GET /api/test-api/verify-qr/b4a9c62620dccca31d7cc426356743f2/ HTTP/1.1" 200 4484
+INFO 2025-09-04 11:07:25,973 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+INFO 2025-09-04 11:07:39,412 basehttp "POST /api/login/ HTTP/1.1" 302 0
+INFO 2025-09-04 11:07:39,420 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 19303
+INFO 2025-09-04 11:07:42,383 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 140701
+INFO 2025-09-04 11:08:08,093 basehttp "POST /api/student-answers/263/adjust/ HTTP/1.1" 200 98
+INFO 2025-09-04 11:08:08,167 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 140318
+INFO 2025-09-04 11:09:21,309 basehttp "POST /api/student-tests/68/override/ HTTP/1.1" 200 757
+INFO 2025-09-04 11:09:21,355 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 142302
+INFO 2025-09-04 11:59:07,340 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-09-04 11:59:07,866 autoreload Watching for file changes with StatReloader
+INFO 2025-09-04 11:59:24,859 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 302 0
+INFO 2025-09-04 11:59:24,869 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+INFO 2025-09-04 11:59:34,120 basehttp "POST /api/login/ HTTP/1.1" 302 0
+INFO 2025-09-04 11:59:34,135 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26439
+INFO 2025-09-04 11:59:40,192 basehttp "GET /api/controller-panel/logout/ HTTP/1.1" 302 0
+INFO 2025-09-04 11:59:40,195 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+INFO 2025-09-04 12:00:01,700 basehttp "POST /api/login/ HTTP/1.1" 302 0
+INFO 2025-09-04 12:00:01,710 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26439
+INFO 2025-09-04 12:00:04,908 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 102118
+INFO 2025-09-04 12:00:11,496 basehttp "GET /api/test-api/export-subject/matematika/pdf/ HTTP/1.1" 200 9596
+INFO 2025-09-04 12:19:38,432 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-09-04 12:19:38,941 autoreload Watching for file changes with StatReloader
+INFO 2025-09-05 09:22:42,782 autoreload Watching for file changes with StatReloader
+INFO 2025-09-05 09:22:48,850 basehttp "GET / HTTP/1.1" 200 20829
+INFO 2025-09-05 09:22:49,032 basehttp "GET /static/main/1.png HTTP/1.1" 200 48202
+WARNING 2025-09-05 09:22:49,048 log Not Found: /favicon.ico
+INFO 2025-09-05 09:22:49,048 basehttp - Broken pipe from ('127.0.0.1', 8980)
+INFO 2025-09-05 09:23:04,254 basehttp "POST / HTTP/1.1" 302 0
+INFO 2025-09-05 09:23:04,270 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 19303
+INFO 2025-09-05 09:23:15,399 basehttp "GET /api/controller-panel/group-subjects/ HTTP/1.1" 200 35824
+INFO 2025-09-05 09:23:36,346 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 19303
+INFO 2025-09-05 09:23:38,475 basehttp "GET /api/controller-panel/add-user/ HTTP/1.1" 200 17765
+INFO 2025-09-05 09:23:52,584 basehttp "GET /api/controller-panel/add-user/?filter_role=&filter_group=1&filter_kafedra=&filter_bulim= HTTP/1.1" 200 12949
+INFO 2025-09-05 09:23:55,430 basehttp "GET /api/controller-panel/add-user/?filter_role=&filter_group=4&filter_kafedra=&filter_bulim= HTTP/1.1" 200 14315
+INFO 2025-09-05 09:24:01,673 basehttp "GET /api/controller-panel/export-users-word/?filter_role=&filter_group=4&filter_kafedra=&filter_bulim= HTTP/1.1" 200 36910
+INFO 2025-09-05 09:24:23,833 basehttp "GET /api/controller-panel/export-users-pdf/?filter_role=&filter_group=4&filter_kafedra=&filter_bulim= HTTP/1.1" 200 1816
+INFO 2025-09-05 09:24:31,675 basehttp "GET / HTTP/1.1" 200 20829
+INFO 2025-09-05 09:24:41,484 basehttp "POST / HTTP/1.1" 302 0
+INFO 2025-09-05 09:24:41,500 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26439
+INFO 2025-09-05 09:25:01,213 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 302 0
+INFO 2025-09-05 09:25:01,225 basehttp "GET /api/login/?next=/api/controller-panel/dashboard/ HTTP/1.1" 200 20829
+INFO 2025-09-05 09:25:01,254 basehttp "GET /static/main/1.png HTTP/1.1" 304 0
+WARNING 2025-09-05 09:25:01,411 log Not Found: /favicon.ico
+WARNING 2025-09-05 09:25:01,411 basehttp "GET /favicon.ico HTTP/1.1" 404 3046
+INFO 2025-09-05 09:25:08,677 basehttp "POST /api/login/?next=/api/controller-panel/dashboard/ HTTP/1.1" 200 21031
+INFO 2025-09-05 09:25:23,232 basehttp "POST /api/login/?next=/api/controller-panel/dashboard/ HTTP/1.1" 302 0
+INFO 2025-09-05 09:25:23,244 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 19303
+INFO 2025-09-05 09:25:35,335 basehttp "GET /api/controller-panel/add-test/?target=employee HTTP/1.1" 200 17601
+INFO 2025-09-05 09:25:39,190 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 19303
+INFO 2025-09-05 09:26:01,928 basehttp "GET /api/controller-panel/participated-students/ HTTP/1.1" 200 22557
+INFO 2025-09-05 09:26:34,214 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 19303
+INFO 2025-09-05 09:26:56,355 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 102118
+INFO 2025-09-05 09:26:59,163 basehttp "GET /api/test-api/export-subject/matematika/pdf/ HTTP/1.1" 200 9551
+INFO 2025-09-05 09:28:02,551 basehttp "GET /api/test-api/verify-qr/77d0188a351aae9613b73e51abfb8b7f/ HTTP/1.1" 200 4484
+INFO 2025-09-05 09:30:22,594 basehttp "GET /api/test-api/verify-qr/77d0188a351aae9613b73e51abfb8b7f/ HTTP/1.1" 200 4465
+INFO 2025-09-05 09:32:21,359 basehttp "GET /api/test-api/verify-qr/77d0188a351aae9613b73e51abfb8b7f/ HTTP/1.1" 200 4467
+INFO 2025-09-05 09:32:43,266 basehttp "GET /api/test-api/verify-qr/77d0188a351aae9613b73e51abfb8b7f/ HTTP/1.1" 200 4467
+INFO 2025-09-05 09:32:51,444 basehttp "GET /api/test-api/verify-qr/77d0188a351aae9613b73e51abfb8b7f/ HTTP/1.1" 200 4467
+INFO 2025-09-05 09:33:13,261 basehttp "GET /api/test-api/verify-qr/77d0188a351aae9613b73e51abfb8b7f/ HTTP/1.1" 200 4467
+INFO 2025-09-05 09:33:20,069 basehttp "GET /api/test-api/verify-qr/77d0188a351aae9613b73e51abfb8b7f/ HTTP/1.1" 200 4467
+INFO 2025-09-05 09:33:22,783 basehttp "GET /api/test-api/verify-qr/77d0188a351aae9613b73e51abfb8b7f/ HTTP/1.1" 200 4466
+INFO 2025-09-05 09:33:32,634 basehttp "GET /api/test-api/verify-qr/77d0188a351aae9613b73e51abfb8b7f/ HTTP/1.1" 200 4468
+INFO 2025-09-05 09:33:41,906 basehttp "GET /api/test-api/verify-qr/77d0188a351aae9613b73e51abfb8b7f/ HTTP/1.1" 200 4467
+INFO 2025-09-05 09:34:11,000 basehttp "GET /api/test-api/verify-qr/77d0188a351aae9613b73e51abfb8b7f/ HTTP/1.1" 200 4469
+INFO 2025-09-05 09:34:12,470 basehttp "GET /api/test-api/verify-qr/77d0188a351aae9613b73e51abfb8b7f/ HTTP/1.1" 200 4469
+INFO 2025-09-05 09:34:13,549 basehttp "GET /api/test-api/verify-qr/77d0188a351aae9613b73e51abfb8b7f/ HTTP/1.1" 200 4469
+INFO 2025-09-05 09:34:23,150 basehttp "GET /api/test-api/verify-qr/77d0188a351aae9613b73e51abfb8b7f/ HTTP/1.1" 200 4469
+INFO 2025-09-05 09:34:24,560 basehttp "GET /api/test-api/verify-qr/77d0188a351aae9613b73e51abfb8b7f/ HTTP/1.1" 200 4469
+INFO 2025-09-05 09:34:24,811 basehttp "GET /api/test-api/verify-qr/77d0188a351aae9613b73e51abfb8b7f/ HTTP/1.1" 200 4469
+INFO 2025-09-05 09:34:25,002 basehttp "GET /api/test-api/verify-qr/77d0188a351aae9613b73e51abfb8b7f/ HTTP/1.1" 200 4469
+INFO 2025-09-05 09:34:40,099 basehttp "GET /api/test-api/verify-qr/77d0188a351aae9613b73e51abfb8b7f/ HTTP/1.1" 200 4469
+INFO 2025-09-05 09:34:41,618 basehttp "GET /api/test-api/verify-qr/77d0188a351aae9613b73e51abfb8b7f/ HTTP/1.1" 200 4469
+INFO 2025-09-05 09:36:11,784 basehttp "GET /api/test-api/verify-qr/77d0188a351aae9613b73e51abfb8b7f/ HTTP/1.1" 200 4493
+INFO 2025-09-05 09:36:21,749 basehttp "GET /api/test-api/verify-qr/77d0188a351aae9613b73e51abfb8b7f/ HTTP/1.1" 200 4493
+INFO 2025-09-05 09:36:30,367 basehttp "GET /api/test-api/verify-qr/77d0188a351aae9613b73e51abfb8b7f/ HTTP/1.1" 200 4493
+INFO 2025-09-05 09:36:54,289 basehttp "GET /api/test-api/verify-qr/77d0188a351aae9613b73e51abfb8b7f/ HTTP/1.1" 200 4597
+INFO 2025-09-05 09:37:57,708 basehttp "GET /api/test-api/verify-qr/77d0188a351aae9613b73e51abfb8b7f/ HTTP/1.1" 200 4597
+INFO 2025-09-05 09:38:14,786 basehttp "GET /api/test-api/verify-qr/77d0188a351aae9613b73e51abfb8b7f/ HTTP/1.1" 200 4597
+INFO 2025-09-05 09:38:26,207 basehttp "GET /api/test-api/verify-qr/77d0188a351aae9613b73e51abfb8b7f/ HTTP/1.1" 200 4597
+INFO 2025-09-05 09:38:28,011 basehttp "GET /api/test-api/verify-qr/77d0188a351aae9613b73e51abfb8b7f/ HTTP/1.1" 200 4597
+INFO 2025-09-05 09:38:51,366 basehttp "GET /api/test-api/verify-qr/77d0188a351aae9613b73e51abfb8b7f/ HTTP/1.1" 200 4608
+INFO 2025-09-05 09:49:01,922 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 142302
+INFO 2025-09-05 09:52:05,011 autoreload C:\project\TEST_v1\TEST\backend\main\views.py changed, reloading.
+INFO 2025-09-05 09:52:05,510 autoreload Watching for file changes with StatReloader
+INFO 2025-09-05 09:52:21,972 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 102118
+INFO 2025-09-05 09:53:28,998 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 142302
+INFO 2025-09-05 09:53:56,717 basehttp "POST /api/student-answers/237/adjust/ HTTP/1.1" 200 121
+INFO 2025-09-05 09:53:56,763 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 141905
+INFO 2025-09-05 09:54:19,019 basehttp "POST /api/student-answers/238/adjust/ HTTP/1.1" 200 123
+INFO 2025-09-05 09:54:19,063 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 141509
+INFO 2025-09-05 09:54:34,736 autoreload C:\project\TEST_v1\TEST\backend\main\views.py changed, reloading.
+INFO 2025-09-05 09:54:35,222 autoreload Watching for file changes with StatReloader
+INFO 2025-09-05 10:13:46,342 basehttp "POST /api/student-answers/263/adjust/ HTTP/1.1" 200 95
+INFO 2025-09-05 10:13:46,424 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 141892
+INFO 2025-09-05 10:13:55,641 basehttp "POST /api/student-answers/263/adjust/ HTTP/1.1" 200 122
+INFO 2025-09-05 10:13:55,685 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 141509
+INFO 2025-09-05 10:34:15,830 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-09-05 10:34:16,356 autoreload Watching for file changes with StatReloader
+ERROR 2025-09-05 10:36:18,216 log Internal Server Error: /api/test-api/all-results/
+Traceback (most recent call last):
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\backend\main\views_test_api.py", line 983, in testapi_all_results
+    return render(request, 'test_api/all_results.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\template\defaulttags.py", line 861, in do_for
+    sequence = parser.compile_filter(bits[in_index + 1])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\project\TEST_v1\TEST\env\Lib\site-packages\django\template\base.py", line 710, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '.split(',')' from '"1,2,3,4,5,6,7,8,9,10".split(',')'
+ERROR 2025-09-05 10:36:18,220 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 500 207172
+INFO 2025-09-05 10:37:09,342 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 101374
+INFO 2025-09-05 10:38:30,312 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 124032
+INFO 2025-09-05 10:38:30,979 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 124032
+INFO 2025-09-05 10:38:41,404 basehttp "GET /api/test-api/export-subject/matematika/pdf/?group=407&semester=1&attempt_count=1 HTTP/1.1" 200 9214
+INFO 2025-09-05 10:39:20,394 basehttp "GET /api/test-api/export-subject/matematika/pdf/?group=407&semester=2&attempt_count=1 HTTP/1.1" 200 9328
+INFO 2025-09-05 10:40:54,651 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-09-05 10:40:55,119 autoreload Watching for file changes with StatReloader
+INFO 2025-09-05 10:42:52,109 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 126455
+INFO 2025-09-05 10:43:06,501 basehttp "GET /api/test-api/export-subject/matematika/pdf/?group=407&semester=1&attempt_nth=1 HTTP/1.1" 200 9540
+INFO 2025-09-05 10:43:21,492 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 19303
+INFO 2025-09-05 10:43:24,457 basehttp "GET /api/controller-panel/participated-students/ HTTP/1.1" 200 22559
+INFO 2025-09-05 10:44:25,503 basehttp "GET /api/controller-panel/participated-students/ HTTP/1.1" 200 22559
+INFO 2025-09-05 10:45:06,434 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26439
+INFO 2025-09-05 10:45:10,971 basehttp "GET /api/controller-panel/participated-students/ HTTP/1.1" 200 22559
+INFO 2025-09-05 10:45:20,368 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 19303
+INFO 2025-09-05 10:45:22,512 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 149420
+INFO 2025-09-05 10:46:39,880 basehttp "GET /api/controller-panel/participated-students/ HTTP/1.1" 302 0
+INFO 2025-09-05 10:46:39,883 basehttp "GET /api/login/?next=/api/controller-panel/participated-students/ HTTP/1.1" 200 20829
+INFO 2025-09-05 10:46:39,915 basehttp "GET /static/main/1.png HTTP/1.1" 304 0
+WARNING 2025-09-05 10:46:40,057 log Not Found: /favicon.ico
+WARNING 2025-09-05 10:46:40,058 basehttp "GET /favicon.ico HTTP/1.1" 404 3046
+INFO 2025-09-05 10:47:10,682 basehttp "POST /api/login/?next=/api/controller-panel/participated-students/ HTTP/1.1" 302 0
+INFO 2025-09-05 10:47:10,691 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26439
+INFO 2025-09-05 10:47:13,587 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 126455
+INFO 2025-09-05 10:47:24,397 basehttp "GET /api/test-api/export-subject/matematika/pdf/?group=407&semester=1&attempt_nth=3 HTTP/1.1" 200 9389
+INFO 2025-09-05 10:59:47,412 basehttp "GET /api/test-api/export-subject/matematika/pdf/?group=407&semester=1&attempt_count=1 HTTP/1.1" 200 9268
+INFO 2025-09-05 11:01:12,632 basehttp "GET /api/test-api/export-subject/matematika/pdf/?group=407&semester=1&attempt_nth=2 HTTP/1.1" 200 9491
+INFO 2025-09-05 11:01:22,008 basehttp "GET /api/controller-panel/participated-students/ HTTP/1.1" 200 22559
+INFO 2025-09-05 11:08:41,840 basehttp "GET /api/test-api/export-subject/matematika/pdf/?attempt_min=1&attempt_max=3 HTTP/1.1" 200 9891
+INFO 2025-09-05 11:12:13,738 basehttp "GET /api/test-api/export-subject/matematika/pdf/?attempt_min=1&attempt_max=2 HTTP/1.1" 200 9340
+INFO 2025-09-05 14:22:17,913 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 302 0
+INFO 2025-09-05 14:22:17,917 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+INFO 2025-09-05 14:22:48,660 basehttp "POST /api/login/ HTTP/1.1" 200 21031
+INFO 2025-09-05 14:23:04,909 basehttp "POST /api/login/ HTTP/1.1" 200 21031
+INFO 2025-09-05 14:23:19,276 basehttp "POST /api/login/ HTTP/1.1" 302 0
+INFO 2025-09-05 14:23:19,285 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26439
+INFO 2025-09-05 14:23:21,624 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 126455
+INFO 2025-09-05 14:23:24,518 basehttp "GET /api/test-api/export-subject/matematika/pdf/ HTTP/1.1" 200 9398
+INFO 2025-09-05 15:53:34,762 basehttp "GET /api/controller-panel/participated-students/ HTTP/1.1" 302 0
+INFO 2025-09-05 15:53:34,764 basehttp "GET /api/login/?next=/api/controller-panel/participated-students/ HTTP/1.1" 200 20829
+INFO 2025-09-05 15:53:38,834 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 302 0
+INFO 2025-09-05 15:53:38,842 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+INFO 2025-09-05 15:53:45,548 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 126455
+INFO 2025-09-05 15:53:46,370 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 126455
+INFO 2025-09-05 15:53:57,039 basehttp "GET /api/test-api/export-subject/matematika/pdf/ HTTP/1.1" 200 9372
+INFO 2025-09-05 15:56:12,966 basehttp "POST /api/login/ HTTP/1.1" 302 0
+INFO 2025-09-05 15:56:12,976 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26439
+INFO 2025-09-05 15:56:15,822 basehttp "GET /api/controller-panel/participated-students/ HTTP/1.1" 200 22559
+INFO 2025-09-05 16:09:10,204 basehttp "POST /api/login/?next=/api/controller-panel/participated-students/ HTTP/1.1" 302 0
+INFO 2025-09-05 16:09:10,218 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 19303
+INFO 2025-09-05 16:09:13,403 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 149420
+INFO 2025-09-05 16:21:50,465 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26439
+INFO 2025-09-05 16:21:52,053 basehttp "GET /api/controller-panel/logout/ HTTP/1.1" 302 0
+INFO 2025-09-05 16:21:52,056 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+INFO 2025-09-05 16:21:56,930 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26439
+INFO 2025-09-05 16:21:59,472 basehttp "GET /api/controller-panel/add-user/ HTTP/1.1" 200 17765
+INFO 2025-09-05 16:22:16,474 basehttp "POST /api/login/ HTTP/1.1" 302 0
+INFO 2025-09-05 16:22:16,480 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 17921
+INFO 2025-09-05 16:22:23,209 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26439
+INFO 2025-09-05 16:22:29,310 basehttp "GET /api/controller-panel/participated-students/ HTTP/1.1" 200 22559
+INFO 2025-09-05 16:22:35,784 basehttp "POST /api/controller-panel/allow-retake/ HTTP/1.1" 200 17
+INFO 2025-09-05 16:22:35,811 basehttp "GET /api/controller-panel/participated-students/ HTTP/1.1" 200 22072
+INFO 2025-09-05 16:22:46,539 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 17921
+INFO 2025-09-05 16:22:56,898 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26439
+INFO 2025-09-05 16:23:01,595 basehttp "GET /api/controller-panel/edit-test/36/ HTTP/1.1" 200 3314
+INFO 2025-09-05 16:23:14,511 basehttp "POST /api/controller-panel/edit-test/36/ HTTP/1.1" 302 0
+INFO 2025-09-05 16:23:14,520 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26423
+INFO 2025-09-05 16:23:17,735 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19111
+INFO 2025-09-05 16:23:19,334 basehttp "GET /api/test-api/test/36/ HTTP/1.1" 200 70857
+INFO 2025-09-05 16:23:19,350 basehttp "GET /media/matching_answers/en.png HTTP/1.1" 304 0
+INFO 2025-09-05 16:23:19,350 basehttp "GET /media/matching_answers/ru.png HTTP/1.1" 304 0
+INFO 2025-09-05 16:23:19,350 basehttp "GET /media/matching_answers/uz.png HTTP/1.1" 304 0
+INFO 2025-09-05 16:23:20,488 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-05 16:23:24,589 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-05 16:23:26,064 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-05 16:23:27,480 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-05 16:23:32,681 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-05 16:23:40,947 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-05 16:23:42,295 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-05 16:23:43,217 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-05 16:23:43,342 basehttp "POST /api/test-api/test/36/ HTTP/1.1" 302 0
+INFO 2025-09-05 16:23:43,362 basehttp "GET /api/test-api/result/71/ HTTP/1.1" 200 17998
+INFO 2025-09-05 16:23:43,381 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-05 16:23:45,618 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19117
+INFO 2025-09-05 16:23:50,612 basehttp "GET /api/controller-panel/participated-students/ HTTP/1.1" 200 23475
+INFO 2025-09-05 16:24:04,090 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26423
+INFO 2025-09-05 16:24:06,814 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 142229
+INFO 2025-09-05 16:24:10,120 basehttp "GET /api/test-api/export-subject/matematika/pdf/ HTTP/1.1" 200 9455
+INFO 2025-09-05 16:27:41,554 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26423
+INFO 2025-09-05 16:27:50,418 basehttp "GET /api/controller-panel/group-subjects/ HTTP/1.1" 200 35824
+INFO 2025-09-05 16:37:50,091 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26423
+INFO 2025-09-05 17:00:10,513 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26789
+INFO 2025-09-05 17:00:34,398 basehttp "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-09-05 17:00:34,420 basehttp "GET /admin/login/?next=/admin/ HTTP/1.1" 200 3692
+INFO 2025-09-05 17:00:34,434 basehttp "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:34,434 basehttp "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:34,435 basehttp "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:34,435 basehttp "GET /static/admin/css/login.css HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:34,436 basehttp "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:34,436 basehttp "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:34,440 basehttp "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:40,622 basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-09-05 17:00:40,642 basehttp "GET /admin/ HTTP/1.1" 200 16976
+INFO 2025-09-05 17:00:40,656 basehttp "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:40,660 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:40,660 basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:40,660 basehttp "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:43,294 basehttp "GET /admin/main/user/ HTTP/1.1" 200 20239
+INFO 2025-09-05 17:00:43,309 basehttp "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:43,309 basehttp "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:43,310 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:43,310 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:43,310 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:43,312 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:43,313 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:43,313 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:43,314 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:43,316 basehttp "GET /static/admin/img/search.svg HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:43,316 basehttp "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:43,317 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-09-05 17:00:43,319 basehttp "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:43,329 basehttp "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:43,329 basehttp "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:43,330 basehttp "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:44,867 basehttp "GET /admin/main/user/2/change/ HTTP/1.1" 200 40314
+INFO 2025-09-05 17:00:44,882 basehttp "GET /static/admin/js/calendar.js HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:44,882 basehttp "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:44,882 basehttp "GET /static/admin/js/inlines.js HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:44,882 basehttp "GET /static/admin/img/icon-no.svg HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:44,882 basehttp "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:44,886 basehttp "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:44,886 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-09-05 17:00:44,887 basehttp "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:44,889 basehttp "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+INFO 2025-09-05 17:00:49,020 basehttp "POST /admin/main/user/2/change/ HTTP/1.1" 302 0
+INFO 2025-09-05 17:00:49,036 basehttp "GET /admin/main/user/ HTTP/1.1" 200 20446
+INFO 2025-09-05 17:00:49,054 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-09-05 17:00:52,064 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26486
+INFO 2025-09-05 17:01:05,281 basehttp "GET /api/controller-panel/group-subjects/ HTTP/1.1" 200 35824
+INFO 2025-09-05 17:01:10,800 basehttp "GET /admin/main/user/2/change/ HTTP/1.1" 200 40306
+INFO 2025-09-05 17:01:10,815 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-09-05 17:01:15,139 basehttp "POST /admin/main/user/2/change/ HTTP/1.1" 302 0
+INFO 2025-09-05 17:01:15,155 basehttp "GET /admin/main/user/ HTTP/1.1" 200 20446
+INFO 2025-09-05 17:01:15,172 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-09-05 17:01:19,236 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26789
+INFO 2025-09-05 17:01:48,372 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 142229
+INFO 2025-09-05 17:02:34,604 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26789
+INFO 2025-09-06 09:11:46,220 autoreload Watching for file changes with StatReloader
+WARNING 2025-09-06 09:11:50,650 log Not Found: /favicon.ico
+INFO 2025-09-06 09:11:50,651 basehttp - Broken pipe from ('127.0.0.1', 1561)
+INFO 2025-09-06 09:11:51,506 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 302 0
+INFO 2025-09-06 09:11:51,511 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+INFO 2025-09-06 09:11:51,549 basehttp - Broken pipe from ('127.0.0.1', 1564)
+INFO 2025-09-06 09:12:02,391 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+INFO 2025-09-06 09:12:03,229 basehttp "GET /static/main/1.png HTTP/1.1" 200 48202
+WARNING 2025-09-06 09:12:03,298 log Not Found: /favicon.ico
+WARNING 2025-09-06 09:12:03,298 basehttp "GET /favicon.ico HTTP/1.1" 404 3046
+INFO 2025-09-06 09:12:11,875 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 302 0
+INFO 2025-09-06 09:12:11,878 basehttp "GET /api/login/?next=/api/controller-panel/dashboard/ HTTP/1.1" 200 20829
+INFO 2025-09-06 09:12:12,190 basehttp "GET /static/main/1.png HTTP/1.1" 200 48202
+WARNING 2025-09-06 09:12:12,262 log Not Found: /favicon.ico
+WARNING 2025-09-06 09:12:12,262 basehttp "GET /favicon.ico HTTP/1.1" 404 3046
+INFO 2025-09-06 09:12:48,718 basehttp "POST /api/login/?next=/api/controller-panel/dashboard/ HTTP/1.1" 302 0
+INFO 2025-09-06 09:12:48,733 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26789
+INFO 2025-09-06 09:13:16,861 basehttp "POST /api/login/ HTTP/1.1" 302 0
+INFO 2025-09-06 09:13:16,868 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 19650
+INFO 2025-09-06 09:13:20,757 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 168998
+INFO 2025-09-06 09:13:31,687 basehttp "GET /api/controller-panel/participated-students/ HTTP/1.1" 200 23475
+INFO 2025-09-06 09:13:57,554 basehttp "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-09-06 09:13:57,612 basehttp "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4173
+INFO 2025-09-06 09:13:57,643 basehttp "GET /static/admin/css/base.css HTTP/1.1" 200 22120
+INFO 2025-09-06 09:13:57,644 basehttp "GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+INFO 2025-09-06 09:13:57,656 basehttp "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+INFO 2025-09-06 09:13:57,659 basehttp "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2025-09-06 09:13:57,661 basehttp "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2025-09-06 09:13:57,661 basehttp "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2025-09-06 09:13:57,661 basehttp "GET /static/admin/css/login.css HTTP/1.1" 200 951
+WARNING 2025-09-06 09:13:57,685 log Not Found: /favicon.ico
+INFO 2025-09-06 09:13:57,686 basehttp - Broken pipe from ('127.0.0.1', 1757)
+INFO 2025-09-06 09:14:07,980 basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-09-06 09:14:08,018 basehttp "GET /admin/ HTTP/1.1" 200 17030
+INFO 2025-09-06 09:14:08,051 basehttp "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+INFO 2025-09-06 09:14:08,057 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2025-09-06 09:14:08,058 basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2025-09-06 09:14:08,058 basehttp "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+INFO 2025-09-06 09:14:10,973 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 26257
+INFO 2025-09-06 09:14:11,006 basehttp "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+INFO 2025-09-06 09:14:11,006 basehttp "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+INFO 2025-09-06 09:14:11,008 basehttp "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+INFO 2025-09-06 09:14:11,008 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO 2025-09-06 09:14:11,009 basehttp "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO 2025-09-06 09:14:11,009 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO 2025-09-06 09:14:11,010 basehttp "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO 2025-09-06 09:14:11,010 basehttp "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+INFO 2025-09-06 09:14:11,012 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO 2025-09-06 09:14:11,013 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO 2025-09-06 09:14:11,013 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO 2025-09-06 09:14:11,013 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO 2025-09-06 09:14:11,015 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO 2025-09-06 09:14:11,016 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-09-06 09:14:11,038 basehttp "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+INFO 2025-09-06 09:14:11,038 basehttp "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+INFO 2025-09-06 09:14:11,039 basehttp "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+WARNING 2025-09-06 09:14:11,044 log Not Found: /favicon.ico
+INFO 2025-09-06 09:14:11,044 basehttp - Broken pipe from ('127.0.0.1', 1756)
+INFO 2025-09-06 09:14:21,305 basehttp "POST /admin/main/studenttest/ HTTP/1.1" 200 16123
+INFO 2025-09-06 09:14:21,326 basehttp "GET /static/admin/js/cancel.js HTTP/1.1" 200 884
+INFO 2025-09-06 09:14:23,839 basehttp "POST /admin/main/studenttest/ HTTP/1.1" 302 0
+INFO 2025-09-06 09:14:23,863 basehttp "GET /admin/main/studenttest/ HTTP/1.1" 200 22666
+INFO 2025-09-06 09:14:23,877 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+WARNING 2025-09-06 09:14:23,899 log Not Found: /favicon.ico
+INFO 2025-09-06 09:14:23,899 basehttp - Broken pipe from ('127.0.0.1', 1654)
+INFO 2025-09-06 09:14:27,346 basehttp "GET /api/controller-panel/participated-students/ HTTP/1.1" 200 19819
+INFO 2025-09-06 09:14:36,200 basehttp "POST /api/controller-panel/allow-retake/ HTTP/1.1" 200 17
+INFO 2025-09-06 09:14:36,219 basehttp "GET /api/controller-panel/participated-students/ HTTP/1.1" 200 19332
+INFO 2025-09-06 09:14:39,362 basehttp "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-09-06 09:14:43,273 basehttp "POST /api/controller-panel/allow-retake/ HTTP/1.1" 200 17
+INFO 2025-09-06 09:14:43,291 basehttp "GET /api/controller-panel/participated-students/ HTTP/1.1" 200 18845
+INFO 2025-09-06 09:15:35,605 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+INFO 2025-09-06 09:18:34,833 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26789
+INFO 2025-09-06 09:18:40,314 basehttp "GET /api/controller-panel/add-test/?target=student HTTP/1.1" 200 17682
+INFO 2025-09-06 09:18:43,103 basehttp "GET /api/controller-panel/get-subjects-by-group/?group_id=4 HTTP/1.1" 200 108
+INFO 2025-09-06 09:19:04,880 basehttp "GET /api/test-api/export-subject/matematika/pdf/?group=407&semester=2&attempt_nth=1 HTTP/1.1" 200 9541
+INFO 2025-09-06 09:19:21,318 basehttp "GET /api/test-api/export-subject/matematika/pdf/?group=407&semester=1&attempt_nth=2 HTTP/1.1" 200 9480
+INFO 2025-09-06 09:19:41,248 basehttp "GET /api/test-api/export-subject/matematika/pdf/?group=407&semester=1&attempt_nth=1 HTTP/1.1" 200 9788
+INFO 2025-09-06 09:20:02,955 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26789
+INFO 2025-09-06 09:20:04,640 basehttp "GET /api/controller-panel/logout/ HTTP/1.1" 302 0
+INFO 2025-09-06 09:20:04,644 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+INFO 2025-09-06 09:20:23,769 basehttp "POST /api/login/ HTTP/1.1" 302 0
+INFO 2025-09-06 09:20:23,779 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26789
+INFO 2025-09-06 09:20:30,813 basehttp "GET /api/controller-panel/edit-test/36/ HTTP/1.1" 200 3314
+INFO 2025-09-06 09:20:39,544 basehttp "POST /api/controller-panel/edit-test/36/ HTTP/1.1" 302 0
+INFO 2025-09-06 09:20:39,553 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26773
+INFO 2025-09-06 09:20:51,072 basehttp "GET /api/controller-panel/add-user/ HTTP/1.1" 200 17765
+INFO 2025-09-06 09:21:06,118 basehttp "POST /api/login/ HTTP/1.1" 302 0
+INFO 2025-09-06 09:21:06,137 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19111
+WARNING 2025-09-06 09:21:06,466 log Not Found: /favicon.ico
+INFO 2025-09-06 09:21:06,467 basehttp - Broken pipe from ('127.0.0.1', 1868)
+INFO 2025-09-06 09:21:08,931 basehttp "GET /api/test-api/test/36/ HTTP/1.1" 200 70857
+INFO 2025-09-06 09:21:08,975 basehttp "GET /media/matching_answers/en.png HTTP/1.1" 200 311897
+INFO 2025-09-06 09:21:08,998 basehttp "GET /media/matching_answers/ru.png HTTP/1.1" 200 2358922
+INFO 2025-09-06 09:21:09,013 basehttp "GET /media/matching_answers/uz.png HTTP/1.1" 200 2611186
+INFO 2025-09-06 09:21:11,155 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-06 09:21:17,257 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-06 09:21:18,930 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-06 09:21:20,104 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-06 09:21:23,768 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-06 09:21:25,481 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-06 09:21:27,374 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-06 09:21:27,611 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-06 09:21:28,100 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-06 09:21:29,994 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-06 09:21:30,593 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-06 09:21:30,751 basehttp "POST /api/test-api/test/36/ HTTP/1.1" 302 0
+INFO 2025-09-06 09:21:30,787 basehttp "GET /api/test-api/result/72/ HTTP/1.1" 200 19130
+INFO 2025-09-06 09:21:30,824 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-06 09:21:54,077 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19117
+INFO 2025-09-06 09:21:56,557 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+INFO 2025-09-06 09:21:59,735 basehttp "POST /api/login/ HTTP/1.1" 302 0
+INFO 2025-09-06 09:21:59,748 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19111
+INFO 2025-09-06 09:22:04,764 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26773
+INFO 2025-09-06 09:22:08,147 basehttp "GET /api/controller-panel/participated-students/ HTTP/1.1" 200 20246
+INFO 2025-09-06 09:22:27,717 basehttp "GET /api/test-api/export-subject/matematika/pdf/?group=407&semester=1&attempt_nth=2 HTTP/1.1" 200 9650
+INFO 2025-09-06 09:31:55,233 basehttp "GET /api/test-api/export-subject/matematika/pdf/?group=407&semester=1&attempt_nth=1 HTTP/1.1" 200 9725
+INFO 2025-09-06 09:32:06,094 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19111
+WARNING 2025-09-06 09:32:06,124 log Not Found: /favicon.ico
+INFO 2025-09-06 09:32:06,124 basehttp - Broken pipe from ('127.0.0.1', 1986)
+INFO 2025-09-06 09:32:08,260 basehttp "GET /api/test-api/test/36/ HTTP/1.1" 200 70857
+WARNING 2025-09-06 09:32:08,498 log Not Found: /favicon.ico
+INFO 2025-09-06 09:32:08,499 basehttp - Broken pipe from ('127.0.0.1', 1987)
+INFO 2025-09-06 09:32:09,536 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-06 09:32:15,198 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-06 09:32:17,525 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-06 09:32:19,401 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-06 09:32:19,751 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-06 09:32:20,290 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-06 09:32:21,814 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-06 09:32:22,039 basehttp "POST /api/test-api/test/36/ HTTP/1.1" 302 0
+INFO 2025-09-06 09:32:22,074 basehttp "GET /api/test-api/result/73/ HTTP/1.1" 200 19628
+INFO 2025-09-06 09:32:22,121 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-06 09:32:22,256 basehttp - Broken pipe from ('127.0.0.1', 1988)
+INFO 2025-09-06 09:32:24,868 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 19117
+INFO 2025-09-06 09:38:19,577 basehttp "GET /api/controller-panel/participated-students/ HTTP/1.1" 200 21647
+INFO 2025-09-06 09:38:31,723 basehttp "GET /api/test-api/export-subject/matematika/pdf/?group=407&semester=1&attempt_nth=2 HTTP/1.1" 200 9794
+INFO 2025-09-06 09:49:19,657 autoreload C:\project\TEST_v1\TEST\backend\main\views_test_api.py changed, reloading.
+INFO 2025-09-06 09:49:20,349 autoreload Watching for file changes with StatReloader
+INFO 2025-09-06 09:49:25,044 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 26773
+INFO 2025-09-06 09:49:25,056 basehttp "GET /static/main/1.png HTTP/1.1" 200 48202
+INFO 2025-09-06 09:49:30,810 basehttp "GET /api/controller-panel/add-test/?target=student HTTP/1.1" 200 17682
+INFO 2025-09-06 09:49:34,058 basehttp "GET /api/controller-panel/get-subjects-by-group/?group_id=4 HTTP/1.1" 200 108
+INFO 2025-09-06 09:49:35,971 basehttp "GET /api/subject-max-question-count/?subject_id=2 HTTP/1.1" 200 24
+INFO 2025-09-06 09:49:56,076 basehttp "POST /api/controller-panel/add-test/?target=student HTTP/1.1" 302 0
+INFO 2025-09-06 09:49:56,087 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 29149
+INFO 2025-09-06 09:50:03,003 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 20647
+WARNING 2025-09-06 09:50:03,043 log Not Found: /favicon.ico
+INFO 2025-09-06 09:50:03,044 basehttp - Broken pipe from ('127.0.0.1', 2184)
+INFO 2025-09-06 09:50:05,612 basehttp "GET /api/test-api/test/38/ HTTP/1.1" 200 43342
+WARNING 2025-09-06 09:50:05,821 log Not Found: /favicon.ico
+INFO 2025-09-06 09:50:05,821 basehttp - Broken pipe from ('127.0.0.1', 2186)
+INFO 2025-09-06 09:50:06,894 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-06 09:50:09,333 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-06 09:50:17,139 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-06 09:50:20,939 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-06 09:50:22,961 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-06 09:50:23,822 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-06 09:50:27,752 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-06 09:50:30,114 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+INFO 2025-09-06 09:50:30,247 basehttp "POST /api/test-api/test/38/ HTTP/1.1" 302 0
+INFO 2025-09-06 09:50:30,288 basehttp "GET /api/test-api/result/74/ HTTP/1.1" 200 20385
+INFO 2025-09-06 09:50:30,322 basehttp "POST /api/log-blur/ HTTP/1.1" 200 16
+WARNING 2025-09-06 09:50:30,332 log Not Found: /favicon.ico
+INFO 2025-09-06 09:50:30,332 basehttp - Broken pipe from ('127.0.0.1', 2188)
+INFO 2025-09-06 09:50:42,569 basehttp "GET /api/controller-panel/participated-students/ HTTP/1.1" 200 23043
+INFO 2025-09-06 09:50:56,701 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 150531
+INFO 2025-09-06 09:51:15,917 basehttp "GET /api/test-api/export-subject/chet-til/pdf/?group=407&semester=1&attempt_nth=1 HTTP/1.1" 200 9515
+INFO 2025-09-06 09:51:28,379 basehttp "GET /api/test-api/export-subject/chet-til/pdf/?group=407&semester=2&attempt_nth=1 HTTP/1.1" 200 9673
