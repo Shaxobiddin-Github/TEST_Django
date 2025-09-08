@@ -42,7 +42,8 @@ def edit_question(request, question_id):
     groups = Group.objects.all()
     subjects = Subject.objects.all()
     semesters = Semester.objects.all()
-    question_types = Question.QUESTION_TYPE_CHOICES
+    # 'sentence_ordering' vaqtincha yashiriladi
+    question_types = [qt for qt in Question.QUESTION_TYPE_CHOICES if qt[0] != 'sentence_ordering']
     selected = {
         'faculty': getattr(question.subject, 'faculty_id', ''),
         'group': '',
@@ -151,7 +152,7 @@ def add_question(request):
         return redirect('/api/login/')
 
     target = request.GET.get('target', 'student')
-    context = {'question_types': Question.QUESTION_TYPE_CHOICES, 'selected': {}}
+    context = {'question_types': [qt for qt in Question.QUESTION_TYPE_CHOICES if qt[0] != 'sentence_ordering'], 'selected': {}}
 
     if target == 'student':
         context['faculties'] = Faculty.objects.all()

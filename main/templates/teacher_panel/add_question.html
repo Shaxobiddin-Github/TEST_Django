@@ -860,7 +860,7 @@ function toggleFormulaPopupForQuestion(e) {
                         <button type="button" class="remove-variant-btn" onclick="removeVariant(this)" title="O‘chirish">&times;</button>
                     </div>
                 </div>
-                <button type="button" class="btn btn-outline-secondary btn-sm mt-2" onclick="addMatchingOption2()">Yana qator qo‘shish</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm mt-2" onclick="addMatchingOption()">Yana qator qo‘shish</button>
             </div>
 
         </form>
@@ -940,8 +940,12 @@ function toggleFormulaPopup(e, btn) {
                 matchingCount++;
                 var container = document.getElementById('matching-options');
                 var div = document.createElement('div');
-                div.className = 'matching-row';
-                div.innerHTML = '<input type="text" name="matching_' + matchingCount + '" placeholder="' + matchingCount + ': ...">' +
+                div.className = 'matching-row d-flex align-items-center mb-2';
+                div.innerHTML =
+                    '<input type="text" name="matching_left_' + matchingCount + '" placeholder="So‘z (masalan: ...)" style="width:30%; margin-right:8px;">' +
+                    '<span style="font-weight:600; margin-right:8px;">—</span>' +
+                    '<input type="text" name="matching_right_' + matchingCount + '" placeholder="Javob (masalan: ...)" style="width:30%; margin-right:8px;">' +
+                    '<input type="file" name="matching_image_' + matchingCount + '" accept="image/*" style="width:20%; margin-right:8px;">' +
                     '<button type="button" class="remove-variant-btn" onclick="removeVariant(this)" title="O‘chirish">&times;</button>';
                 container.appendChild(div);
             }

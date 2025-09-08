@@ -22,8 +22,11 @@ LOGGING = {
     'handlers': {
         'file': {
             'level': 'INFO',
-            'class': 'logging.FileHandler',
+            'class': 'logging.handlers.TimedRotatingFileHandler',
             'filename': os.path.join(BASE_DIR, 'api_activity.log'),
+            'when': 'D',          # D = day, H = hour, M = minute
+            'interval': 1,        # har 1 kunda yangilanadi
+            'backupCount': 20,     # faqat 20 kunlik loglarni saqlaydi
             'formatter': 'verbose',
         },
     },
@@ -168,6 +171,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
 # Media files (user-uploaded)
 MEDIA_URL = '/media/'

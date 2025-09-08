@@ -11,6 +11,7 @@ import io
 from PIL import Image, ImageDraw, ImageFont
 from django.shortcuts import render
 from .models import StudentTest, StudentAnswer, PdfVerification
+from .models import StudentTest, StudentAnswer, PdfVerification, Group, Kafedra, Bulim
 # Fan bo'yicha PDF natija yuklash
 from django.utils.encoding import smart_str
 def export_subject_results_pdf(request, subject_name):
@@ -1022,8 +1023,10 @@ def testapi_all_results(request):
             })
         organized_data[subject_name][group_name]['students'][student_username]['tests'].append(test_entry)
     
-    from main.models import Group, Kafedra, Bulim
-    groups_list = Group.objects.all().order_by('name')
+
+    # Faqat completed testga ega guruhlar
+    group_ids_with_results = StudentTest.objects.filter(completed=True).values_list('test__group_id', flat=True).distinct()
+    groups_list = Group.objects.filter(id__in=group_ids_with_results).order_by('name')
     kafedralar_list = Kafedra.objects.all().order_by('name')
     bulimlar_list = Bulim.objects.all().order_by('name')
     return render(request, 'test_api/all_results.html', {
