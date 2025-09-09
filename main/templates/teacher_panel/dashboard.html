@@ -480,6 +480,13 @@
                 </a>
             </div>
             <p class="panel-subtitle">Test savollarini boshqarish va tahrirlash</p>
+            <div class="user-meta" style="margin-top:6px;font-size:0.92rem;color:#1f2d3a;background:rgba(255,255,255,0.55);padding:6px 10px;border-radius:10px;display:inline-flex;flex-wrap:wrap;gap:10px;align-items:center;backdrop-filter:blur(4px);">
+                <span><strong>{{ request.user.get_full_name|default:request.user.username }}</strong></span>
+                <span style="opacity:.7;">| {{ request.user.get_role_display }}</span>
+                {% if request.user.group %}<span class="badge bg-primary" style="font-weight:500;">Guruh: {{ request.user.group.name }}</span>{% endif %}
+                {% if request.user.bulim %}<span class="badge bg-info text-dark" style="font-weight:500;">Bo'lim: {{ request.user.bulim.name }}</span>{% endif %}
+                {% if request.user.kafedra %}<span class="badge bg-warning text-dark" style="font-weight:500;">Kafedra: {{ request.user.kafedra.name }}</span>{% endif %}
+            </div>
             <div class="text-center">
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary ripple" data-bs-toggle="modal" data-bs-target="#addQuestionModal">

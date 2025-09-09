@@ -448,6 +448,13 @@
                 <span class="controller-icon">🎛️</span>
                 <h2 style="display:inline-block;vertical-align:middle;">Controller Paneli</h2>
                 <p class="dashboard-subtitle">Testlarni boshqarish va nazorat qilish</p>
+                <div class="user-meta" style="margin-top:4px;font-size:0.9rem;color:#102a43;background:rgba(255,255,255,0.6);padding:6px 10px;border-radius:8px;display:inline-flex;flex-wrap:wrap;gap:8px;align-items:center;">
+                    <span><strong>{{ request.user.get_full_name|default:request.user.username }}</strong></span>
+                    <span style="opacity:.7;">| {{ request.user.get_role_display }}</span>
+                    {% if request.user.group %}<span class="badge bg-primary">Guruh: {{ request.user.group.name }}</span>{% endif %}
+                    {% if request.user.bulim %}<span class="badge bg-info text-dark">Bo'lim: {{ request.user.bulim.name }}</span>{% endif %}
+                    {% if request.user.kafedra %}<span class="badge bg-warning text-dark">Kafedra: {{ request.user.kafedra.name }}</span>{% endif %}
+                </div>
             </div>
             <a href="/api/controller-panel/logout/" class="btn btn-danger" style="font-weight:600;display:inline-flex;align-items:center;gap:8px;">
                 <span style="font-size:1.2em;">🚪</span> Chiqish

@@ -68,11 +68,14 @@
           </div>
           <div>
             <h2 class="mb-1 fw-bold">Tutor Paneli</h2>
-            <div class="text-primary fw-semibold">
-              {{ request.user.get_full_name }}
-              {% if request.user.kafedra %} | {{ request.user.kafedra.name }}{% endif %}
+            <div class="text-primary fw-semibold d-flex flex-wrap gap-2 align-items-center">
+              <span><strong>{{ request.user.get_full_name }}</strong></span>
+              <span style="opacity:.75;">| {{ request.user.get_role_display }}</span>
+              {% if request.user.group %}<span class="badge bg-primary">Guruh: {{ request.user.group.name }}</span>{% endif %}
+              {% if request.user.bulim %}<span class="badge bg-info text-dark">Bo'lim: {{ request.user.bulim.name }}</span>{% endif %}
+              {% if request.user.kafedra %}<span class="badge bg-warning text-dark">Kafedra: {{ request.user.kafedra.name }}</span>{% endif %}
             </div>
-            <div class="text-muted">@{{ request.user.username }}</div>
+            <div class="text-muted" style="font-size:0.85rem;">@{{ request.user.username }}</div>
           </div>
         </div>
         <a href="/api/logout/" onclick="setTimeout(()=>{window.location='/api/login/'},300);" class="logout-btn text-decoration-none">

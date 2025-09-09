@@ -1,0 +1,36 @@
+INFO 2025-09-09 09:37:43,410 autoreload Watching for file changes with StatReloader
+INFO 2025-09-09 09:40:38,192 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 150421
+INFO 2025-09-09 09:40:39,479 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 20089
+INFO 2025-09-09 09:40:52,007 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 29628
+INFO 2025-09-09 09:41:09,121 basehttp "GET /api/controller-panel/logout/ HTTP/1.1" 302 0
+INFO 2025-09-09 09:41:09,137 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+INFO 2025-09-09 09:41:15,758 basehttp "GET /api/controller-panel/add-user/ HTTP/1.1" 200 17765
+INFO 2025-09-09 09:41:31,867 basehttp "POST /api/login/ HTTP/1.1" 302 0
+INFO 2025-09-09 09:41:31,882 basehttp "GET /api/login/employee/dashboard/ HTTP/1.1" 200 4027
+INFO 2025-09-09 09:41:52,410 basehttp "GET /api/login/logout/ HTTP/1.1" 302 0
+INFO 2025-09-09 09:41:52,413 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+INFO 2025-09-09 09:41:56,552 basehttp "POST /api/login/ HTTP/1.1" 302 0
+INFO 2025-09-09 09:41:56,564 basehttp "GET /api/login/tutor/dashboard/ HTTP/1.1" 200 3760
+WARNING 2025-09-09 09:42:17,476 log Not Found: /api/logout/
+WARNING 2025-09-09 09:42:17,477 basehttp "GET /api/logout/ HTTP/1.1" 404 32394
+INFO 2025-09-09 09:42:21,770 basehttp "GET /api/login/ HTTP/1.1" 200 20829
+INFO 2025-09-09 09:42:25,953 basehttp "POST /api/login/ HTTP/1.1" 302 0
+INFO 2025-09-09 09:42:25,969 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 17921
+INFO 2025-09-09 09:43:53,839 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 18445
+INFO 2025-09-09 09:45:05,155 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 18450
+INFO 2025-09-09 09:45:06,481 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 18450
+INFO 2025-09-09 09:45:07,322 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 18450
+INFO 2025-09-09 09:45:07,520 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 18450
+INFO 2025-09-09 09:45:07,704 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 18450
+INFO 2025-09-09 09:45:07,892 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 18450
+INFO 2025-09-09 09:45:28,596 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 18462
+INFO 2025-09-09 09:45:46,112 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 18496
+INFO 2025-09-09 09:46:49,942 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 18476
+INFO 2025-09-09 09:47:03,915 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 18458
+INFO 2025-09-09 09:47:13,768 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 18479
+INFO 2025-09-09 09:47:15,223 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 18479
+INFO 2025-09-09 09:47:26,073 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 18478
+INFO 2025-09-09 09:47:41,528 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 18478
+INFO 2025-09-09 09:47:47,231 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 18478
+INFO 2025-09-09 09:47:49,225 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 18478
+INFO 2025-09-09 09:48:00,148 basehttp "GET /api/test-api/dashboard/ HTTP/1.1" 200 18477

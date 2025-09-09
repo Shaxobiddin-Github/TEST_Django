@@ -483,6 +483,14 @@
             <span class="welcome-icon">🎓</span>
             <h1 class="dashboard-title">Student Dashboard</h1>
             <p class="dashboard-subtitle">Xush kelibsiz! O'z testlaringizni topshiring va natijalarni ko'ring</p>
+           
+            <div class="student-user-meta dashboard-subtitle" style="margin-top:10px;font-size:0.9rem;color:#0f2537;background:rgba(68, 86, 189, 0.84);padding:6px 12px;border-radius:12px;display:inline-flex;flex-wrap:wrap;gap:10px;align-items:center;backdrop-filter:blur(4px);">
+                <span><strong>{{ request.user.get_full_name|default:request.user.username }}</strong></span>
+                <span style="opacity:.7;">| {{ request.user.get_role_display }}</span>
+                {% if request.user.group %}<span class="badge bg-primary" style="font-weight:500;">Guruh: {{ request.user.group.name }}</span>{% endif %}
+                {% if request.user.bulim %}<span class="badge bg-info text-dark" style="font-weight:500;">Bo'lim: {{ request.user.bulim.name }}</span>{% endif %}
+                {% if request.user.kafedra %}<span class="badge bg-warning text-dark" style="font-weight:500;">Kafedra: {{ request.user.kafedra.name }}</span>{% endif %}
+            </div>
             <!-- Stats Grid -->
             <div class="stats-grid">
                 <div class="stat-card">
