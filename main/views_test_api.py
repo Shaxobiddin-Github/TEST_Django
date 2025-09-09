@@ -150,9 +150,7 @@ def export_subject_results_pdf(request, subject_name):
             span_min = attempt_min_val if attempt_min_val else 1
             span_max = attempt_max_val if attempt_max_val else '∞'
             filter_bits.append(f"Oraliq: {span_min}–{span_max} marta (oxirgi urinish)")
-    if filter_bits:
-        elements.append(Paragraph("Filtrlar: " + ", ".join(filter_bits), ParagraphStyle('filters', parent=styles['Normal'], fontSize=8, textColor=colors.grey, spaceAfter=6)))
-
+  
     # Table header and data
     is_super = request.user.is_authenticated and request.user.is_superuser
     if is_super:
