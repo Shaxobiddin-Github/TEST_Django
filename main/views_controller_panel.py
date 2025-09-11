@@ -1,3 +1,5 @@
+# Foydalanish qo‘llanmasi sahifasi (controller uchun)
+
 # Importlarni yuqoriga ko'chirish
 from main.models import GroupSubject, Semester, Group, Bulim, Kafedra, Subject, University, Faculty
 # AJAX orqali guruhga tegishli fanlarni qaytaruvchi endpoint
@@ -53,6 +55,10 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 def controller_required(view_func):
     return user_passes_test(lambda u: u.is_authenticated and u.role == 'controller')(view_func)
 
+
+@controller_required
+def controller_help(request):
+    return render(request, 'controller_panel/help.html')
 # --- WORD EXPORT ---
 
 # GroupSubject ro'yxati (faqat controller)
@@ -688,7 +694,8 @@ def edit_test(request, test_id):
         'kafedralar': kafedralar,
         'bulimlar': bulimlar,
         'subjects': subjects,
-        'test': test
+        'test': test,
+        'preset_list': ['00:10:00','00:15:00','00:30:00','00:45:00','01:00:00','01:30:00']
     })
 
 # Testni o‘chirish (delete)

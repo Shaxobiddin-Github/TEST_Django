@@ -1,3 +1,4 @@
+
 from django.shortcuts import render, redirect, get_object_or_404
 from main.models import Subject, Group, Faculty, University, Question, AnswerOption, Semester, GroupSubject
 from django.contrib.auth import authenticate, login, logout
@@ -5,6 +6,12 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_GET
 from django.http import JsonResponse
 
+@login_required
+def teacher_help(request):
+    login_redirect = login_check(request)
+    if login_redirect:
+        return login_redirect
+    return render(request, 'teacher_panel/help.html')
 @require_GET
 def get_subjects_by_group_semester(request):
     group_id = request.GET.get('group_id')
@@ -136,9 +143,13 @@ def teacher_dashboard(request):
         return login_redirect
     if not hasattr(request.user, 'role') or request.user.role != 'teacher':
         return redirect('/api/login/')
-    subjects = Subject.objects.all()
     questions = Question.objects.filter(created_by=request.user)
-    return render(request, 'teacher_panel/dashboard.html', {'subjects': subjects, 'questions': questions})
+    subject_ids = questions.values_list('subject_id', flat=True).distinct()
+    subjects = Subject.objects.filter(id__in=subject_ids)
+    # Attach questions to each subject for template per-subject iteration
+    for subject in subjects:
+        subject.questions_for_teacher = questions.filter(subject=subject)
+    return render(request, 'teacher_panel/dashboard.html', {'subjects': subjects})
 
 
 from main.models import Kafedra, Bulim

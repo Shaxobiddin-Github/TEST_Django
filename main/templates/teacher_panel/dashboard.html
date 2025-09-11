@@ -473,20 +473,24 @@
 <body>
     <div class="main-container">
         <div class="glass-card">
-            <div style="display:flex;align-items:center;justify-content:space-between;">
-                <h1 class="panel-title">� O'qituvchi Paneli</h1>
-                <a href="/api/teacher-panel/logout/" class="btn btn-danger" style="font-weight:600;display:inline-flex;align-items:center;gap:8px;">
-                    <span style="font-size:1.2em;">🚪</span> Chiqish
-                </a>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap: 1rem;flex-wrap:wrap;">
+                <div>
+                    <h1 class="panel-title">� O'qituvchi Paneli</h1>
+                    <div style="font-size:1.1rem;color:#1d3557;font-weight:600;margin-top:2px;">
+                        👤 
+                        {{ request.user.get_full_name|default:request.user.username }}
+                    </div>
+                </div>
+                <div style="display:flex;gap:0.5rem;align-items:center;">
+                    <a href="/api/teacher-panel/help/" class="btn btn-info" style="font-weight:600;display:inline-flex;align-items:center;gap:8px;">
+                        <span style="font-size:1.2em;">❓</span> Foydalanish qo‘llanmasi
+                    </a>
+                    <a href="/api/teacher-panel/logout/" class="btn btn-danger" style="font-weight:600;display:inline-flex;align-items:center;gap:8px;">
+                        <span style="font-size:1.2em;">🚪</span> Chiqish
+                    </a>
+                </div>
             </div>
             <p class="panel-subtitle">Test savollarini boshqarish va tahrirlash</p>
-            <div class="user-meta" style="margin-top:6px;font-size:0.92rem;color:#1f2d3a;background:rgba(255,255,255,0.55);padding:6px 10px;border-radius:10px;display:inline-flex;flex-wrap:wrap;gap:10px;align-items:center;backdrop-filter:blur(4px);">
-                <span><strong>{{ request.user.get_full_name|default:request.user.username }}</strong></span>
-                <span style="opacity:.7;">| {{ request.user.get_role_display }}</span>
-                {% if request.user.group %}<span class="badge bg-primary" style="font-weight:500;">Guruh: {{ request.user.group.name }}</span>{% endif %}
-                {% if request.user.bulim %}<span class="badge bg-info text-dark" style="font-weight:500;">Bo'lim: {{ request.user.bulim.name }}</span>{% endif %}
-                {% if request.user.kafedra %}<span class="badge bg-warning text-dark" style="font-weight:500;">Kafedra: {{ request.user.kafedra.name }}</span>{% endif %}
-            </div>
             <div class="text-center">
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary ripple" data-bs-toggle="modal" data-bs-target="#addQuestionModal">
@@ -512,15 +516,14 @@
                             Ushbu fanga tuzilgan savollar
                         </h5>
                         
-                        {% with subject_questions=questions|dictsort:"id" %}
-                        {% with counter=0 %}
-                        {% for question in subject_questions %}
-                            {% if question.subject.id == subject.id %}
-                                {% with counter=counter|add:"1" %}
+
+
+                        {% if subject.questions_for_teacher %}
+                            {% for question in subject.questions_for_teacher %}
                                 <div class="question-card">
                                     <div class="question-row">
                                         <div class="question-main">
-                                            <div class="question-index">{{ counter }}</div>
+                                            <div class="question-index">{{ forloop.counter }}</div>
                                             <div>
                                                 {% load latex_filters %}
                                                 {% if question.text|contains_latex %}
@@ -533,38 +536,32 @@
                                                 {% endif %}
                                             </div>
                                         </div>
-                                        
                                         <div class="d-flex align-items-center gap-2 flex-wrap">
                                             <span class="question-type-badge">{{ question.get_question_type_display }}</span>
-                                            
                                             {% if question.question_type == 'fill_in_blank' and question.correct_answer %}
                                                 <span class="badge bg-success">Javob: {{ question.correct_answer }}</span>
                                             {% elif question.question_type == 'sentence_ordering' and question.correct_order %}
                                                 <span class="badge bg-secondary">Tartib: {{ question.correct_order }}</span>
                                             {% endif %}
-                                            
                                             <div class="question-actions">
                                                 <a href="/api/teacher-panel/edit-question/{{ question.id }}/" class="btn btn-sm btn-edit ripple" title="Savolni tahrirlash">
                                                     ✏️ Tahrirlash
                                                 </a>
-                                                <a href="/api/teacher-panel/delete-question/{{ question.id }}/" class="btn btn-sm btn-delete ripple" title="Savolni o'chirish" onclick="return confirm('❗ Ushbu savolni o'chirishni xohlaysizmi?')">
+                                                <a href="/api/teacher-panel/delete-question/{{ question.id }}/" class="btn btn-sm btn-delete ripple" title="Savolni o'chirish" onclick="return confirm('❗ Ushbu savolni o\'chirishni xohlaysizmi?')">
                                                     🗑️ O'chirish
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                {% endwith %}
-                            {% endif %}
-                        {% empty %}
+                            {% endfor %}
+                        {% else %}
                             <div class="empty-state">
                                 <div class="empty-state-icon">📝</div>
                                 <p>Hozircha savollar mavjud emas</p>
                                 <small class="opacity-75">Yangi savollar qo'shish uchun yuqoridagi tugmani bosing</small>
                             </div>
-                        {% endfor %}
-                        {% endwith %}
-                        {% endwith %}
+                        {% endif %}
                     </div>
                 </div>
             </div>

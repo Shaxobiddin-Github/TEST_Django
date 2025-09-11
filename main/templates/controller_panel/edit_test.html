@@ -9,8 +9,12 @@
 
 <body style="background: url('/static/main/1.png') no-repeat center center fixed; background-size: cover; min-height: 100vh; font-family: 'Inter', 'Segoe UI', sans-serif;">
 <div class="container d-flex align-items-center justify-content-center" style="min-height: 100vh;">
-    <div class="card shadow-lg p-4" style="max-width: 500px; width: 100%; border-radius: 24px; background: rgba(255,255,255,0.85); backdrop-filter: blur(12px);">
-        <h2 class="mb-4 text-center" style="font-weight:700; color:#4f46e5;">Testni tahrirlash</h2>
+    <div class="card shadow-lg p-4" style="max-width: 560px; width: 100%; border-radius: 26px; background: linear-gradient(140deg, rgba(255,255,255,0.92), rgba(255,255,255,0.78)); backdrop-filter: blur(14px); box-shadow:0 10px 28px rgba(50,60,140,0.25);">
+        <div class="d-flex align-items-center justify-content-between mb-3">
+            <h2 class="mb-0" style="font-weight:700; color:#3343d3;">✏️ Testni tahrirlash</h2>
+            <a href="/api/controller-panel/dashboard/" class="btn btn-sm btn-outline-danger" style="font-weight:600;border-radius:10px;">⬅️ Panel</a>
+        </div>
+        <p class="text-muted" style="margin-top:-4px;font-size:0.9rem;">Test parametrlarini yangilang va saqlang.</p>
         {% if error %}
             <div class="alert alert-danger">{{ error }}</div>
         {% endif %}
@@ -64,14 +68,52 @@
             </div>
             <div class="mb-3">
                 <label for="duration" class="form-label">Test muddati (soat:daqiq:soniya):</label>
-                <input type="text" name="duration" id="duration" class="form-control" value="{{ test.duration|time:'H:i:s' }}" required>
+                <div class="duration-picker border rounded-3 p-3" style="background:rgba(255,255,255,0.55);">
+                    <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+                        {% with test.duration|time:'H' as dh %}{% with test.duration|time:'i' as dm %}{% with test.duration|time:'s' as ds %}
+                        <input type="number" id="dur_hours" min="0" max="23" value="{{ dh|default:'00' }}" class="form-control" style="width:90px;">
+                        <span style="font-weight:600;font-size:1.2rem;">:</span>
+                        <input type="number" id="dur_minutes" min="0" max="59" value="{{ dm|default:'30' }}" class="form-control" style="width:90px;">
+                        <span style="font-weight:600;font-size:1.2rem;">:</span>
+                        <input type="number" id="dur_seconds" min="0" max="59" value="{{ ds|default:'00' }}" class="form-control" style="width:90px;">
+                        <input type="text" name="duration" id="duration" class="form-control" style="flex:1;min-width:150px;background:#eef2ff;font-weight:600;" readonly value="{{ test.duration|time:'H:i:s' }}">
+                        {% endwith %}{% endwith %}{% endwith %}
+                    </div>
+                    <div class="d-flex flex-wrap gap-2 mb-2">
+                        {% for p in preset_list %}
+                            <button type="button" class="btn btn-sm btn-outline-primary preset-btn" data-preset="{{ p }}">{{ p|slice:':5' }}</button>
+                        {% endfor %}
+                    </div>
+                    <small class="text-muted" style="font-size:0.75rem;">Raqamlarni o'zgartiring yoki tez tanlov tugmasini bosing.</small>
+                </div>
             </div>
             <div class="d-flex justify-content-between align-items-center mt-4">
-                <button type="submit" class="btn btn-primary px-4 py-2" style="font-weight:600; border-radius:10px;">Saqlash</button>
+                <button type="submit" class="btn btn-primary px-4 py-2" style="font-weight:600; border-radius:10px;">💾 Saqlash</button>
                 <a href="/api/controller-panel/dashboard/" class="btn btn-outline-secondary px-4 py-2" style="border-radius:10px;">Bekor qilish</a>
             </div>
         </form>
     </div>
 </div>
+<script>
+// Duration builder (edit test)
+(function(){
+    function el(id){return document.getElementById(id);} 
+    const h=el('dur_hours'), m=el('dur_minutes'), s=el('dur_seconds'), out=el('duration');
+    if(!h||!m||!s||!out) return;
+    function pad(v){return String(Math.max(0, Math.min(99, parseInt(v||0)))).padStart(2,'0');}
+    function clamp(){
+        if(parseInt(h.value)>23) h.value=23; if(parseInt(h.value)<0||!h.value) h.value=0;
+        if(parseInt(m.value)>59) m.value=59; if(parseInt(m.value)<0||!m.value) m.value=0;
+        if(parseInt(s.value)>59) s.value=59; if(parseInt(s.value)<0||!s.value) s.value=0;
+    }
+    function update(){clamp(); out.value = `${pad(h.value)}:${pad(m.value)}:${pad(s.value)}`;}
+    [h,m,s].forEach(e=>e.addEventListener('input', update));
+    document.querySelectorAll('.preset-btn[data-preset]').forEach(btn=>btn.addEventListener('click',()=>{
+        const parts = btn.dataset.preset.split(':');
+        if(parts.length===3){h.value=parseInt(parts[0]);m.value=parseInt(parts[1]);s.value=parseInt(parts[2]);update();}
+    }));
+    update();
+})();
+</script>
 </body>
 </html>

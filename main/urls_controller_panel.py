@@ -16,6 +16,7 @@ urlpatterns = [
     path('subject-questions/<int:subject_id>/', views_controller_panel.subject_questions, name='subject_questions'),
     path('delete-question/<int:question_id>/', views_controller_panel.delete_question, name='delete_question'),
     path('logout/', views_controller_panel.controller_logout, name='controller_logout'),
+    path('help/', views_controller_panel.controller_help, name='controller_help'),
     path('add-user/', views_controller_panel.add_user, name='add_user'),
     path('export-users-excel/', views_controller_panel.export_users_excel, name='export_users_excel'),
     path('export-users-word/', views_controller_panel.export_users_word, name='export_users_word'),

@@ -488,8 +488,7 @@
                 <span><strong>{{ request.user.get_full_name|default:request.user.username }}</strong></span>
                 <span style="opacity:.7;">| {{ request.user.get_role_display }}</span>
                 {% if request.user.group %}<span class="badge bg-primary" style="font-weight:500;">Guruh: {{ request.user.group.name }}</span>{% endif %}
-                {% if request.user.bulim %}<span class="badge bg-info text-dark" style="font-weight:500;">Bo'lim: {{ request.user.bulim.name }}</span>{% endif %}
-                {% if request.user.kafedra %}<span class="badge bg-warning text-dark" style="font-weight:500;">Kafedra: {{ request.user.kafedra.name }}</span>{% endif %}
+               
             </div>
             <!-- Stats Grid -->
             <div class="stats-grid">

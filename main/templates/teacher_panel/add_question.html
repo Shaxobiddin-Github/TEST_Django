@@ -260,6 +260,8 @@ button[type="submit"]:hover {
 }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'teacher_panel/css/formula_panel.css' %}">
 </head>
 <body>
     <div class="container">
@@ -367,138 +369,7 @@ document.getElementById('semester-select').addEventListener('change', loadSubjec
             <label>Savol matni:</label>
             <div class="textarea-wrapper" style="margin-bottom:0; position:relative;">
                 <textarea id="question-text" name="text" rows="3" required oninput="updatePreview()">{% if edit_mode %}{{ question.text }}{% endif %}</textarea>
-                <div class="formula-calc-btn" tabindex="0" onclick="toggleFormulaPopupForQuestion(event)" title="Matematik formula qo'shish">
-                    <!-- Calculator SVG Icon -->
-                    <svg viewBox="0 0 24 24" fill="none">
-                        <rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="2"/>
-                        <rect x="7" y="7" width="2" height="2" fill="currentColor"/>
-                        <rect x="11" y="7" width="2" height="2" fill="currentColor"/>
-                        <rect x="15" y="7" width="2" height="2" fill="currentColor"/>
-                        <rect x="7" y="11" width="2" height="2" fill="currentColor"/>
-                        <rect x="11" y="11" width="2" height="2" fill="currentColor"/>
-                        <rect x="15" y="11" width="2" height="2" fill="currentColor"/>
-                        <rect x="7" y="15" width="2" height="2" fill="currentColor"/>
-                        <rect x="11" y="15" width="2" height="2" fill="currentColor"/>
-                        <rect x="15" y="15" width="2" height="2" fill="currentColor"/>
-                    </svg>
-                </div>
-                <div class="formula-popup" id="formula-popup" style="display:none;">
-<script>
-// Savol matni uchun kalkulyator popup
-function toggleFormulaPopupForQuestion(e) {
-    e.stopPropagation();
-    var popup = document.getElementById('formula-popup');
-    if (popup.style.display === 'none' || popup.style.display === '') {
-        popup.style.display = 'grid';
-        function handler(ev) {
-            if (!popup.contains(ev.target)) {
-                popup.style.display = 'none';
-                document.removeEventListener('mousedown', handler);
-            }
-        }
-        setTimeout(function() { document.addEventListener('mousedown', handler); }, 0);
-    } else {
-        popup.style.display = 'none';
-    }
-}
-</script>
-                    <button type="button" onclick="insertLatex('\\frac{a}{b}')">\( \frac{a}{b} \)</button>
-                    <button type="button" onclick="insertLatex('\\sqrt{x}')">\( \sqrt{x} \)</button>
-                    <button type="button" onclick="insertLatex('x^2')">\( x^2 \)</button>
-                    <button type="button" onclick="insertLatex('x_2')">\( x_2 \)</button>
-                    <button type="button" onclick="insertLatex('+')">+</button>
-                    <button type="button" onclick="insertLatex('-')">-</button>
-                    <button type="button" onclick="insertLatex('\\cdot')">\( \cdot \)</button>
-                    <button type="button" onclick="insertLatex('\\times')">\( \times \)</button>
-                    <button type="button" onclick="insertLatex('\\div')">\( \div \)</button>
-                    <button type="button" onclick="insertLatex('=')">=</button>
-                    <button type="button" onclick="insertLatex('<')">&lt;</button>
-                    <button type="button" onclick="insertLatex('>')">&gt;</button>
-                    <button type="button" onclick="insertLatex('\\leq')">\( \leq \)</button>
-                    <button type="button" onclick="insertLatex('\\geq')">\( \geq \)</button>
-                    <button type="button" onclick="insertLatex('\\neq')">\( \neq \)</button>
-                    <button type="button" onclick="insertLatex('\\approx')">\( \approx \)</button>
-                    <button type="button" onclick="insertLatex('\\pm')">\( \pm \)</button>
-                    <button type="button" onclick="insertLatex('\\mp')">\( \mp \)</button>
-                    <button type="button" onclick="insertLatex('\\infty')">\( \infty \)</button>
-                    <button type="button" onclick="insertLatex('\\pi')">\( \pi \)</button>
-                    <button type="button" onclick="insertLatex('\\phi')">\( \phi \)</button>
-                    <button type="button" onclick="insertLatex('\\alpha')">\( \alpha \)</button>
-                    <button type="button" onclick="insertLatex('\\beta')">\( \beta \)</button>
-                    <button type="button" onclick="insertLatex('\\gamma')">\( \gamma \)</button>
-                    <button type="button" onclick="insertLatex('\\theta')">\( \theta \)</button>
-                    <button type="button" onclick="insertLatex('\\lambda')">\( \lambda \)</button>
-                    <button type="button" onclick="insertLatex('\\mu')">\( \mu \)</button>
-                    <button type="button" onclick="insertLatex('\\sigma')">\( \sigma \)</button>
-                    <button type="button" onclick="insertLatex('\\omega')">\( \omega \)</button>
-                    <button type="button" onclick="insertLatex('\\sum_{i=1}^{n}')">\( \sum_{i=1}^{n} \)</button>
-                    <button type="button" onclick="insertLatex('\\prod_{i=1}^{n}')">\( \prod_{i=1}^{n} \)</button>
-                    <button type="button" onclick="insertLatex('\\int_{a}^{b}')">\( \int_{a}^{b} \)</button>
-                    <button type="button" onclick="insertLatex('\\iint')">\( \iint \)</button>
-                    <button type="button" onclick="insertLatex('\\iiint')">\( \iiint \)</button>
-                    <button type="button" onclick="insertLatex('\\lim_{x \\to 0}')">\( \lim_{x \to 0} \)</button>
-                    <button type="button" onclick="insertLatex('\\log')">\( \log \)</button>
-                    <button type="button" onclick="insertLatex('\\ln')">\( \ln \)</button>
-                    <button type="button" onclick="insertLatex('\\exp')">\( \exp \)</button>
-                    <button type="button" onclick="insertLatex('\\sqrt[3]{x}')">\( \sqrt[3]{x} \)</button>
-                    <button type="button" onclick="insertLatex('\\sin')">\( \sin \)</button>
-                    <button type="button" onclick="insertLatex('\\cos')">\( \cos \)</button>
-                    <button type="button" onclick="insertLatex('\\tan')">\( \tan \)</button>
-                    <button type="button" onclick="insertLatex('\\csc')">\( \csc \)</button>
-                    <button type="button" onclick="insertLatex('\\sec')">\( \sec \)</button>
-                    <button type="button" onclick="insertLatex('\\cot')">\( \cot \)</button>
-                    <button type="button" onclick="insertLatex('\\arcsin')">\( \arcsin \)</button>
-                    <button type="button" onclick="insertLatex('\\arccos')">\( \arccos \)</button>
-                    <button type="button" onclick="insertLatex('\\arctan')">\( \arctan \)</button>
-                    <button type="button" onclick="insertLatex('\\mathrm{d}')">\( \mathrm{d} \)</button>
-                    <button type="button" onclick="insertLatex('\\left(')">\( ( \)</button>
-                    <button type="button" onclick="insertLatex('\\right)')">\( ) \)</button>
-                    <button type="button" onclick="insertLatex('\\left[')">\( [ \)</button>
-                    <button type="button" onclick="insertLatex('\\right]')">\( ] \)</button>
-                    <button type="button" onclick="insertLatex('\\left\\{')">\( \{ \)</button>
-                    <button type="button" onclick="insertLatex('\\right\\}')">\( \} \)</button>
-                    <button type="button" onclick="insertLatex('\\vec{v}')">\( \vec{v} \)</button>
-                    <button type="button" onclick="insertLatex('\\overrightarrow{AB}')">\( \overrightarrow{AB} \)</button>
-                    <button type="button" onclick="insertLatex('\\overleftarrow{AB}')">\( \overleftarrow{AB} \)</button>
-                    <button type="button" onclick="insertLatex('\\bar{x}')">\( \bar{x} \)</button>
-                    <button type="button" onclick="insertLatex('\\hat{x}')">\( \hat{x} \)</button>
-                    <button type="button" onclick="insertLatex('\\underline{x}')">\( \underline{x} \)</button>
-                    <button type="button" onclick="insertLatex('\\displaystyle')">\( \displaystyle \)</button>
-                    <button type="button" onclick="insertLatex('\\mathbb{R}')">\( \mathbb{R} \)</button>
-                    <button type="button" onclick="insertLatex('\\mathbb{N}')">\( \mathbb{N} \)</button>
-                    <button type="button" onclick="insertLatex('\\mathbb{Z}')">\( \mathbb{Z} \)</button>
-                    <button type="button" onclick="insertLatex('\\mathbb{Q}')">\( \mathbb{Q} \)</button>
-                    <button type="button" onclick="insertLatex('\\mathbb{C}')">\( \mathbb{C} \)</button>
-                    <button type="button" onclick="insertLatex('\\mathcal{A}')">\( \mathcal{A} \)</button>
-                    <button type="button" onclick="insertLatex('\\mathcal{B}')">\( \mathcal{B} \)</button>
-                    <button type="button" onclick="insertLatex('\\mathcal{F}')">\( \mathcal{F} \)</button>
-                    <button type="button" onclick="insertLatex('\\cup')">\( \cup \)</button>
-                    <button type="button" onclick="insertLatex('\\cap')">\( \cap \)</button>
-                    <button type="button" onclick="insertLatex('\\subset')">\( \subset \)</button>
-                    <button type="button" onclick="insertLatex('\\supset')">\( \supset \)</button>
-                    <button type="button" onclick="insertLatex('\\subseteq')">\( \subseteq \)</button>
-                    <button type="button" onclick="insertLatex('\\supseteq')">\( \supseteq \)</button>
-                    <button type="button" onclick="insertLatex('\\in')">\( \in \)</button>
-                    <button type="button" onclick="insertLatex('\\notin')">\( \notin \)</button>
-                    <button type="button" onclick="insertLatex('\\forall')">\( \forall \)</button>
-                    <button type="button" onclick="insertLatex('\\exists')">\( \exists \)</button>
-                    <button type="button" onclick="insertLatex('\\neg')">\( \neg \)</button>
-                    <button type="button" onclick="insertLatex('\\implies')">\( \implies \)</button>
-                    <button type="button" onclick="insertLatex('\\iff')">\( \iff \)</button>
-                    <button type="button" onclick="insertLatex('\\to')">\( \to \)</button>
-                    <button type="button" onclick="insertLatex('\\rightarrow')">\( \rightarrow \)</button>
-                    <button type="button" onclick="insertLatex('\\leftarrow')">\( \leftarrow \)</button>
-                    <button type="button" onclick="insertLatex('\\uparrow')">\( \uparrow \)</button>
-                    <button type="button" onclick="insertLatex('\\downarrow')">\( \downarrow \)</button>
-                    <button type="button" onclick="insertLatex('\\Rightarrow')">\( \Rightarrow \)</button>
-                    <button type="button" onclick="insertLatex('\\Leftarrow')">\( \Leftarrow \)</button>
-                    <button type="button" onclick="insertLatex('\\Leftrightarrow')">\( \Leftrightarrow \)</button>
-                    <button type="button" onclick="insertLatex('\\dots')">\( \dots \)</button>
-                    <button type="button" onclick="insertLatex('\\ldots')">\( \ldots \)</button>
-                    <button type="button" onclick="insertLatex('\\cdots')">\( \cdots \)</button>
-                    <button type="button" onclick="insertLatex('\\vdots')">\( \vdots \)</button>
-                    <button type="button" onclick="insertLatex('\\ddots')">\( \ddots \)</button>
-                </div>
+                <!-- Inline formula popup removed; use global ∑ panel (Ctrl+M). -->
             </div>
             <!-- Rasm yuklash maydoni -->
             <label>Rasm yuklash (ixtiyoriy):</label>
@@ -521,66 +392,7 @@ function toggleFormulaPopupForQuestion(e) {
                         <div style="position:relative; flex:1 1 auto; display:flex; align-items:center;">
                             <input type="text" name="single_option_1" placeholder="Variant 1" class="variant-input" oninput="updateVariantPreview(this)">
                             <div class="variant-preview" style="margin-top:2px; min-height:22px; background:#f8f9fa; border-radius:4px; padding:2px 8px; font-size:15px; color:#333;"></div>
-                            <div class="formula-calc-btn" tabindex="0" onclick="toggleFormulaPopup(event, this)" title="Matematik formula qo'shish" style="margin-left:4px; position:relative;">
-                                <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="2"/><rect x="7" y="7" width="2" height="2" fill="currentColor"/><rect x="11" y="7" width="2" height="2" fill="currentColor"/><rect x="15" y="7" width="2" height="2" fill="currentColor"/><rect x="7" y="11" width="2" height="2" fill="currentColor"/><rect x="11" y="11" width="2" height="2" fill="currentColor"/><rect x="15" y="11" width="2" height="2" fill="currentColor"/><rect x="7" y="15" width="2" height="2" fill="currentColor"/><rect x="11" y="15" width="2" height="2" fill="currentColor"/><rect x="15" y="15" width="2" height="2" fill="currentColor"/></svg>
-                                <div class="formula-popup" style="display:none; left:auto; right:0; top:40px; min-width:220px; max-width:350px; z-index:1000;" onclick="event.stopPropagation()">
-                                    <button type="button" onclick="insertLatexToInput('\\frac{a}{b}', this)">\( \frac{a}{b} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\sqrt{x}', this)">\( \sqrt{x} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('x^2', this)">\( x^2 \)</button>
-                                    <button type="button" onclick="insertLatexToInput('x_2', this)">\( x_2 \)</button>
-                                    <button type="button" onclick="insertLatexToInput('+', this)">+</button>
-                                    <button type="button" onclick="insertLatexToInput('-', this)">-</button>
-                                    <button type="button" onclick="insertLatexToInput('\\cdot', this)">\( \cdot \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\times', this)">\( \times \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\div', this)">\( \div \)</button>
-                                    <button type="button" onclick="insertLatexToInput('=', this)">=</button>
-                                    <button type="button" onclick="insertLatexToInput('<', this)">&lt;</button>
-                                    <button type="button" onclick="insertLatexToInput('>', this)">&gt;</button>
-                                    <button type="button" onclick="insertLatexToInput('\\leq', this)">\( \leq \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\geq', this)">\( \geq \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\neq', this)">\( \neq \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\approx', this)">\( \approx \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\pm', this)">\( \pm \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\mp', this)">\( \mp \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\infty', this)">\( \infty \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\pi', this)">\( \pi \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\phi', this)">\( \phi \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\alpha', this)">\( \alpha \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\beta', this)">\( \beta \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\gamma', this)">\( \gamma \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\theta', this)">\( \theta \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\lambda', this)">\( \lambda \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\mu', this)">\( \mu \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\sigma', this)">\( \sigma \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\omega', this)">\( \omega \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\sum_{i=1}^{n}', this)">\( \sum_{i=1}^{n} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\prod_{i=1}^{n}', this)">\( \prod_{i=1}^{n} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\int_{a}^{b}', this)">\( \int_{a}^{b} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\iint', this)">\( \iint \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\iiint', this)">\( \iiint \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\lim_{x \\to 0}', this)">\( \lim_{x \to 0} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\log', this)">\( \log \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\ln', this)">\( \ln \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\exp', this)">\( \exp \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\sqrt[3]{x}', this)">\( \sqrt[3]{x} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\sin', this)">\( \sin \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\cos', this)">\( \cos \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\tan', this)">\( \tan \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\csc', this)">\( \csc \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\sec', this)">\( \sec \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\cot', this)">\( \cot \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\arcsin', this)">\( \arcsin \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\arccos', this)">\( \arccos \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\arctan', this)">\( \arctan \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\mathrm{d}', this)">\( \mathrm{d} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\left(', this)">\( ( \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\right)', this)">\( ) \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\left[', this)">\( [ \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\right]', this)">\( ] \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\left\\{', this)">\( \{ \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\right\\}', this)">\( \} \)</button>
-                                </div>
-                            </div>
+                            <!-- per-variant popup removed -->
                         </div>
                         <input type="radio" name="single_correct" value="1"> To‘g‘ri
                         <button type="button" class="remove-variant-btn" onclick="removeVariant(this)" title="O‘chirish">&times;</button>
@@ -589,67 +401,7 @@ function toggleFormulaPopupForQuestion(e) {
                         <div style="position:relative; flex:1 1 auto; display:flex; align-items:center;">
                             <input type="text" name="single_option_2" placeholder="Variant 2" class="variant-input" oninput="updateVariantPreview(this)">
                             <div class="variant-preview" style="margin-top:2px; min-height:22px; background:#f8f9fa; border-radius:4px; padding:2px 8px; font-size:15px; color:#333;"></div>
-                            <div class="formula-calc-btn" tabindex="0" onclick="toggleFormulaPopup(event, this)" title="Matematik formula qo'shish" style="margin-left:4px; position:relative;">
-                                <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="2"/><rect x="7" y="7" width="2" height="2" fill="currentColor"/><rect x="11" y="7" width="2" height="2" fill="currentColor"/><rect x="15" y="7" width="2" height="2" fill="currentColor"/><rect x="7" y="11" width="2" height="2" fill="currentColor"/><rect x="11" y="11" width="2" height="2" fill="currentColor"/><rect x="15" y="11" width="2" height="2" fill="currentColor"/><rect x="7" y="15" width="2" height="2" fill="currentColor"/><rect x="11" y="15" width="2" height="2" fill="currentColor"/><rect x="15" y="15" width="2" height="2" fill="currentColor"/></svg>
-                                <div class="formula-popup" style="display:none; left:auto; right:0; top:40px; min-width:220px; max-width:350px; z-index:1000;" onclick="event.stopPropagation()">
-                                    <!-- same buttons as above -->
-                                    <button type="button" onclick="insertLatexToInput('\\frac{a}{b}', this)">\( \frac{a}{b} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\sqrt{x}', this)">\( \sqrt{x} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('x^2', this)">\( x^2 \)</button>
-                                    <button type="button" onclick="insertLatexToInput('x_2', this)">\( x_2 \)</button>
-                                    <button type="button" onclick="insertLatexToInput('+', this)">+</button>
-                                    <button type="button" onclick="insertLatexToInput('-', this)">-</button>
-                                    <button type="button" onclick="insertLatexToInput('\\cdot', this)">\( \cdot \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\times', this)">\( \times \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\div', this)">\( \div \)</button>
-                                    <button type="button" onclick="insertLatexToInput('=', this)">=</button>
-                                    <button type="button" onclick="insertLatexToInput('<', this)">&lt;</button>
-                                    <button type="button" onclick="insertLatexToInput('>', this)">&gt;</button>
-                                    <button type="button" onclick="insertLatexToInput('\\leq', this)">\( \leq \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\geq', this)">\( \geq \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\neq', this)">\( \neq \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\approx', this)">\( \approx \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\pm', this)">\( \pm \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\mp', this)">\( \mp \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\infty', this)">\( \infty \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\pi', this)">\( \pi \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\phi', this)">\( \phi \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\alpha', this)">\( \alpha \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\beta', this)">\( \beta \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\gamma', this)">\( \gamma \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\theta', this)">\( \theta \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\lambda', this)">\( \lambda \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\mu', this)">\( \mu \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\sigma', this)">\( \sigma \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\omega', this)">\( \omega \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\sum_{i=1}^{n}', this)">\( \sum_{i=1}^{n} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\prod_{i=1}^{n}', this)">\( \prod_{i=1}^{n} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\int_{a}^{b}', this)">\( \int_{a}^{b} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\iint', this)">\( \iint \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\iiint', this)">\( \iiint \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\lim_{x \\to 0}', this)">\( \lim_{x \\to 0} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\log', this)">\( \log \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\ln', this)">\( \ln \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\exp', this)">\( \exp \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\sqrt[3]{x}', this)">\( \sqrt[3]{x} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\sin', this)">\( \sin \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\cos', this)">\( \cos \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\tan', this)">\( \tan \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\csc', this)">\( \csc \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\sec', this)">\( \sec \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\cot', this)">\( \cot \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\arcsin', this)">\( \arcsin \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\arccos', this)">\( \arccos \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\arctan', this)">\( \arctan \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\mathrm{d}', this)">\( \mathrm{d} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\left(', this)">\( ( \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\right)', this)">\( ) \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\left[', this)">\( [ \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\right]', this)">\( ] \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\left\\{', this)">\( \{ \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\right\\}', this)">\( \} \)</button>
-                                </div>
-                            </div>
+                            <!-- per-variant popup removed -->
                         </div>
                         <input type="radio" name="single_correct" value="2"> To‘g‘ri
                         <button type="button" class="remove-variant-btn" onclick="removeVariant(this)" title="O‘chirish">&times;</button>
@@ -658,67 +410,7 @@ function toggleFormulaPopupForQuestion(e) {
                         <div style="position:relative; flex:1 1 auto; display:flex; align-items:center;">
                             <input type="text" name="single_option_3" placeholder="Variant 3" class="variant-input" oninput="updateVariantPreview(this)">
                             <div class="variant-preview" style="margin-top:2px; min-height:22px; background:#f8f9fa; border-radius:4px; padding:2px 8px; font-size:15px; color:#333;"></div>
-                            <div class="formula-calc-btn" tabindex="0" onclick="toggleFormulaPopup(event, this)" title="Matematik formula qo'shish" style="margin-left:4px; position:relative;">
-                                <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="2"/><rect x="7" y="7" width="2" height="2" fill="currentColor"/><rect x="11" y="7" width="2" height="2" fill="currentColor"/><rect x="15" y="7" width="2" height="2" fill="currentColor"/><rect x="7" y="11" width="2" height="2" fill="currentColor"/><rect x="11" y="11" width="2" height="2" fill="currentColor"/><rect x="15" y="11" width="2" height="2" fill="currentColor"/><rect x="7" y="15" width="2" height="2" fill="currentColor"/><rect x="11" y="15" width="2" height="2" fill="currentColor"/><rect x="15" y="15" width="2" height="2" fill="currentColor"/></svg>
-                                <div class="formula-popup" style="display:none; left:auto; right:0; top:40px; min-width:220px; max-width:350px; z-index:1000;" onclick="event.stopPropagation()">
-                                    <!-- same buttons as above -->
-                                    <button type="button" onclick="insertLatexToInput('\\frac{a}{b}', this)">\( \frac{a}{b} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\sqrt{x}', this)">\( \sqrt{x} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('x^2', this)">\( x^2 \)</button>
-                                    <button type="button" onclick="insertLatexToInput('x_2', this)">\( x_2 \)</button>
-                                    <button type="button" onclick="insertLatexToInput('+', this)">+</button>
-                                    <button type="button" onclick="insertLatexToInput('-', this)">-</button>
-                                    <button type="button" onclick="insertLatexToInput('\\cdot', this)">\( \cdot \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\times', this)">\( \times \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\div', this)">\( \div \)</button>
-                                    <button type="button" onclick="insertLatexToInput('=', this)">=</button>
-                                    <button type="button" onclick="insertLatexToInput('<', this)">&lt;</button>
-                                    <button type="button" onclick="insertLatexToInput('>', this)">&gt;</button>
-                                    <button type="button" onclick="insertLatexToInput('\\leq', this)">\( \leq \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\geq', this)">\( \geq \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\neq', this)">\( \neq \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\approx', this)">\( \approx \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\pm', this)">\( \pm \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\mp', this)">\( \mp \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\infty', this)">\( \infty \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\pi', this)">\( \pi \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\phi', this)">\( \phi \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\alpha', this)">\( \alpha \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\beta', this)">\( \beta \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\gamma', this)">\( \gamma \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\theta', this)">\( \theta \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\lambda', this)">\( \lambda \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\mu', this)">\( \mu \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\sigma', this)">\( \sigma \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\omega', this)">\( \omega \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\sum_{i=1}^{n}', this)">\( \sum_{i=1}^{n} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\prod_{i=1}^{n}', this)">\( \prod_{i=1}^{n} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\int_{a}^{b}', this)">\( \int_{a}^{b} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\iint', this)">\( \iint \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\iiint', this)">\( \iiint \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\lim_{x \\to 0}', this)">\( \lim_{x \\to 0} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\log', this)">\( \log \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\ln', this)">\( \ln \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\exp', this)">\( \exp \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\sqrt[3]{x}', this)">\( \sqrt[3]{x} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\sin', this)">\( \sin \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\cos', this)">\( \cos \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\tan', this)">\( \tan \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\csc', this)">\( \csc \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\sec', this)">\( \sec \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\cot', this)">\( \cot \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\arcsin', this)">\( \arcsin \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\arccos', this)">\( \arccos \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\arctan', this)">\( \arctan \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\mathrm{d}', this)">\( \mathrm{d} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\left(', this)">\( ( \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\right)', this)">\( ) \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\left[', this)">\( [ \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\right]', this)">\( ] \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\left\\{', this)">\( \{ \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\right\\}', this)">\( \} \)</button>
-                                </div>
-                            </div>
+                            <!-- per-variant popup removed -->
                         </div>
                         <input type="radio" name="single_correct" value="3"> To‘g‘ri
                         <button type="button" class="remove-variant-btn" onclick="removeVariant(this)" title="O‘chirish">&times;</button>
@@ -727,67 +419,7 @@ function toggleFormulaPopupForQuestion(e) {
                         <div style="position:relative; flex:1 1 auto; display:flex; align-items:center;">
                             <input type="text" name="single_option_4" placeholder="Variant 4" class="variant-input" oninput="updateVariantPreview(this)">
                             <div class="variant-preview" style="margin-top:2px; min-height:22px; background:#f8f9fa; border-radius:4px; padding:2px 8px; font-size:15px; color:#333;"></div>
-                            <div class="formula-calc-btn" tabindex="0" onclick="toggleFormulaPopup(event, this)" title="Matematik formula qo'shish" style="margin-left:4px; position:relative;">
-                                <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="2"/><rect x="7" y="7" width="2" height="2" fill="currentColor"/><rect x="11" y="7" width="2" height="2" fill="currentColor"/><rect x="15" y="7" width="2" height="2" fill="currentColor"/><rect x="7" y="11" width="2" height="2" fill="currentColor"/><rect x="11" y="11" width="2" height="2" fill="currentColor"/><rect x="15" y="11" width="2" height="2" fill="currentColor"/><rect x="7" y="15" width="2" height="2" fill="currentColor"/><rect x="11" y="15" width="2" height="2" fill="currentColor"/><rect x="15" y="15" width="2" height="2" fill="currentColor"/></svg>
-                                <div class="formula-popup" style="display:none; left:auto; right:0; top:40px; min-width:220px; max-width:350px; z-index:1000;" onclick="event.stopPropagation()">
-                                    <!-- same buttons as above -->
-                                    <button type="button" onclick="insertLatexToInput('\\frac{a}{b}', this)">\( \frac{a}{b} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\sqrt{x}', this)">\( \sqrt{x} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('x^2', this)">\( x^2 \)</button>
-                                    <button type="button" onclick="insertLatexToInput('x_2', this)">\( x_2 \)</button>
-                                    <button type="button" onclick="insertLatexToInput('+', this)">+</button>
-                                    <button type="button" onclick="insertLatexToInput('-', this)">-</button>
-                                    <button type="button" onclick="insertLatexToInput('\\cdot', this)">\( \cdot \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\times', this)">\( \times \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\div', this)">\( \div \)</button>
-                                    <button type="button" onclick="insertLatexToInput('=', this)">=</button>
-                                    <button type="button" onclick="insertLatexToInput('<', this)">&lt;</button>
-                                    <button type="button" onclick="insertLatexToInput('>', this)">&gt;</button>
-                                    <button type="button" onclick="insertLatexToInput('\\leq', this)">\( \leq \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\geq', this)">\( \geq \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\neq', this)">\( \neq \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\approx', this)">\( \approx \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\pm', this)">\( \pm \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\mp', this)">\( \mp \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\infty', this)">\( \infty \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\pi', this)">\( \pi \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\phi', this)">\( \phi \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\alpha', this)">\( \alpha \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\beta', this)">\( \beta \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\gamma', this)">\( \gamma \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\theta', this)">\( \theta \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\lambda', this)">\( \lambda \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\mu', this)">\( \mu \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\sigma', this)">\( \sigma \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\omega', this)">\( \omega \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\sum_{i=1}^{n}', this)">\( \sum_{i=1}^{n} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\prod_{i=1}^{n}', this)">\( \prod_{i=1}^{n} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\int_{a}^{b}', this)">\( \int_{a}^{b} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\iint', this)">\( \iint \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\iiint', this)">\( \iiint \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\lim_{x \\to 0}', this)">\( \lim_{x \\to 0} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\log', this)">\( \log \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\ln', this)">\( \ln \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\exp', this)">\( \exp \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\sqrt[3]{x}', this)">\( \sqrt[3]{x} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\sin', this)">\( \sin \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\cos', this)">\( \cos \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\tan', this)">\( \tan \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\csc', this)">\( \csc \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\sec', this)">\( \sec \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\cot', this)">\( \cot \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\arcsin', this)">\( \arcsin \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\arccos', this)">\( \arccos \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\arctan', this)">\( \arctan \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\mathrm{d}', this)">\( \mathrm{d} \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\left(', this)">\( ( \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\right)', this)">\( ) \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\left[', this)">\( [ \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\right]', this)">\( ] \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\left\\{', this)">\( \{ \)</button>
-                                    <button type="button" onclick="insertLatexToInput('\\right\\}', this)">\( \} \)</button>
-                                </div>
-                            </div>
+                            <!-- per-variant popup removed -->
                         </div>
                         <input type="radio" name="single_correct" value="4"> To‘g‘ri
                         <button type="button" class="remove-variant-btn" onclick="removeVariant(this)" title="O‘chirish">&times;</button>
@@ -865,28 +497,7 @@ function toggleFormulaPopupForQuestion(e) {
 
         </form>
         <script>
-function toggleFormulaPopup(e, btn) {
-    e.stopPropagation();
-    // Yopiq popuplarni yopamiz
-    document.querySelectorAll('.formula-popup').forEach(function(popup) {
-        popup.style.display = 'none';
-    });
-    let popup = btn.querySelector('.formula-popup');
-    if (!popup) popup = btn.nextElementSibling;
-    if (popup && (popup.style.display === 'none' || popup.style.display === '')) {
-        popup.style.display = 'grid';
-        // Faqat shu popup uchun handler
-        function handler(ev) {
-            if (!popup.contains(ev.target) && !btn.contains(ev.target)) {
-                popup.style.display = 'none';
-                document.removeEventListener('mousedown', handler);
-            }
-        }
-        setTimeout(function() { document.addEventListener('mousedown', handler); }, 0);
-    } else if (popup) {
-        popup.style.display = 'none';
-    }
-}
+// eski lokal formula popup funksiyasi o'chirildi (global panel ishlatiladi)
             function insertLatexToInput(latex, btn) {
                 // Find the closest input[type="text"] in the same answer row as the button
                 let row = btn.closest('.single-choice-row, .multiple-choice-row, .matching-row, .ordering-row');
@@ -910,9 +521,12 @@ function toggleFormulaPopup(e, btn) {
                 let row = input.closest('.single-choice-row');
                 let preview = row ? row.querySelector('.variant-preview') : null;
                 if (!preview) return;
-                let latex = input.value;
+                let latex = input.value.trim();
                 preview.innerHTML = latex ? '\\(' + latex + '\\)' : '';
-                if (window.MathJax && MathJax.typeset) MathJax.typeset([preview]);
+                if(window.MathJax){
+                    if(MathJax.typesetPromise){MathJax.typesetPromise([preview]);}
+                    else if(MathJax.typeset){MathJax.typeset([preview]);}
+                }
             }
             function insertLatex(latex) {
                 const textarea = document.getElementById('question-text');
@@ -928,7 +542,21 @@ function toggleFormulaPopup(e, btn) {
             function updatePreview() {
                 let latex = document.getElementById('question-text').value;
                 document.getElementById('formula-preview').innerHTML = latex ? '\\(' + latex + '\\)' : '';
-                if (window.MathJax && MathJax.typeset) MathJax.typeset([document.getElementById('formula-preview')]);
+                if (window.MathJax && MathJax.typesetPromise) {
+                    MathJax.typesetPromise([document.getElementById('formula-preview')]);
+                } else if (window.MathJax && MathJax.typeset) {
+                    MathJax.typeset([document.getElementById('formula-preview')]);
+                }
+            }
+            // Global debounced preview (agar oldingi blok o'chirilgan bo'lsa qayta tiklaymiz)
+            if(!window.debouncedPreview){
+                let __pvTimer=null;
+                window.debouncedPreview=function(){
+                    clearTimeout(__pvTimer);
+                    __pvTimer=setTimeout(updatePreview,200);
+                };
+                const __q=document.getElementById('question-text');
+                if(__q){ __q.addEventListener('input', window.debouncedPreview); }
             }
             // Variant functions
             function removeVariant(btn) {
@@ -996,6 +624,9 @@ function toggleFormulaPopup(e, btn) {
                 document.getElementById('formula-popup').style.display = 'none';
             };
         </script>
+    {% include 'teacher_panel/partials/_formula_panel.html' %}
+    {% load static %}
+    <script src="{% static 'teacher_panel/js/formula_panel.js' %}"></script>
         <div class="back-link">
             <a href="/api/teacher-panel/dashboard/">← Panelga qaytish</a>
         </div>
