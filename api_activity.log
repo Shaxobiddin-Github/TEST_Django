@@ -23,3 +23,31 @@ INFO 2025-09-11 14:37:17,921 basehttp "GET /api/test-api/export-subject/chet-til
 INFO 2025-09-11 14:37:46,270 basehttp "GET /api/test-api/export-subject/chet-til/pdf/ HTTP/1.1" 200 9671
 INFO 2025-09-11 14:38:26,191 basehttp "GET /api/test-api/export-subject/matematika/pdf/?group=407&semester=1&attempt_nth=1 HTTP/1.1" 200 9656
 INFO 2025-09-11 14:40:02,726 basehttp "GET /api/test-api/export-subject/chet-til/pdf/?group=407&semester=2&attempt_nth=1 HTTP/1.1" 200 9594
+INFO 2025-09-12 09:55:19,725 autoreload Watching for file changes with StatReloader
+INFO 2025-09-12 09:55:22,572 basehttp "GET / HTTP/1.1" 200 5079
+INFO 2025-09-12 09:55:22,739 basehttp "GET /static/login/login.css HTTP/1.1" 200 9974
+INFO 2025-09-12 09:55:22,740 basehttp "GET /static/login/login.js HTTP/1.1" 200 6311
+INFO 2025-09-12 09:55:22,801 basehttp - Broken pipe from ('127.0.0.1', 5939)
+WARNING 2025-09-12 09:55:22,810 log Not Found: /favicon.ico
+WARNING 2025-09-12 09:55:22,810 basehttp "GET /favicon.ico HTTP/1.1" 404 3046
+INFO 2025-09-12 09:56:13,281 basehttp "POST / HTTP/1.1" 302 0
+INFO 2025-09-12 09:56:13,305 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 30010
+INFO 2025-09-12 09:56:21,380 basehttp "GET / HTTP/1.1" 200 5079
+INFO 2025-09-12 09:56:21,398 basehttp "GET /static/login/login.css HTTP/1.1" 304 0
+INFO 2025-09-12 09:56:21,398 basehttp "GET /static/login/login.js HTTP/1.1" 304 0
+WARNING 2025-09-12 09:56:21,553 log Not Found: /favicon.ico
+WARNING 2025-09-12 09:56:21,553 basehttp "GET /favicon.ico HTTP/1.1" 404 3046
+INFO 2025-09-12 09:56:32,789 basehttp "POST / HTTP/1.1" 302 0
+INFO 2025-09-12 09:56:32,805 basehttp "GET /api/controller-panel/dashboard/ HTTP/1.1" 200 20471
+INFO 2025-09-12 09:57:05,496 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 150421
+INFO 2025-09-12 09:57:18,725 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 131460
+INFO 2025-09-12 09:58:06,007 basehttp "POST /api/student-tests/74/override/ HTTP/1.1" 200 750
+INFO 2025-09-12 09:58:06,067 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 152398
+INFO 2025-09-12 09:58:14,709 basehttp "POST /api/student-tests/74/revert/ HTTP/1.1" 200 689
+INFO 2025-09-12 09:58:14,765 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 150421
+INFO 2025-09-12 09:58:22,752 basehttp "POST /api/student-answers/283/adjust/ HTTP/1.1" 200 122
+INFO 2025-09-12 09:58:22,800 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 150024
+INFO 2025-09-12 09:58:42,062 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 131060
+INFO 2025-09-12 09:59:23,855 basehttp "GET /api/test-api/export-subject/matematika/pdf/?group=407&semester=1&attempt_nth=1 HTTP/1.1" 200 9317
+INFO 2025-09-12 09:59:40,862 basehttp "GET /api/test-api/export-subject/matematika/pdf/?group=407&semester=1&attempt_nth=2 HTTP/1.1" 200 9369
+INFO 2025-09-12 10:00:38,178 basehttp "GET /api/test-api/all-results/ HTTP/1.1" 200 131060

@@ -227,7 +227,15 @@ def add_question(request):
             return render(request, 'teacher_panel/add_question.html', context)
 
         subject = Subject.objects.get(id=subject_id)
-        q = Question.objects.create(text=text, subject=subject, question_type=question_type, created_by=request.user)
+        # Create question and attach optional image
+        question_image = request.FILES.get('question_image')
+        q = Question.objects.create(
+            text=text,
+            subject=subject,
+            question_type=question_type,
+            created_by=request.user,
+            image=question_image if question_image else None,
+        )
         # Javob variantlari logikasi (o'zgartirilmagan)
         if question_type == 'single_choice':
             for i in range(1, 5):
